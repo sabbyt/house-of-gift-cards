@@ -45,23 +45,72 @@
     <!-- end primary nav -->
 
     <header>
+      <!-- header image (mobile only) -->
+      <div id="landing-header" class="jumbotron">
+        <img src="/img/stock-photo-3-hori.jpg" />
+      </div>
 
+      <!-- carousel (tablet and up) -->
+      <div id="landing-carousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="/img/stock-photo-3-hori.jpg" />
+            <div class="carousel-caption">
+              <h1>We do stuff</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="/img/stock-photo-2-hori.jpg" />
+            <div class="carousel-caption">
+              <h1>We do stuff 2</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="/img/stock-photo-1-hori.jpg" />
+            <div class="carousel-caption">
+              <h1>We do stuff 3</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#landing-carousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control" href="#landing-carousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </a>
+      </div>
     </header>
 
     <!-- contents go inside here for responsiveness & spacing -->
     <main class="container">
-      <div class="row">
-        <button class="col-md-3">
+      <section id="landing-nav" class="row">
+        <button class="col-md-3 col-sm-4 col-xs-12">
           Submit a request
         </button>
-        <button class="col-md-3">
+        <button class="col-md-3 col-sm-4 col-xs-12">
           See our impact
         </button>
-        <button class="col-md-3">
+        <button class="col-md-3 col-sm-4 col-xs-12">
           Claim a request
         </button>
 
-      </div>
+      </section>
 
 
     </main>

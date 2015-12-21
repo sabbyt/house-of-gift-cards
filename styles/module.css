@@ -6,3 +6,64 @@ header {
   /* bumps down so that content is not covered by navbar */
   margin-top: 50px;
 }
+
+#landing-carousel {
+  display: none;
+}
+
+#landing-header {
+  padding: 0px;
+}
+
+#landing-header img {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  #landing-header {
+    display: none;
+  }
+
+  #landing-carousel {
+    display: block;
+  }
+
+  .carousel-inner {
+    width: 100%;
+    min-height: 200px !important;
+    max-height: 400px !important;
+    vertical-align: middle;
+  }
+
+  .carousel-inner img {
+    width: 100%;
+  }
+
+  .carousel-caption {
+    position: absolute;
+    top: 50px;
+    left: 15%;
+    right: 60%;
+    text-align: left;
+  }
+}
+
+#landing-nav button {
+  min-height: 50px;
+  margin-bottom: 6px;
+}
+
+@media (min-width: 768px) {
+  #landing-nav {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 6px;
+  }
+
+  #landing-nav button {
+    min-height: 200px;
+    margin: 6px;
+    font-size: 1.8rem;
+  }
+}
