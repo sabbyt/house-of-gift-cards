@@ -22,7 +22,7 @@ webDB.init = function() {
     if (openDatabase) {
       webDB.verbose(true);
       webDB.connect('blogDB', 'Blog Database', 5*1024*1024);
-      webDB.setupTables();
+      webDB.setupRequestTable();
       console.log('Init working.');
     } else {
       console.log('Web Databases not supported.');
@@ -67,11 +67,22 @@ webDB.insertRecord = function (a) {
   );
 };
 
-webDB.setupTables = function () {
+webDB.setupRequestTable = function () {
   html5sql.process(
-    'CREATE TABLE IF NOT EXISTS articles (id INTEGER PRIMARY KEY, title TEXT, author TEXT, authorUrl TEXT, category TEXT, publishedOn TEXT, markdown TEXT);',
+    'CREATE TABLE IF NOT EXISTS requests (request_id INTEGER PRIMARY KEY, request_dt DATETIME DEFAULT CURRENT_TIMESTAMP, first_name VARCHAR(255) NOT NULL, last_name VARCHAR(255) NOT NULL, age INTEGER, email VARCHAR(255) NOT NULL, story TEXT, category VARCHAR(255) NOT NULL, brand VARCHAR(255) NOT NULL, amount INTEGER NOT NULL, status VARCHAR(255) NOT NULL DEFAULT "UNCLAIMED");',
     function() {
-      console.log('Success setting up tables.');
+      // on success
+      console.log('Success setting up request table.');
+    }
+  );
+};
+
+webDB.setupDonorTable = function () {
+  html5sql.process(
+    'CREATE TABLE IF NOT EXISTS articles (username VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, first_name VARCHAR(255) NOT NULL, last_name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL);',
+    function() {
+      // on success
+      console.log('Success setting up donor table.');
     }
   );
 };
