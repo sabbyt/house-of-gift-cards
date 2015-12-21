@@ -1,0 +1,14 @@
+#primary-nav {
+  background-color: #5A3453;
+}
+
+#navbar li a {
+  color: #EDEAE9;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+}
+
+#navbar li:active {
+  background-color: #7D6177;
+}
