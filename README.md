@@ -1,2 +1,3 @@
 # house-of-gift-cards
-301 Project Week
+
+A project made for Code Fellows 301 by Stephen Carney, Natalie Chow, Sabrina Tee & Patrick Yau.
