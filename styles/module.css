@@ -2,7 +2,7 @@
   padding: 10px 10px 10px 15px;
 }
 
-header {
+#nav-spacing {
   /* bumps down so that content is not covered by navbar */
   margin-top: 50px;
 }
