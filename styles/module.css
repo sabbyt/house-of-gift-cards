@@ -1,3 +1,8 @@
 #primary-nav .navbar-brand {
   padding: 10px 10px 10px 15px;
 }
+
+header {
+  /* bumps down so that content is not covered by navbar */
+  margin-top: 50px;
+}
