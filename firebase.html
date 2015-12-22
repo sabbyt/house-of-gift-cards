@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>House of Gift Cards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/styles/base.css">
+    <link rel="stylesheet" type="text/css" href="/styles/layout.css">
+    <link rel="stylesheet" type="text/css" href="/styles/module.css">
+    <link rel="stylesheet" type="text/css" href="/styles/state.css">
+    <link rel="stylesheet" type="text/css" href="/styles/theme.css">
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  </head>
+
+  <body>
+    <!-- name field -->
+    <div id="requestform">
+      <form action="">
+        First Name<br>
+        <input type="text" id ="requesterFirstName" placeholder="First Name">
+        <br>
+        Last Name<br>
+        <input type="text" id="requesterLastName" placeholder="Last Name">
+        <br><br>
+        Age
+        <input type="text" id="requesterAge" placeholder="Age">
+      </form>
+      <!-- email field -->
+      <form action="">
+        Email<br>
+        <input type="email" id="requesterEmail" placeholder="Email">
+        <br>
+      </form>
+      <!-- Story field -->
+      <form action"">
+        Story<br>
+        <textarea name="" id="requesterStory" placeholder="Story">
+        </textarea>
+      </form>
+      <!-- Category field -->
+      <form action="">
+        <h5>Category</h5>
+        <select name="category" id="requestCategory">
+          <option value="">Home</option>
+          <option value="">Children</option>
+          <option value="">Community</option>
+          <option value="">Food</option>
+          <option value="">Pets</option>
+          <option value="">Fuel</option>
+          <option value="">Clothing</option>
+          <option value="">Miscellaneous</option>
+        </select>
+        <br>
+      </form>
+      <!-- Brand field -->
+      <form action="">
+          Brand<br>
+          <input type="text" id= "requestBrand" placeholder="Brand">
+      </form>
+      <!-- Amount field -->
+      <form action="">
+        Amount<br>
+        <input type="number" id="requestAmount" placeholder="Amount">
+        <br>
+        <input type="submit" id="requestSubmit" value="Submit">
+      </form>
+    </div>
+
+    <div id="requesterList"></div>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="/vendor/scripts/html5sql.js" charset="utf-8"></script>
+    <script src="/vendor/scripts/webdb.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.js"></script>
+    <script src="/scripts/requests.js" charset="utf-8"></script>
+    <script src="/scripts/requestsView.js" charset="utf-8"></script>
+    <script src="/scripts/requestsController.js" charset="utf-8"></script>
+    <!-- <script src="/scripts/firebase.js" charset="utf-8"></script> -->
+  </body>
+</html>

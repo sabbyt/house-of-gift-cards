@@ -1,10 +1,14 @@
 var requestsController = {};
 
 requestsController.index = function() {
-  request.insertAllRecords();
+  // request.insertAllRecords();
+  // requests.retrieveFromDB(requestsView.displayAll);
+  requests.handleSubmit();
 };
 
-$(function() {
-  request.emptyRequestTable();
-  requestsController.index();
-});
+requestsController.index();
+
+// $(function() {
+//   request.emptyRequestTable();
+//   requestsController.index();
+// });
