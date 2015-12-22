@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/styles/module.css">
     <link rel="stylesheet" type="text/css" href="/styles/state.css">
     <link rel="stylesheet" type="text/css" href="/styles/theme.css">
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
   </head>
 
   <body>
@@ -17,28 +18,30 @@
     <div id="requestform">
       <form action="">
         First Name<br>
-        <input type="text" placeholder="First Name">
+        <input type="text" id ="requesterFirstName" placeholder="First Name">
         <br>
         Last Name<br>
-        <input type="text" placeholder="Last Name">
+        <input type="text" id="requesterLastName" placeholder="Last Name">
         <br><br>
+        Age
+        <input type="text" id="requesterAge" placeholder="Age">
       </form>
       <!-- email field -->
       <form action="">
         Email<br>
-        <input type="email" placeholder="Email">
+        <input type="email" id="requesterEmail" placeholder="Email">
         <br>
       </form>
       <!-- Story field -->
       <form action"">
         Story<br>
-        <textarea name="" placeholder="Story">
+        <textarea name="" id="requesterStory" placeholder="Story">
         </textarea>
       </form>
       <!-- Category field -->
       <form action="">
         <h5>Category</h5>
-        <select name="category">
+        <select name="category" id="requestCategory">
           <option value="">Home</option>
           <option value="">Children</option>
           <option value="">Community</option>
@@ -53,20 +56,26 @@
       <!-- Brand field -->
       <form action="">
           Brand<br>
-          <input type="text" placeholder="Brand">
+          <input type="text" id= "requestBrand" placeholder="Brand">
       </form>
       <!-- Amount field -->
       <form action="">
         Amount<br>
-        <input type="number" placeholder="Amount">
+        <input type="number" id="requestAmount" placeholder="Amount">
         <br>
-        <input type="submit" value="Submit">
+        <input type="submit" id="requestSubmit" value="Submit">
       </form>
     </div>
+
+    <div id="requesterList"></div>
 
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="/vendor/scripts/html5sql.js" charset="utf-8"></script>
     <script src="/vendor/scripts/webdb.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.js"></script>
+    <script src="/scripts/requests.js" charset="utf-8"></script>
+    <script src="/scripts/requestsView.js" charset="utf-8"></script>
+    <script src="/scripts/requestsController.js" charset="utf-8"></script>
+    <!-- <script src="/scripts/firebase.js" charset="utf-8"></script> -->
   </body>
 </html>
