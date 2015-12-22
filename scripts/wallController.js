@@ -1,5 +1,18 @@
 var wallController = {};
+
+// if (localStorage.getItem('claimed-keys')) {
+//   wallController.claimed = JSON.parse(localStorage.getItem('claimed-keys'));
+//   wallController.claimed.forEach(function(key) {
+//     $('#entry').find('button[data-key=' + key + ']').trigger('click');
+//   });
+// } else {
+  // wallController.claimed = [];
+// }
+
 wallController.claimed = [];
+
+console.log(wallController.claimed);
+
 
 wallController.listView = function() {
   giftWall.getListTemplate(wallView.renderListAll);
@@ -14,7 +27,7 @@ wallController.handleClaimButtons = function() {
 
     wallController.claimed.push($(this).data('key'));
     console.log(wallController.claimed);
-    localStorage.setItem('claimed-keys', wallController.claimed);
+    localStorage.setItem('claimed-keys', JSON.stringify(wallController.claimed));
   });
 
   $('#entry').on('click', '.unclaim-button', function(event) {
@@ -26,7 +39,7 @@ wallController.handleClaimButtons = function() {
     var index = wallController.claimed.indexOf($(this).data('key'));
     wallController.claimed.splice(index, 1);
     console.log(wallController.claimed);
-    localStorage.setItem('claimed-keys', wallController.claimed);
+    localStorage.setItem('claimed-keys', JSON.stringify(wallController.claimed));
   });
 };
 
