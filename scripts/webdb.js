@@ -21,9 +21,8 @@ webDB.init = function() {
   try {
     if (openDatabase) {
       webDB.verbose(true);
-      webDB.connect('blogDB', 'Blog Database', 5*1024*1024);
+      webDB.connect('HOGC DB', 'House of Gift Cards Database', 5*1024*1024);
       webDB.setupRequestTable();
-      console.log('Init working.');
     } else {
       console.log('Web Databases not supported.');
     }
@@ -34,37 +33,6 @@ webDB.init = function() {
 
 webDB.connect = function (database, title, size) {
   html5sql.openDatabase(database, title, size);
-};
-
-webDB.destroyDB = function () {
-  html5sql.process(
-    'DELETE FROM articles',
-    function() {
-      console.log('Success in destroying.');
-    }
-  );
-};
-
-webDB.importArticlesFrom = function (path) {
-  $.getJSON(path, webDB.insertAllRecords);
-};
-
-webDB.insertAllRecords = function (articles) {
-  articles.forEach(webDB.insertRecord);
-};
-
-webDB.insertRecord = function (a) {
-  html5sql.process(
-    [
-      {
-        'sql': 'INSERT INTO articles (title, author, authorUrl, category, publishedOn, markdown) VALUES (?, ?, ?, ?, ?, ?);',
-        'data': [a.title, a.author, a.authorUrl, a.category, a.publishedOn, a.markdown],
-      }
-    ],
-    function () {
-      console.log('Success inserting record for ' + a.title);
-    }
-  );
 };
 
 webDB.setupRequestTable = function () {
@@ -96,3 +64,5 @@ webDB.execute = function (sql, callback) {
     }
   );
 };
+
+webDB.init();
