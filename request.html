@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/styles/module.css">
     <link rel="stylesheet" type="text/css" href="/styles/state.css">
     <link rel="stylesheet" type="text/css" href="/styles/theme.css">
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
   </head>
 
   <body>
@@ -22,27 +23,32 @@
             <form id="requestform">
               <div class="form-group">
                 <label>First Name</label>
-                <input type="text" class="form-control" placeholder="First Name">
+                <input type="text" class="form-control" id ="requesterFirstName" placeholder="First Name">
               </div>
     ​
               <div class="form-group">
                 <label>Last Name</label>
-                <input type="text" class="form-control" placeholder="Last Name">
+                <input type="text" class="form-control" id="requesterLastName" placeholder="Last Name">
+              </div>
+
+              <div class="form-group">
+                <label>Age</label>
+                <input type="number" class="form-control" id="requesterAge" placeholder="Age">
               </div>
     ​
               <div class="form-group">
                 <label>Email</label>
-                <input type="text" class="form-control" placeholder="Email">
+                <input type="email" class="form-control" id="requesterEmail" placeholder="Email">
               </div>
     ​
               <div class="form-group">
                 <label>Story</label>
-                <textarea class="form-control" rows="3"></textarea>
+                <textarea class="form-control" id="requesterStory" rows="3"></textarea>
               </div>
     ​
               <div class="form-group">
                 <label>Category</label>
-                <select class="form-control">
+                <select class="form-control" id="requestCategory">
                   <option>Home</option>
                   <option>Children</option>
                   <option>Community</option>
@@ -56,19 +62,19 @@
     ​
               <div class="form-group">
                 <label>Brand</label>
-                <input type="text" class="form-control" placeholder="Brand">
+                <input type="text" class="form-control" id= "requestBrand" placeholder="Brand">
               </div>
     ​
               <div class="form-group">
                 <label>Amount</label>
                 <div class="input-group">
                   <div class="input-group-addon">$</div>
-                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                  <input type="number" class="form-control" id="requestAmount" placeholder="Amount">
                   <!-- <div class="input-group-addon">.00</div> -->
                 </div>
               </div>
     ​
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" id="requestSubmit" class="btn btn-primary">Submit</button>
             </form>
     ​
           </section>
@@ -79,5 +85,8 @@
     <script src="/vendor/scripts/html5sql.js" charset="utf-8"></script>
     <script src="/vendor/scripts/webdb.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.js"></script>
+    <script src="/scripts/requests.js" charset="utf-8"></script>
+    <script src="/scripts/requestsView.js" charset="utf-8"></script>
+    <script src="/scripts/requestsController.js" charset="utf-8"></script>
   </body>
 </html>
