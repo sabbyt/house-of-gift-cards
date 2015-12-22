@@ -1,0 +1,50 @@
+[ {
+  "email" : "patnasty@gmail.com",
+  "first_name" : "Pat",
+  "last_name" : "Yau",
+  "organization" : "Make a Wish Foundation",
+  "password" : "russell_trillson1",
+  "username" : "patyau"
+}, {
+  "email" : "sabrinatee@gmail.com",
+  "first_name" : "Sabrina",
+  "last_name" : "Tee",
+  "organization" : "Redfin",
+  "password" : "password1",
+  "username" : "sabbyt"
+}, {
+  "email" : "funderwood@gmail.com",
+  "first_name" : "Frank",
+  "last_name" : "Underwood",
+  "organization" : "The Company",
+  "password" : "president4lyfe",
+  "username" : "funderwood"
+}, {
+  "email" : "bruce@wayneenterprises.com",
+  "first_name" : "Bruce",
+  "last_name" : "Wayne",
+  "organization" : "Wayne Enterprises",
+  "password" : "iambatman",
+  "username" : "bwayne"
+}, {
+  "email" : "psychiczed@gmail.com",
+  "first_name" : "Zed",
+  "last_name" : "Martin",
+  "organization" : "StarZ Art Foundation",
+  "password" : "mm24601",
+  "username" : "zed"
+}, {
+  "email" : "ceo@lexcorp.com",
+  "first_name" : "Lex",
+  "last_name" : "Luthor",
+  "organization" : "LexCorp",
+  "password" : "ihatebatman1290",
+  "username" : "lexluthor"
+}, {
+  "email" : "arnieschwarz@microsoft.com",
+  "first_name" : "Arnie",
+  "last_name" : "Schwarzenegger",
+  "organization" : "Microsoft",
+  "password" : "arniemuscles999",
+  "username" : "mrfreeze"
+} ]

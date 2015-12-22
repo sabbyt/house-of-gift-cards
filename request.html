@@ -13,56 +13,64 @@
   </head>
 
   <body>
-    <!-- name field -->
-    <div id="requestform">
-      <form action="">
-        First Name<br>
-        <input type="text" placeholder="First Name">
-        <br>
-        Last Name<br>
-        <input type="text" placeholder="Last Name">
-        <br><br>
-      </form>
-      <!-- email field -->
-      <form action="">
-        Email<br>
-        <input type="email" placeholder="Email">
-        <br>
-      </form>
-      <!-- Story field -->
-      <form action"">
-        Story<br>
-        <textarea name="" placeholder="Story">
-        </textarea>
-      </form>
-      <!-- Category field -->
-      <form action="">
-        <h5>Category</h5>
-        <select name="category">
-          <option value="">Home</option>
-          <option value="">Children</option>
-          <option value="">Community</option>
-          <option value="">Food</option>
-          <option value="">Pets</option>
-          <option value="">Fuel</option>
-          <option value="">Clothing</option>
-          <option value="">Miscellaneous</option>
-        </select>
-        <br>
-      </form>
-      <!-- Brand field -->
-      <form action="">
-          Brand<br>
-          <input type="text" placeholder="Brand">
-      </form>
-      <!-- Amount field -->
-      <form action="">
-        Amount<br>
-        <input type="number" placeholder="Amount">
-        <br>
-        <input type="submit" value="Submit">
-      </form>
-    </div>
+    <main class="container row">
+
+      <section class="col-md-6">
+
+        <form id="requestform">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" placeholder="First Name">
+          </div>
+
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" placeholder="Last Name">
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" placeholder="Email">
+          </div>
+
+          <div class="form-group">
+            <label>Story</label>
+            <textarea class="form-control" rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Category</label>
+            <select class="form-control">
+              <option>Home</option>
+              <option>Children</option>
+              <option>Community</option>
+              <option>Food</option>
+              <option>Pets</option>
+              <option>Fuel</option>
+              <option>Clothing</option>
+              <option>Miscellaneous</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Brand</label>
+            <input type="text" class="form-control" placeholder="Brand">
+          </div>
+
+          <div class="form-group">
+            <label>Amount</label>
+            <div class="input-group">
+              <div class="input-group-addon">$</div>
+              <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+              <!-- <div class="input-group-addon">.00</div> -->
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+      </section>
+    </main>
 
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="/vendor/scripts/html5sql.js" charset="utf-8"></script>
