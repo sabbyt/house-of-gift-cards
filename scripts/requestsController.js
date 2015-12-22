@@ -5,6 +5,6 @@ requestsController.index = function() {
 };
 
 $(function() {
-  webDB.init();
+  request.emptyRequestTable();
   requestsController.index();
 });
