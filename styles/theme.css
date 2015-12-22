@@ -1,0 +1,29 @@
+#primary-nav {
+  background-color: #5A3453;
+}
+
+#navbar li a {
+  color: #EDEAE9;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+}
+
+#navbar li:active {
+  background-color: #7D6177;
+}
+
+#landing-nav button {
+  background-color: #5A3453;
+  border-radius: 5px;
+  border-color: #7D6177 #664766 #664766 #7D6177;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+#landing-nav button:first-child, #landing-nav button:last-child {
+  background-color: #FCAB55;
+  border-color: #FEC250 #FC9F3B #FC9F3B #FEC250;
+
+}
