@@ -31,21 +31,13 @@
   margin: 10px 0px 0px 0px;
 }
 
-.team-member {
-  border: 1px solid green;
-  margin-left: 5px;
-  width: 47%;
-}
-
-/*.col-xs-6 {
-  width: 47%;
-}*/
-
 .about-photo {
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 0px;
   padding-right: 0px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-text {
@@ -57,7 +49,6 @@
 .about-name {
   font-weight: bold;
 }
-
 
 /*End about page styling*/
 
@@ -107,11 +98,5 @@
     min-height: 200px;
     margin: 6px;
     font-size: 1.8rem;
-  }
-
-  .bios {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
