@@ -127,6 +127,25 @@
   margin-right: 40px;
 }
 
+.stats-title-left {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #5A3453;
+  text-align: center;
+  font-size: 1.1em;
+  padding: 5px;
+  margin-left: 40px;
+}
+
+.statistic-bold {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #5A3453;
+  text-align: center;
+  font-size: 2.5em;
+  margin-left: 40px;
+}
+
 /*End stats page styling*/
 
 @media (min-width: 768px) {
