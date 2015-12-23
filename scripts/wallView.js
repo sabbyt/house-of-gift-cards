@@ -22,6 +22,36 @@ wallView.toListHTML = function(data) {
 };
 
 wallView.renderListAll = function(callback) {
+  $('#entry tr').not(':first-child').remove();
+
+  callback = callback || function() {};
+  giftWall.ref.orderByChild('status').equalTo('UNCLAIMED').once('value', function(snapshot) {
+    snapshot.forEach(function(request) {
+      var temp = request.val();
+      temp.key = request.key();
+      wallView.toListHTML(temp);
+    });
+    callback();
+  });
+};
+
+wallView.renderListFilteredByCategory = function(categoryFilter, callback) {
+  console.log('im running');
+  console.log(categoryFilter);
+  $('#entry tr').not(':first-child').remove();
+
+  callback = callback || function() {};
+  giftWall.ref.orderByChild('category').equalTo(categoryFilter).once('value', function(snapshot) {
+    snapshot.forEach(function(request) {
+      var temp = request.val();
+      temp.key = request.key();
+      wallView.toListHTML(temp);
+    });
+    callback();
+  });
+};
+
+wallView.renderGridFilteredByCategory = function(callback) {
   callback = callback || function() {};
   giftWall.ref.orderByChild('status').equalTo('UNCLAIMED').once('value', function(snapshot) {
     snapshot.forEach(function(request) {

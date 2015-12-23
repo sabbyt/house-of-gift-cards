@@ -1,10 +1,15 @@
 var giftWall = {};
+giftWall.viewState = true;
 giftWall.ref = new Firebase('https://hogc.firebaseio.com/requests');
 
 giftWall.currentUser = {
   firstName: 'User',
   username: 'username'
 };
+
+giftWall.retrieveViewState = function() {
+  // do stuff
+}
 
 giftWall.retrieveCachedClaim = function() {
   if (JSON.parse(localStorage.getItem('claimed-keys')).length) {

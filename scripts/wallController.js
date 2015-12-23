@@ -16,11 +16,19 @@ wallController.showGridWall = function() {
 };
 
 wallController.handleGridWallButton = function (){
-  $('#gridview-button').on('click', wallController.showGridWall);
+  $('#gridview-button').on('click', function() {
+    giftWall.viewState = false;
+    console.log(giftWall.viewState);
+    wallController.showGridWall();
+  });
 };
 
 wallController.handleListWallButton = function () {
-  $('#listview-button').on('click', wallController.showListWall);
+  $('#listview-button').on('click', function() {
+    giftWall.viewState = true;
+    console.log(giftWall.viewState);
+    wallController.showListWall();
+  });
 };
 
 wallController.handleClaimButtons = function() {
@@ -39,8 +47,30 @@ wallController.handleClaimButtons = function() {
   });
 };
 
+wallController.handleCategoryFilter = function (callback){
+  $('#category-filter').on('change', function() {
+    var categoryFilter = $(this).val();
+    // console.log(categoryFilter);
+    if (giftWall.viewState === true) {
+      if ($(this).val() === 'reset') {
+        wallController.showListWall();
+      } else {
+        wallView.renderListFilteredByCategory(categoryFilter);
+      }
+    }
+    else {
+      wallView.renderGridFilteredByCategory();
+    }
+  });
+};
+
+wallController.handleAmountFilter = function (){
+  // do stuff
+};
+
 // ===== MOVE TO ROUTER =====
 wallController.showListWall();
 // wallController.showGridWall();
 wallController.handleGridWallButton();
 wallController.handleListWallButton();
+wallController.handleCategoryFilter();
