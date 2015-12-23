@@ -12,7 +12,7 @@ checkoutView.showTotal = function() {
   var $tr = $('<tr id="checkout-total" class="warning">');
   $tr.append($('<td>')).append($('<td>')).append($('<td>'))
     .append($('<td>').text('TOTAL:'))
-    .append($('<td id="checkout-total-amount">').text('$' + checkout.total)).append($('<td>'));
+    .append($('<td id="checkout-total-amount" class="amount">').text('$' + checkout.total)).append($('<td>'));
   $('#entry').append($tr);
   checkoutController.handleConfirm();
 };

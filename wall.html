@@ -61,17 +61,36 @@
     <main class="container">
       <h1 class="section-header text-center">Claim a request</h1>
 
-      <table id="entry" class="table">
-        <tr>
-          <th>Name</th>
-          <th>Story</th>
-          <th>Category</th>
-          <th>Brand</th>
-          <th>Amount</th>
-          <th></th>
-        </tr>
+      <nav id="wall-filter" class="form-inline nav-inline">
+        <select class="form-control">
+          <option value="reset">Filter 1</option>
+        </select>
+        <select class="form-control">
+          <option value="reset">Filter 2</option>
+        </select>
 
-      </table>
+        <div id="wall-view-type" class="btn-group pull-right" role="group">
+          <button type="button" class="btn btn-default selected">
+            <span class="glyphicon glyphicon-th-list"></span>
+          </button>
+          <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-th-large"></span>
+          </button>
+        </div>
+      </nav>
+
+      <div class="table-responsive">
+        <table id="entry" class="table">
+          <tr>
+            <th>Name</th>
+            <th>Story</th>
+            <th>Category</th>
+            <th>Brand</th>
+            <th>Amount</th>
+            <th></th>
+          </tr>
+        </table>
+      </div>
 
 
 

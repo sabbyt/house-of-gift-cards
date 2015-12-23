@@ -108,6 +108,21 @@ button .glyphicon {
   background-color: #5A3453;
 }
 
+/* ========== list view ========== */
+#entry th {
+  background-color: #5A3453;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+}
+
+.amount {
+  text-align: right;
+}
+
 /* ========== checkout page ========== */
 #checkout-total {
   font-weight: bold;
@@ -125,8 +140,31 @@ button .glyphicon {
   text-transform: uppercase;
 }
 
+#checkout-confirm {
+  font-size: 1.4rem;
+  min-width: 20%;
+}
+
 
 /* MOVE TO STATE */
 .non-default {
   display: none;
+}
+
+/* MODULE OR LAYOUT? */
+#wall-view-type button .glyphicon {
+  font-size: 120%;
+}
+
+#wall-view-type button {
+  padding: 6px 10px 4px 10px;
+  color: #E0DBDA;
+}
+
+#wall-view-type button.selected {
+  color: #5A3453;
+}
+
+.nav-inline {
+  margin-bottom: 12px;
 }
