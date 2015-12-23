@@ -51,6 +51,27 @@
 }
 
 /*End about page styling*/
+/*Contact page styling*/
+
+.contact-headline {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.contact-map {
+  float: right;
+  padding: 10px;
+}
+
+.contact-icon {
+  width: 2em;
+}
+
+.contact-info {
+  padding: 40px 20px 20px 20px;
+}
+
+/*End contact styling*/
 
 @media (min-width: 768px) {
   #landing-header {
