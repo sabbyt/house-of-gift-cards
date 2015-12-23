@@ -1,5 +1,6 @@
 var login = {};
 login.ref = new Firebase('https://hogc.firebaseio.com/donors');
+// login.currentUser = {};
 
 // OVERARCHING FUNCTION FOR LOGIN FORM PAGE
 login.showLogin = function() {
@@ -9,6 +10,14 @@ login.showLogin = function() {
 login.getUserLibrary = function(callback) {
   login.ref.once('value', function(snapshot) {
     login.userLibrary = snapshot.val();
+    if (typeof login.userLibrary === 'object') {
+      var userLibraryArray = [];
+      for (var key in login.userLibrary) {
+        userLibraryArray.push(login.userLibrary[key]);
+      }
+      login.userLibrary = userLibraryArray;
+    }
+
     callback();
   });
 };
@@ -24,10 +33,7 @@ login.handleSignIn = function() {
   $('#sign-in-submit').on('click', function(event) {
     event.preventDefault();
     $('#sign-in-warning').hide();
-    var username = login.checkSignIn();
-    if (username) {
-      // set in LS and redirect
-    }
+    login.checkSignIn();
   });
 };
 
@@ -40,7 +46,7 @@ login.checkSignIn = function() {
       var passwordInput = $('#sign-in-password').val();
       if (passwordInput === login.userLibrary[index].password) {
         console.log('login success');
-        return usernameInput;
+        login.completeSignIn(index);
       } else {
         login.signInWarning('Incorrect password');
       }
@@ -50,7 +56,16 @@ login.checkSignIn = function() {
   } else {
     login.signInWarning('Please enter a username');
   }
-  return false;
+};
+
+login.completeSignIn = function(index) {
+  var userData = {
+    firstName: login.userLibrary[index].first_name,
+    username: login.userLibrary[index].username
+  };
+  console.log(userData);
+  login.saveUserInLS(userData);
+  login.sendToWall();
 };
 
 
@@ -59,15 +74,8 @@ login.handleRegister = function() {
   $('#register-submit').on('click', function(event) {
     event.preventDefault();
     $('#register-warning').hide();
-    login.newUserData = login.checkRegister();
-    if (login.newUserData) {
-      login.registerSetPassword();
-      // set password
-      // insert to firebase
+    login.checkRegister();
 
-      // save to LS
-      // redirect
-    }
   });
 };
 
@@ -90,7 +98,7 @@ login.checkRegister = function() {
           organization: org,
           email: email
         };
-        return data;
+        login.completeRegister(data);
       }
     } else {
       login.registerWarning('Please enter a username');
@@ -98,9 +106,33 @@ login.checkRegister = function() {
   } else {
     login.registerWarning('All fields are required.');
   }
-  return false;
 };
 
+login.completeRegister = function(newData) {
+  $('#register-password-input').show();
+  $('#register input:not(#register-password)').attr('disabled', true);
+  $('#register-submit').text('Complete registration').on('click', function(event) {
+    event.preventDefault();
+    var passwordInput = $('#register-password').val();
+    if (passwordInput.length) {
+      newData.password = passwordInput;
+      login.registerFirebase(newData);
+      var userData = {
+        firstName: newData.first_name,
+        username: newData.username
+      };
+      login.saveUserInLS(userData);
+      login.sendToWall();
+    } else {
+      login.registerWarning('Please enter a password');
+    }
+  });
+};
+
+login.registerFirebase = function(newData) {
+  login.ref.push(newData);
+  console.log(newData);
+};
 
 login.checkUserExist = function(usernameInput) {
   var usernameList = login.userLibrary.map(function(donor) {
@@ -117,26 +149,16 @@ login.registerWarning = function(msg) {
   $('#register-warning').show().text(msg);
 };
 
-
-login.registerSetPassword = function() {
-  $('#register-password-input').show();
-  $('#register input:not(#register-password)').attr('disabled', true);
-  $('#register-submit').text('Complete registration').on('click', function(event) {
-    event.preventDefault();
-    var passwordInput = $('#register-password').val();
-    if (passwordInput.length) {
-      login.newUserData.password = passwordInput;
-      login.registerFirebase();
-    } else {
-      login.registerWarning('Please enter a password');
-    }
-  });
+login.saveUserInLS = function(userData) {
+  localStorage.setItem('current-user', JSON.stringify(userData));
+  // login.sendToWall();
 };
 
-login.registerFirebase = function() {
-  login.ref.push(login.newUserData);
-  console.log(login.newUserData);
+login.sendToWall = function() {
+  // TODO: replace with page.js call
+  $(location).attr('href', '/wall.html');
 };
+
 
 login.showLogin();
 
