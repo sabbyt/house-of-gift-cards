@@ -1,4 +1,5 @@
 var giftWall = {};
+giftWall.user = 'username';
 
 giftWall.ref = new Firebase('https://hogc.firebaseio.com/requests');
 
@@ -15,13 +16,11 @@ giftWall.renderList = function(keys, callback) {
   });
 };
 
-
 giftWall.renderListByKey = function(key, callback, endValue) {
   giftWall.ref.orderByKey().equalTo(key.toString()).once('value', function(snapshot) {
     var temp = snapshot.val()[key];
     temp.key = key;
     giftWall.toListHTML(temp);
-    console.log(temp.amount);
     checkout.total.push(parseInt(temp.amount));
 
     giftWall.count++;
@@ -34,6 +33,20 @@ giftWall.renderListByKey = function(key, callback, endValue) {
 giftWall.toListHTML = function(data) {
   var html = giftWall.listTemplate(data);
   $('#entry').append(html);
+};
+
+giftWall.claimRequest = function(keys, username, callback) {
+
+};
+
+giftWall.confirmRequestByKey = function(key) {
+  var childRef = giftWall.ref.child(key.toString());
+  var updateData = {
+    status: 'CLAIMED',
+    claimed_by: giftWall.user,
+    claimed_dt: new Date()
+  };
+  childRef.update(updateData);
 };
 
 //truncate story content

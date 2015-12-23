@@ -51,6 +51,7 @@
 
     <!-- contents go inside here for responsiveness & spacing -->
     <main class="container">
+      <h1 class="section-header text-center">Checkout</h1>
 
       <table id="entry" class="table">
         <tr>
@@ -64,14 +65,19 @@
 
       </table>
 
-      <hr>
-      <button type="button" id="checkout-confirm" class="pull-right">Confirm</button>
+      <button type="button" id="checkout-confirm" class="pull-right btn btn-primary non-default">Confirm</button>
 
-      <div id="empty-cart" class="hidden">
-        Your cart is empty
+      <div id="checkout-success" class="alert alert-success clearfix non-default">
+        <h3><span class="glyphicon glyphicon-ok"></span> Thank you! Your donation has been confirmed.</h3>
+        <p>Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <button id="checkout-to-stats" class="pull-right btn btn-success">
+          Community impact <span class="glyphicon glyphicon-triangle-right"></span>
+        </button>
       </div>
 
-
+      <div id="empty-cart" class="alert alert-warning non-default">
+        Your cart is empty
+      </div>
 
 
     </main>
