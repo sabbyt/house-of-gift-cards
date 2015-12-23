@@ -1,4 +1,4 @@
-/* primary navigation */
+/* ========== primary navigation ========== */
 #primary-nav {
   background-color: #5A3453;
   border-bottom: 0px;
@@ -20,6 +20,32 @@
   color: #FEC250;
 }
 
+#greeting {
+  color: white;
+}
+
+#greeting a {
+  color: white;
+  text-decoration: none;
+}
+
+#greeting a:hover {
+  color: #FC9F3B;
+}
+
+/* ========== general ========== */
+.section-header {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #5A3453;
+  margin-top: 36px;
+}
+
+button .glyphicon {
+  font-size: 80%;
+}
+
+/* ========== landing page links ========== */
 #landing-nav button {
   background-color: #5A3453;
   border-radius: 5px;
@@ -34,6 +60,7 @@
   border-color: #FEC250 #FC9F3B #FC9F3B #FEC250;
 }
 
+/* ========== buttons with our color scheme ========== */
 .btn-orange {
   background-color: #FEC250;
   border: 0px;
@@ -48,20 +75,6 @@
 .btn-orange:focus {
   background-color: #FC9F3B;
   color: white;
-}
-
-#entry .selected {
-  background-color: #EDEAE9;
-}
-
-#entry .selected .btn-orange {
-  background-color: #7D6177;
-}
-
-#entry .selected .btn-orange:active,
-#entry .selected .btn-orange:hover,
-#entry .selected .btn-orange:focus {
-  background-color: #5A3453;
 }
 
 .btn-purple {
@@ -80,6 +93,22 @@
   color: white;
 }
 
+/* ========== gift wall page claim buttons ========== */
+#entry .selected {
+  background-color: #EDEAE9;
+}
+
+#entry .selected .btn-orange {
+  background-color: #7D6177;
+}
+
+#entry .selected .btn-orange:active,
+#entry .selected .btn-orange:hover,
+#entry .selected .btn-orange:focus {
+  background-color: #5A3453;
+}
+
+/* ========== checkout page ========== */
 #checkout-total {
   font-weight: bold;
 }
@@ -96,29 +125,6 @@
   text-transform: uppercase;
 }
 
-.section-header {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  color: #5A3453;
-  margin-top: 36px;
-}
-
-#greeting {
-  color: white;
-}
-
-#greeting a {
-  color: white;
-  text-decoration: none;
-}
-
-#greeting a:hover {
-  color: #FC9F3B;
-}
-
-button .glyphicon {
-  font-size: 80%;
-}
 
 /* MOVE TO STATE */
 .non-default {
