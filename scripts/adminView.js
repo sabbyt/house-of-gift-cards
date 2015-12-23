@@ -13,7 +13,7 @@ adminView.toListHTML = function(data) {
 
 adminView.renderListAll = function(callback) {
   callback = callback || function() {};
-  admin.ref.orderByChild('status').equalTo('CLAIMED').once('value', function(snapshot) {
+  admin.ref.orderByChild('claimed_dt').startAt('').once('value', function(snapshot) {
     snapshot.forEach(function(request) {
       var temp = request.val();
       temp.key = request.key();
