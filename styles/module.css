@@ -90,7 +90,44 @@
   padding: 40px 20px 20px 20px;
 }
 
-/*End contact styling*/
+/*End contact page styling*/
+/*Stats page styling*/
+.stats-header {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #5A3453;
+  margin-top: 36px;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.stats-sider-left {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #5A3453;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 10px;
+  margin-left: 40px;
+}
+
+.stats-sider-right {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #5A3453;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 10px;
+  margin-right: 40px;
+}
+
+/*End stats page styling*/
 
 @media (min-width: 768px) {
   #landing-header {
