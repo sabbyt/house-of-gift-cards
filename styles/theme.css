@@ -27,3 +27,60 @@
   border-color: #FEC250 #FC9F3B #FC9F3B #FEC250;
 
 }
+
+#entry button {
+  border: 0px;
+  background-color: #FEC250;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+#entry button:active,
+#entry button:hover,
+#entry button:focus {
+  background-color: #FCAB55;
+}
+
+#entry .selected {
+  background-color: #EDEAE9;
+}
+
+#entry .selected button {
+  background-color: #7D6177;
+}
+
+#entry .selected button:active,
+#entry .selected button:hover,
+#entry .selected button:focus {
+  background-color: #5A3453;
+}
+
+.warning {
+  font-weight: bold;
+}
+
+#checkout-success h3 {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+#checkout-success button {
+  background-color: #3c763d;
+  border: 0px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+.section-header {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #5A3453;
+  margin-top: 36px;
+}
+
+/* MOVE TO STATE */
+.non-default {
+  display: none;
+}
