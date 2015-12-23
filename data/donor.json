@@ -54,5 +54,21 @@
     "last_name": "Schwarzenegger",
     "organization": "Microsoft",
     "email": "arnieschwarz@microsoft.com"
+  },
+  {
+    "username": "natchow",
+    "password": "bluewatermeloncheese1",
+    "first_name": "Nat",
+    "last_name": "Chow",
+    "organization": "Amazon",
+    "email": "nataliechow@amazon.com"
+  },
+  {
+    "username": "stephencarney",
+    "password": "Radiohead1234",
+    "first_name": "Stephen",
+    "last_name": "Carney  ",
+    "organization": "Oracle",
+    "email": "stephencarney@amazon.com"
   }
 ]
