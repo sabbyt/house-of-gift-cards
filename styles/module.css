@@ -23,12 +23,21 @@
 
 .about-headline {
   text-align: center;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
 }
 
 .about-hr {
   border-top: 2px solid #eee;
-  margin: 10px 0px 0px 0px;
+  margin: 10px 0px -10px 0px;
+}
+
+.about-mission {
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-bottom: 20px;
+  text-align: center;
+  font-size: 1.1em;
 }
 
 .about-photo {
@@ -44,6 +53,11 @@
   padding-bottom: 15px;
   padding-left: 0px;
   padding-right: 0px;
+}
+
+.about-text a:hover{
+  text-decoration: none;
+  opacity: 0.6;
 }
 
 .about-name {
@@ -65,6 +79,11 @@
 
 .contact-icon {
   width: 2em;
+}
+
+.contact-info a:hover {
+  text-decoration: none;
+  opacity: 0.6;
 }
 
 .contact-info {

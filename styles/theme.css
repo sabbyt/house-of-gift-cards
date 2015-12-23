@@ -51,11 +51,6 @@ button .glyphicon {
   font-size: 80%;
 }
 
-.contact-info a:hover {
-  text-decoration: none;
-  opacity: 0.6;
-}
-
 /* ========== landing page links ========== */
 #landing-nav button {
   background-color: #5A3453;
