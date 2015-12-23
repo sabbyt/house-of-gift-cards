@@ -6,6 +6,11 @@ util.currentSection = function() {
   return section;
 };
 
+util.setActiveNav = function(section) {
+  $('#navbar li').removeClass('active');
+  $('#navbar li[data-section=' + section + ']').addClass('active');
+};
+
 /* ========================= HANDLEBARS HELPERS ========================= */
 Handlebars.registerHelper('if_wall', function (block) {
   if (util.currentSection() === 'wall') {

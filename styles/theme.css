@@ -1,5 +1,8 @@
+/* primary navigation */
 #primary-nav {
   background-color: #5A3453;
+  border-bottom: 0px;
+  box-shadow: 0px 1px 10px rgba(33, 29, 28, 0.5);;
 }
 
 #navbar li a {
@@ -9,8 +12,12 @@
   font-size: 1.3rem;
 }
 
-#navbar li:active {
+#navbar li.active a, #navbar li:active, #navbar li:hover {
   background-color: #7D6177;
+}
+
+#navbar li a:hover {
+  color: #FEC250;
 }
 
 #landing-nav button {
