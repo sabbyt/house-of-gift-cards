@@ -1,32 +1,48 @@
 var checkout = {};
-checkout.total = [];
+checkout.totalArray = [];
 
-if (JSON.parse(localStorage.getItem('claimed-keys')).length) {
-  checkout.claimed = JSON.parse(localStorage.getItem('claimed-keys'));
-  console.log(checkout.claimed);
-
-  giftWall.getListTemplate(function() {
-    giftWall.renderList(checkout.claimed, checkout.showTotal);
-  });
-
-} else {
-  $('#empty-cart').show();
-}
-
-checkout.sum = function(acc, num) {
+checkout.sumArray = function(acc, num) {
   return acc + num;
 };
 
-checkout.showTotal = function() {
-  var total = checkout.total.reduce(checkout.sum);
-  var $tr = $('<tr class="warning">');
+var checkoutView = {};
+
+checkoutView.showTotal = function() {
+  checkout.total = checkout.totalArray.reduce(checkout.sumArray);
+  var $tr = $('<tr id="checkout-total" class="warning">');
   $tr.append($('<td>')).append($('<td>')).append($('<td>'))
-    .append($('<td>').text('TOTAL:')).append($('<td>').text('$' + total)).append($('<td>'));
+    .append($('<td>').text('TOTAL:'))
+    .append($('<td id="checkout-total-amount">').text('$' + checkout.total)).append($('<td>'));
   $('#entry').append($tr);
-  checkout.handleConfirm();
+  checkoutController.handleConfirm();
 };
 
-checkout.handleConfirm = function() {
+checkoutView.showCheckout = function() {
+  giftWall.getListTemplate(function() {
+    giftWall.renderList(checkout.claimed, checkoutView.showTotal);
+  });
+};
+
+checkoutView.showEmptyCart = function() {
+  $('#checkout-confirm').hide();
+  $('#empty-cart').show();
+  $('#checkout-total').remove();
+};
+
+var checkoutController = {};
+
+checkoutController.showCheckout = function() {
+  if (JSON.parse(localStorage.getItem('claimed-keys')).length) {
+    checkout.claimed = JSON.parse(localStorage.getItem('claimed-keys'));
+    console.log(checkout.claimed);
+    checkoutView.showCheckout();
+    checkoutController.handleRemoveClaim();
+  } else {
+    checkoutView.showEmptyCart();
+  }
+};
+
+checkoutController.handleConfirm = function() {
   $('#checkout-confirm').show().on('click', function(event) {
     event.preventDefault();
     $(this).hide();
@@ -40,3 +56,22 @@ checkout.handleConfirm = function() {
     });
   });
 };
+
+checkoutController.handleRemoveClaim = function() {
+  $('#entry').on('click', '.close', function(event) {
+    event.preventDefault();
+    console.log('removed' + $(this).data('key'));
+    var tdAmount = $(this).parent().siblings('td[name=amount]')[0];
+    var removedAmount = parseInt($(tdAmount).text().substring(1));
+    checkout.total -= removedAmount;
+    $('#checkout-total-amount').text('$' + checkout.total);
+    $(this).parent().parent('tr').remove();
+
+    if (checkout.total === 0) {
+      checkoutView.showEmptyCart();
+    }
+  });
+};
+
+
+checkoutController.showCheckout();

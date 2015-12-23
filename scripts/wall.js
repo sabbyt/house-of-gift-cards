@@ -21,7 +21,7 @@ giftWall.renderListByKey = function(key, callback, endValue) {
     var temp = snapshot.val()[key];
     temp.key = key;
     giftWall.toListHTML(temp);
-    checkout.total.push(parseInt(temp.amount));
+    checkout.totalArray.push(parseInt(temp.amount));
 
     giftWall.count++;
     if (giftWall.count === endValue) {
@@ -33,10 +33,6 @@ giftWall.renderListByKey = function(key, callback, endValue) {
 giftWall.toListHTML = function(data) {
   var html = giftWall.listTemplate(data);
   $('#entry').append(html);
-};
-
-giftWall.claimRequest = function(keys, username, callback) {
-
 };
 
 giftWall.confirmRequestByKey = function(key) {

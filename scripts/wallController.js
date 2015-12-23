@@ -21,26 +21,37 @@ wallController.listView = function() {
 wallController.handleClaimButtons = function() {
   $('#entry').on('click', '.claim-button', function(event) {
     event.preventDefault();
-    console.log('claimed' + $(this).data('key'));
-    $(this).text('Unclaim').removeClass('claim-button').addClass('unclaim-button');
-    $(this).parent().parent('tr').toggleClass('selected');
+    console.log('claimed ' + $(this).data('key'));
+    wallView.claim($(this));
 
-    wallController.claimed.push($(this).data('key'));
-    console.log(wallController.claimed);
-    localStorage.setItem('claimed-keys', JSON.stringify(wallController.claimed));
+    wallController.addClaim($(this).data('key'));
+    wallController.updateLS();
   });
 
   $('#entry').on('click', '.unclaim-button', function(event) {
     event.preventDefault();
-    console.log('unclaimed' + $(this).data('key'));
-    $(this).text('Claim').removeClass('unclaim-button').addClass('claim-button');
-    $(this).parent().parent('tr').toggleClass('selected');
+    console.log('unclaimed ' + $(this).data('key'));
+    wallView.unclaim($(this));
 
-    var index = wallController.claimed.indexOf($(this).data('key'));
-    wallController.claimed.splice(index, 1);
-    console.log(wallController.claimed);
-    localStorage.setItem('claimed-keys', JSON.stringify(wallController.claimed));
+    wallController.removeClaim($(this).data('key'));
+    wallController.updateLS();
   });
+};
+
+wallController.addClaim = function(key) {
+  if (wallController.claimed.indexOf(key) < 0) {
+    wallController.claimed.push(key);
+  }
+};
+
+wallController.removeClaim = function(key) {
+  var index = wallController.claimed.indexOf(key);
+  wallController.claimed.splice(index, 1);
+};
+
+wallController.updateLS = function() {
+  localStorage.setItem('claimed-keys', JSON.stringify(wallController.claimed));
+  console.log(wallController.claimed);
 };
 
 wallController.listView();
