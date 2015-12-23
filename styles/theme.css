@@ -41,8 +41,19 @@
   margin-top: 36px;
 }
 
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #5A3453;
+}
+
 button .glyphicon {
   font-size: 80%;
+}
+
+.contact-info a:hover {
+  text-decoration: none;
+  opacity: 0.6;
 }
 
 /* ========== landing page links ========== */
