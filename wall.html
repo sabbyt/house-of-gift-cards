@@ -62,12 +62,28 @@
       <h1 class="section-header text-center">Claim a request</h1>
 
       <nav id="wall-filter" class="form-inline nav-inline">
-        <select class="form-control">
-          <option value="reset">Filter 1</option>
-        </select>
-        <select class="form-control">
-          <option value="reset">Filter 2</option>
-        </select>
+
+          Filter by:
+          <select id="category-filter" class="form-control">
+            <option value="reset">Show All Categories</option>
+            <option>Children</option>
+            <option>Clothing</option>
+            <option>Community</option>
+            <option>Food</option>
+            <option>Fuel</option>
+            <option>Home</option>
+            <option>Pets</option>
+            <option>Miscellaneous</option>
+          </select>
+
+          <select id="amount-filter" class="form-control">
+            <option value="reset">Amount</option>
+            <option>Less than $20</option>
+            <option>Less than $50</option>
+            <option>Less than $100</option>
+            <option>Less than $200</option>
+          </select>
+
 
         <div id="wall-view-type" class="btn-group pull-right" role="group">
           <button type="button" class="btn btn-default selected" id="listview-button">

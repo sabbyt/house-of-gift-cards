@@ -1,4 +1,5 @@
 var giftWall = {};
+giftWall.viewState = true;
 giftWall.ref = new Firebase('https://hogc.firebaseio.com/requests');
 
 giftWall.currentUser = {
@@ -54,6 +55,12 @@ giftWall.getListTemplate = function(callback) {
   }).done(callback);
 };
 
+giftWall.getGridTemplate = function(callback) {
+  $.get('/templates/wall-template-grid.html', function(gridTemplate) {
+    giftWall.gridTemplate = Handlebars.compile(gridTemplate);
+  }).done(callback);
+};
+
 giftWall.findByKey = function(key, callback) {
   giftWall.ref.orderByKey().equalTo(key.toString()).once('value', callback);
 };
@@ -68,11 +75,6 @@ giftWall.confirmRequestByKey = function(key) {
   childRef.update(updateData);
 };
 
-giftWall.getGridTemplate = function(callback) {
-  $.get('/templates/wall-template-grid.html', function(gridTemplate) {
-    giftWall.gridTemplate = Handlebars.compile(gridTemplate);
-  }).done(callback);
-};
 //truncate story content
 
 //function for popup

@@ -1,5 +1,6 @@
 var wallView = {};
 
+// Universal wallView functions for both list and grid view
 wallView.addClaim = function($btn) {
   $btn.text('Unclaim').removeClass('claim-button').addClass('unclaim-button');
   $btn.parent().parent().toggleClass('selected');
@@ -10,6 +11,7 @@ wallView.removeClaim = function($btn) {
   $btn.parent().parent().toggleClass('selected');
 };
 
+// listView functions
 wallView.listView = function() {
   giftWall.getListTemplate(function() {
     wallView.renderListAll(giftWall.retrieveCachedClaim);
@@ -22,8 +24,26 @@ wallView.toListHTML = function(data) {
 };
 
 wallView.renderListAll = function(callback) {
+  $('#entry tr').not(':first-child').remove();
+
   callback = callback || function() {};
   giftWall.ref.orderByChild('status').equalTo('UNCLAIMED').once('value', function(snapshot) {
+    snapshot.forEach(function(request) {
+      var temp = request.val();
+      temp.key = request.key();
+      wallView.toListHTML(temp);
+    });
+    callback();
+  });
+};
+
+wallView.renderListFilteredByCategory = function(categoryFilter, callback) {
+  console.log('im running');
+  console.log(categoryFilter);
+  $('#entry tr').not(':first-child').remove();
+
+  callback = callback || function() {};
+  giftWall.ref.orderByChild('category').equalTo(categoryFilter).once('value', function(snapshot) {
     snapshot.forEach(function(request) {
       var temp = request.val();
       temp.key = request.key();
@@ -61,8 +81,24 @@ wallView.toGridHTML = function(data) {
 };
 
 wallView.renderGridAll = function(callback) {
+  $('#wall-gridview').empty();
+
   callback = callback || function() {};
   giftWall.ref.orderByChild('status').equalTo('UNCLAIMED').once('value', function(snapshot) {
+    snapshot.forEach(function(request) {
+      var temp = request.val();
+      temp.key = request.key();
+      wallView.toGridHTML(temp);
+    });
+    callback();
+  });
+};
+
+wallView.renderGridFilteredByCategory = function(categoryFilter, callback) {
+  $('#wall-gridview').empty();
+
+  callback = callback || function() {};
+  giftWall.ref.orderByChild('category').equalTo(categoryFilter).once('value', function(snapshot) {
     snapshot.forEach(function(request) {
       var temp = request.val();
       temp.key = request.key();
@@ -88,5 +124,3 @@ wallView.renderGridByKeys = function(keys, callback) {
     });
   });
 };
-
-//grid view functions
