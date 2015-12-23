@@ -41,6 +41,12 @@
   margin-top: 36px;
 }
 
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #5A3453;
+}
+
 button .glyphicon {
   font-size: 80%;
 }
@@ -145,6 +151,10 @@ button .glyphicon {
   min-width: 20%;
 }
 
+#checkout-confirm, .bigger-btn {
+  font-size: 1.4rem;
+  min-width: 20%;
+}
 
 /* MOVE TO STATE */
 .non-default {
