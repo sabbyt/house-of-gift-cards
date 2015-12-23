@@ -48,8 +48,6 @@ giftWall.showGreeting = function() {
   giftWall.updateGreetingNum();
 };
 
-
-
 giftWall.getListTemplate = function(callback) {
   $.get('/templates/wall-template-list.html', function(listTemplate) {
     giftWall.listTemplate = Handlebars.compile(listTemplate);
@@ -70,6 +68,11 @@ giftWall.confirmRequestByKey = function(key) {
   childRef.update(updateData);
 };
 
+giftWall.getGridTemplate = function(callback) {
+  $.get('/templates/wall-template-grid.html', function(gridTemplate) {
+    giftWall.gridTemplate = Handlebars.compile(gridTemplate);
+  }).done(callback);
+};
 //truncate story content
 
 //function for popup

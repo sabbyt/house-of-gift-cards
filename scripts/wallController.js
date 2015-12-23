@@ -1,9 +1,26 @@
 var wallController = {};
 
 // OVERARCHING CALL FOR WALL PAGE
-wallController.showWall = function() {
+wallController.showListWall = function() {
+  $('#wall-gridview').hide();
+  $('#wall-listview').show();
   wallView.listView();  // default to list view
   wallController.handleClaimButtons();
+};
+
+wallController.showGridWall = function() {
+  $('#wall-listview').hide();
+  $('#wall-gridview').show();
+  wallView.gridView();
+  wallController.handleClaimButtons();
+};
+
+wallController.handleGridWallButton = function (){
+  $('#gridview-button').on('click', wallController.showGridWall);
+};
+
+wallController.handleListWallButton = function () {
+  $('#listview-button').on('click', wallController.showListWall);
 };
 
 wallController.handleClaimButtons = function() {
@@ -23,4 +40,7 @@ wallController.handleClaimButtons = function() {
 };
 
 // ===== MOVE TO ROUTER =====
-wallController.showWall();
+wallController.showListWall();
+// wallController.showGridWall();
+wallController.handleGridWallButton();
+wallController.handleListWallButton();

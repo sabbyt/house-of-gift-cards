@@ -70,16 +70,18 @@
         </select>
 
         <div id="wall-view-type" class="btn-group pull-right" role="group">
-          <button type="button" class="btn btn-default selected">
+          <button type="button" class="btn btn-default selected" id="listview-button">
             <span class="glyphicon glyphicon-th-list"></span>
           </button>
-          <button type="button" class="btn btn-default">
+          <button type="button" class="btn btn-default" id="gridview-button">
             <span class="glyphicon glyphicon-th-large"></span>
           </button>
         </div>
       </nav>
 
-      <div class="table-responsive">
+      <div id="wall-gridview"></div>
+
+      <div class="table-responsive" id="wall-listview">
         <table id="entry" class="table">
           <tr>
             <th>Name</th>
@@ -91,8 +93,6 @@
           </tr>
         </table>
       </div>
-
-
 
     </main>
 
