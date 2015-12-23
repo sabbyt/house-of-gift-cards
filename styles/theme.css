@@ -41,6 +41,12 @@
   margin-top: 36px;
 }
 
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #5A3453;
+}
+
 button .glyphicon {
   font-size: 80%;
 }

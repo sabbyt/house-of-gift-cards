@@ -23,12 +23,21 @@
 
 .about-headline {
   text-align: center;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
 }
 
 .about-hr {
   border-top: 2px solid #eee;
-  margin: 10px 0px 0px 0px;
+  margin: 10px 0px -10px 0px;
+}
+
+.about-mission {
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-bottom: 20px;
+  text-align: center;
+  font-size: 1.1em;
 }
 
 .about-photo {
@@ -44,6 +53,11 @@
   padding-bottom: 15px;
   padding-left: 0px;
   padding-right: 0px;
+}
+
+.about-text a:hover{
+  text-decoration: none;
+  opacity: 0.6;
 }
 
 .about-name {
@@ -67,11 +81,66 @@
   width: 2em;
 }
 
+.contact-info a:hover {
+  text-decoration: none;
+  opacity: 0.6;
+}
+
 .contact-info {
   padding: 40px 20px 20px 20px;
 }
 
-/*End contact styling*/
+/*End contact page styling*/
+/*Stats page styling*/
+.stats-header {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #5A3453;
+  margin-top: 36px;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+.stats-sider-left {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #5A3453;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+.stats-sider-right {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #5A3453;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+.stats-title-left {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #5A3453;
+  text-align: center;
+  font-size: 1.1em;
+  padding: 5px;
+}
+
+.statistic-bold {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #5A3453;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+/*End stats page styling*/
 
 @media (min-width: 768px) {
   #landing-header {
