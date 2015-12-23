@@ -3,81 +3,109 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>House of Gift Cards</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/styles/base.css">
     <link rel="stylesheet" type="text/css" href="/styles/layout.css">
     <link rel="stylesheet" type="text/css" href="/styles/module.css">
     <link rel="stylesheet" type="text/css" href="/styles/state.css">
     <link rel="stylesheet" type="text/css" href="/styles/theme.css">
-    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
   </head>
 
   <body>
-    <main class="container row">
-    ​
-          <section class="col-md-6">
-    ​
-            <form id="register">
-              <div class="form-group">
-                <label>First Name</label>
-                <input type="text" class="form-control" id ="" placeholder="First Name">
-              </div>
-    ​
-              <div class="form-group">
-                <label>Last Name</label>
-                <input type="text" class="form-control" id="" placeholder="Last Name">
-              </div>
-              ​
-              <div class="form-group">
-                <label>Email</label>
-                <input type="email" class="form-control" id="" placeholder="Email">
-              </div>
-              ​
-              <div class="form-group">
-                <label>Organization</label>
-                <input type="text" class="form-control" id="" placeholder="Organization">
-              </div>
+    <nav id="primary-nav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- hamburger for mobile -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- brand image -->
+          <img src="/img/hogc-logo-small.png" alt="House of Gift Cards" class="navbar-brand"/>
+        </div>
+      </div>
+    </nav>
+    <!-- end primary nav -->
 
-              <div class="form-group">
-                <label>Username</label>
-                <input type="text" class="form-control" id="" placeholder="Username">
-              </div>
+    <div id="nav-spacing"></div>
 
-              <div class="form-group">
-                <label>Password</label>
-                <input type="text" class="form-control" id= "" placeholder="Password">
-              </div>
-    ​
-              <button type="submit" id="" class="">Submit</button>
-            </form>
-    ​
-          </section>
-
+    <main class="container">
+      <section id="sec-login" class="row top-row">
+        <!-- login panel -->
+        <div class="panel panel-default col-md-3 col-md-offset-1">
+          ​<h1 class="section-header text-center">Login</h1>
           <form id="sign-in">
-            <div class="form-group">
+            <div class="col-md-12">
+              <div id="sign-in-warning" class="alert alert-danger non-default" role="alert"></div>
+            </div>
+            <div class="form-group col-md-12">
               <label>Username</label>
-              <input type="text" class="form-control" id="" placeholder="Username">
+              <input type="text" class="form-control" id="sign-in-username" placeholder="Username">
             </div>
-
-            <div class="form-group">
+            <div class="form-group col-md-12">
               <label>Password</label>
-              <input type="text" class="form-control" id= "" placeholder="Password">
+              <input type="password" class="form-control" id="sign-in-password" placeholder="Password">
             </div>
-  ​
-            <button type="submit" id="" class="">Submit</button>
+​            <div class="form-group col-md-12">
+              <button type="submit" id="sign-in-submit" class="btn btn-orange center-block bigger-btn">Sign in</button>
+            </div>
           </form>
-  ​
-        </main>
+        </div>​
+        <!-- register panel -->
+        <div class="panel panel-default col-md-6 col-md-offset-1">
+          ​<h1 class="section-header text-center">Register account</h1>
+          <form id="register">
+            <div class="col-md-12">
+              <div id="register-warning" class="alert alert-danger non-default" role="alert"></div>
+            </div>
+            <div class="form-group col-md-6">
+              <label>First Name</label>
+              <input type="text" class="form-control" id="register-fname" placeholder="First Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Last Name</label>
+              <input type="text" class="form-control" id="register-lname" placeholder="Last Name">
+            </div>
+            <div class="form-group col-md-12">
+              <label>Email</label>
+              <input type="email" class="form-control" id="register-email" placeholder="Email">
+            </div>
+            <div class="form-group col-md-12">
+              <label>Organization</label>
+              <input type="text" class="form-control" id="register-org" placeholder="Organization">
+            </div>
+            <div class="form-group col-md-12">
+              <label>Choose a username</label>
+              <input type="text" class="form-control" id="register-username" placeholder="Username">
+            </div>
+            <div id="register-password-input" class="form-group col-md-12 non-default">
+              <label>Set password</label>
+              <input type="password" class="form-control" id="register-password" placeholder="Password">
+            </div>
+            <div class="form-group col-md-12">
+              <button type="submit" id="register-submit" class="btn btn-orange center-block bigger-btn">Register</button>
+            </div>
+          </form>
+        </div>    ​
+      </section>
+    </main>
 
-    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-    <script src="/vendor/scripts/html5sql.js" charset="utf-8"></script>
-    <script src="/vendor/scripts/webdb.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.js"></script>
-    <script src="/scripts/requests.js" charset="utf-8"></script>
-    <script src="/scripts/requestsView.js" charset="utf-8"></script>
-    <script src="/scripts/requestsController.js" charset="utf-8"></script>
+    <!-- vendor scripts -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!-- helpers -->
+    <script type="text/javascript" src="/scripts/util.js"></script>
+
+    <script type="text/javascript" src="/scripts/login.js"></script>
   </body>
 </html>
