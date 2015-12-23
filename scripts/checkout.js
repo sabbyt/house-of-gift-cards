@@ -19,7 +19,7 @@ checkoutView.showTotal = function() {
 
 checkoutView.showCheckout = function() {
   giftWall.getListTemplate(function() {
-    giftWall.renderList(checkout.claimed, checkoutView.showTotal);
+    wallView.renderListByKeys(checkout.claimed, checkoutView.showTotal);
   });
 };
 
@@ -31,6 +31,7 @@ checkoutView.showEmptyCart = function() {
 
 var checkoutController = {};
 
+// OVERARCHING CALL FOR CHECKOUT PAGE
 checkoutController.showCheckout = function() {
   if (JSON.parse(localStorage.getItem('claimed-keys')).length) {
     checkout.claimed = JSON.parse(localStorage.getItem('claimed-keys'));
