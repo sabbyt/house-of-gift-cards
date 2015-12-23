@@ -53,6 +53,14 @@
     <main class="container">
       <h1 class="section-header text-center">Checkout</h1>
 
+      <nav>
+        <a id="checkout-to-wall" href="/wall.html">
+          <button class="btn btn-default">
+            <span class="glyphicon glyphicon-triangle-left"></span> Continue shopping
+          </button>
+        </a>
+      </nav>
+
       <table id="entry" class="table">
         <tr>
           <th>Name</th>
@@ -70,9 +78,11 @@
       <div id="checkout-success" class="alert alert-success clearfix non-default">
         <h3><span class="glyphicon glyphicon-ok"></span> Thank you! Your donation has been confirmed.</h3>
         <p>Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <button id="checkout-to-stats" class="pull-right btn btn-success">
-          Community impact <span class="glyphicon glyphicon-triangle-right"></span>
-        </button>
+        <a id="checkout-to-stats" href="/stats.html">
+          <button class="pull-right btn btn-success">
+            Community impact <span class="glyphicon glyphicon-triangle-right"></span>
+          </button>
+        </a>
       </div>
 
       <div id="empty-cart" class="alert alert-warning non-default">

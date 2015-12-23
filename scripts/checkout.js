@@ -19,7 +19,7 @@ checkoutView.showTotal = function() {
 
 checkoutView.showCheckout = function() {
   giftWall.getListTemplate(function() {
-    wallView.renderListByKeys(checkout.claimed, checkoutView.showTotal);
+    wallView.renderListByKeys(giftWall.claimed, checkoutView.showTotal);
   });
 };
 
@@ -34,8 +34,8 @@ var checkoutController = {};
 // OVERARCHING CALL FOR CHECKOUT PAGE
 checkoutController.showCheckout = function() {
   if (JSON.parse(localStorage.getItem('claimed-keys')).length) {
-    checkout.claimed = JSON.parse(localStorage.getItem('claimed-keys'));
-    console.log(checkout.claimed);
+    giftWall.claimed = JSON.parse(localStorage.getItem('claimed-keys'));
+    console.log(giftWall.claimed);
     checkoutView.showCheckout();
     checkoutController.handleRemoveClaim();
   } else {
@@ -47,14 +47,13 @@ checkoutController.handleConfirm = function() {
   $('#checkout-confirm').show().on('click', function(event) {
     event.preventDefault();
     $(this).hide();
-    checkout.claimed.forEach(giftWall.confirmRequestByKey);
+    $('#checkout-to-wall').hide();
+    $('button.close').hide();
     $('#checkout-success').show();
+    giftWall.claimed.forEach(giftWall.confirmRequestByKey);
 
-    $('#checkout-to-stats').on('click', function(event) {
-      event.preventDefault();
-      // TODO: replace with page.js redirect
-      $(location).attr('href', '/stats.html');
-    });
+    giftWall.claimed = [];
+    giftWall.updateLS();
   });
 };
 
@@ -67,6 +66,8 @@ checkoutController.handleRemoveClaim = function() {
     checkout.total -= removedAmount;
     $('#checkout-total-amount').text('$' + checkout.total);
     $(this).parent().parent('tr').remove();
+
+    giftWall.removeClaim($(this).data('key'));
 
     if (checkout.total === 0) {
       checkoutView.showEmptyCart();

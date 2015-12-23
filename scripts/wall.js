@@ -1,15 +1,18 @@
 var giftWall = {};
-giftWall.user = 'username';
-
 giftWall.ref = new Firebase('https://hogc.firebaseio.com/requests');
+
+giftWall.currentUser = {
+  firstName: 'User',
+  username: 'username'
+};
 
 giftWall.retrieveCachedClaim = function() {
   if (JSON.parse(localStorage.getItem('claimed-keys')).length) {
     giftWall.claimed = JSON.parse(localStorage.getItem('claimed-keys'));
     giftWall.claimed.forEach(function(key) {
       $('#entry td').find('button[data-key=' + key + ']').click();
-      console.log('click!');
     });
+    giftWall.updateGreeting();
   } else {
     giftWall.claimed = [];
   }
@@ -32,7 +35,18 @@ giftWall.removeClaim = function(key) {
 giftWall.updateLS = function() {
   localStorage.setItem('claimed-keys', JSON.stringify(giftWall.claimed));
   console.log(giftWall.claimed);
+  giftWall.updateGreetingNum();
 };
+
+giftWall.updateGreetingNum = function() {
+  $('#greeting-num').text(giftWall.claimed.length);
+};
+
+giftWall.updateGreeting = function() {
+  giftWall.updateGreetingNum();
+  $('#greeting-name').text('Hi ' + giftWall.currentUser.firstName + ', ');
+};
+
 
 
 giftWall.getListTemplate = function(callback) {
@@ -49,7 +63,7 @@ giftWall.confirmRequestByKey = function(key) {
   var childRef = giftWall.ref.child(key.toString());
   var updateData = {
     status: 'CLAIMED',
-    claimed_by: giftWall.user,
+    claimed_by: giftWall.currentUser.username,
     claimed_dt: new Date()
   };
   childRef.update(updateData);

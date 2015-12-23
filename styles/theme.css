@@ -96,6 +96,23 @@
   margin-top: 36px;
 }
 
+#greeting {
+  color: white;
+}
+
+#greeting a {
+  color: white;
+  text-decoration: none;
+}
+
+#greeting a:hover {
+  color: #FC9F3B;
+}
+
+button .glyphicon {
+  font-size: 80%;
+}
+
 /* MOVE TO STATE */
 .non-default {
   display: none;

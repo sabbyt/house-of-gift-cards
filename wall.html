@@ -39,9 +39,16 @@
             <li><a href="/">Stats</a></li>
             <li><a href="/">Contact</a></li>
           </ul>
+
+          <div id="greeting" class="navbar-text pull-right">
+            <span id="greeting-name">Hi, </span>
+            <a href="/checkout.html">
+              <span class="glyphicon glyphicon-shopping-cart"></span>
+              (<span id="greeting-num">0</span>)
+            </a>
+          </div>
         </div>
 
-        <p class="navbar-text pull-right hidden">Signed in as Mark Otto</p>
       </div>
     </nav>
     <!-- end primary nav -->
@@ -51,6 +58,8 @@
 
     <!-- contents go inside here for responsiveness & spacing -->
     <main class="container">
+      <h1 class="section-header text-center">Claim a request</h1>
+
       <table id="entry" class="table">
         <tr>
           <th>Name</th>
