@@ -12,10 +12,10 @@ giftWall.retrieveCachedClaim = function() {
     giftWall.claimed.forEach(function(key) {
       $('#entry td').find('button[data-key=' + key + ']').click();
     });
-    giftWall.updateGreeting();
   } else {
     giftWall.claimed = [];
   }
+  giftWall.showGreeting();
   console.log(giftWall.claimed);
 };
 
@@ -42,9 +42,10 @@ giftWall.updateGreetingNum = function() {
   $('#greeting-num').text(giftWall.claimed.length);
 };
 
-giftWall.updateGreeting = function() {
-  giftWall.updateGreetingNum();
+giftWall.showGreeting = function() {
+  $('#greeting').show();
   $('#greeting-name').text('Hi ' + giftWall.currentUser.firstName + ', ');
+  giftWall.updateGreetingNum();
 };
 
 
