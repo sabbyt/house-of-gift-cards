@@ -25,36 +25,52 @@
 #landing-nav button:first-child, #landing-nav button:last-child {
   background-color: #FCAB55;
   border-color: #FEC250 #FC9F3B #FC9F3B #FEC250;
-
 }
 
-#entry button {
-  border: 0px;
+.btn-orange {
   background-color: #FEC250;
+  border: 0px;
   color: white;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   font-size: 1.2rem;
 }
 
-#entry button:active,
-#entry button:hover,
-#entry button:focus {
-  background-color: #FCAB55;
+.btn-orange:active,
+.btn-orange:hover,
+.btn-orange:focus {
+  background-color: #FC9F3B;
+  color: white;
 }
 
 #entry .selected {
   background-color: #EDEAE9;
 }
 
-#entry .selected button {
+#entry .selected .btn-orange {
   background-color: #7D6177;
 }
 
-#entry .selected button:active,
-#entry .selected button:hover,
-#entry .selected button:focus {
+#entry .selected .btn-orange:active,
+#entry .selected .btn-orange:hover,
+#entry .selected .btn-orange:focus {
   background-color: #5A3453;
+}
+
+.btn-purple {
+  background-color: #5A3453;
+  border: 0px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.btn-purple:active,
+.btn-purple:hover,
+.btn-purple:focus {
+  background-color: #7D6177;
+  color: white;
 }
 
 .warning {
