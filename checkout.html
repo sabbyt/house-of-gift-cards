@@ -32,51 +32,33 @@
           <img src="/img/hogc-logo-small.png" alt="House of Gift Cards" class="navbar-brand"/>
         </div>
 
-        <!-- TODO: update index.html with this #greeting -->
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li data-section="home"><a href="/">Home</a></li>
-            <li data-section="about"><a href="/">About</a></li>
-            <li data-section="stats"><a href="/">Stats</a></li>
-            <li data-section="contact"><a href="/">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li><a href="/">Stats</a></li>
+            <li><a href="/">Contact</a></li>
           </ul>
-
-          <div id="greeting" class="navbar-text pull-right non-default">
-            <span id="greeting-name">Hi, </span>
-            <a href="/checkout.html">
-              <span class="glyphicon glyphicon-shopping-cart"></span>
-              (<span id="greeting-num">0</span>)
-            </a>
-          </div>
         </div>
-        <!-- end nav update -->
 
+        <p class="navbar-text pull-right hidden">Signed in as Mark Otto</p>
       </div>
     </nav>
     <!-- end primary nav -->
 
     <div id="nav-spacing"></div>
 
+
     <!-- contents go inside here for responsiveness & spacing -->
     <main class="container">
-      <h1 class="section-header text-center">Claim a request</h1>
+      <h1 class="section-header text-center">Checkout</h1>
 
-      <nav id="wall-filter" class="form-inline nav-inline">
-        <select class="form-control">
-          <option value="reset">Filter 1</option>
-        </select>
-        <select class="form-control">
-          <option value="reset">Filter 2</option>
-        </select>
-
-        <div id="wall-view-type" class="btn-group pull-right" role="group">
-          <button type="button" class="btn btn-default selected">
-            <span class="glyphicon glyphicon-th-list"></span>
+      <nav class="nav-inline">
+        <a id="checkout-to-wall" href="/wall.html">
+          <button class="btn btn-default">
+            <span class="glyphicon glyphicon-triangle-left"></span> Continue shopping
           </button>
-          <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-th-large"></span>
-          </button>
-        </div>
+        </a>
       </nav>
 
       <div class="table-responsive">
@@ -89,9 +71,25 @@
             <th>Amount</th>
             <th></th>
           </tr>
+
         </table>
       </div>
 
+      <button type="button" id="checkout-confirm" class="pull-right btn btn-orange non-default">Confirm</button>
+
+      <div id="checkout-success" class="alert alert-success clearfix non-default">
+        <h3><span class="glyphicon glyphicon-ok"></span> Thank you! Your donation has been confirmed.</h3>
+        <p>Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a id="checkout-to-stats" href="/stats.html">
+          <button class="pull-right btn btn-success">
+            Community impact <span class="glyphicon glyphicon-triangle-right"></span>
+          </button>
+        </a>
+      </div>
+
+      <div id="empty-cart" class="alert alert-warning non-default">
+        Your cart is empty
+      </div>
 
 
     </main>
@@ -106,10 +104,11 @@
     <!-- TODO: REMOVE link to reset-firebase.js before deploying -->
     <script type="text/javascript" src="/scripts/reset-firebase.js"></script>
 
-
     <script type="text/javascript" src="/scripts/wall.js"></script>
     <script type="text/javascript" src="/scripts/wallView.js"></script>
-    <script type="text/javascript" src="/scripts/wallController.js"></script>
+    <!-- <script type="text/javascript" src="/scripts/wallController.js"></script> -->
+    <script type="text/javascript" src="/scripts/checkout.js"></script>
+
 
   </body>
 </html>

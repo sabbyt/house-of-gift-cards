@@ -1,5 +1,8 @@
+/* ========== primary navigation ========== */
 #primary-nav {
   background-color: #5A3453;
+  border-bottom: 0px;
+  box-shadow: 0px 1px 10px rgba(33, 29, 28, 0.5);;
 }
 
 #navbar li a {
@@ -9,10 +12,40 @@
   font-size: 1.3rem;
 }
 
-#navbar li:active {
+#navbar li.active a, #navbar li:active, #navbar li:hover {
   background-color: #7D6177;
 }
 
+#navbar li a:hover {
+  color: #FEC250;
+}
+
+#greeting {
+  color: white;
+}
+
+#greeting a {
+  color: white;
+  text-decoration: none;
+}
+
+#greeting a:hover {
+  color: #FC9F3B;
+}
+
+/* ========== general ========== */
+.section-header {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #5A3453;
+  margin-top: 36px;
+}
+
+button .glyphicon {
+  font-size: 80%;
+}
+
+/* ========== landing page links ========== */
 #landing-nav button {
   background-color: #5A3453;
   border-radius: 5px;
@@ -25,5 +58,113 @@
 #landing-nav button:first-child, #landing-nav button:last-child {
   background-color: #FCAB55;
   border-color: #FEC250 #FC9F3B #FC9F3B #FEC250;
+}
 
+/* ========== buttons with our color scheme ========== */
+.btn-orange {
+  background-color: #FEC250;
+  border: 0px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.btn-orange:active,
+.btn-orange:hover,
+.btn-orange:focus {
+  background-color: #FC9F3B;
+  color: white;
+}
+
+.btn-purple {
+  background-color: #5A3453;
+  border: 0px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.btn-purple:active,
+.btn-purple:hover,
+.btn-purple:focus {
+  background-color: #7D6177;
+  color: white;
+}
+
+/* ========== gift wall page claim buttons ========== */
+#entry .selected {
+  background-color: #EDEAE9;
+}
+
+#entry .selected .btn-orange {
+  background-color: #7D6177;
+}
+
+#entry .selected .btn-orange:active,
+#entry .selected .btn-orange:hover,
+#entry .selected .btn-orange:focus {
+  background-color: #5A3453;
+}
+
+/* ========== list view ========== */
+#entry th {
+  background-color: #5A3453;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+}
+
+.amount {
+  text-align: right;
+}
+
+/* ========== checkout page ========== */
+#checkout-total {
+  font-weight: bold;
+}
+
+#checkout-success h3 {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+#checkout-success button {
+  background-color: #3c763d;
+  border: 0px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+#checkout-confirm {
+  font-size: 1.4rem;
+  min-width: 20%;
+}
+
+
+/* MOVE TO STATE */
+.non-default {
+  display: none;
+}
+
+/* MODULE OR LAYOUT? */
+#wall-view-type button .glyphicon {
+  font-size: 120%;
+}
+
+#wall-view-type button {
+  padding: 6px 10px 4px 10px;
+  color: #E0DBDA;
+}
+
+#wall-view-type button.selected {
+  color: #5A3453;
+}
+
+.nav-inline {
+  margin-bottom: 12px;
 }
