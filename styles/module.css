@@ -19,6 +19,21 @@
   width: 100%;
 }
 
+.panel .section-header {
+  margin-top: 0px;
+  margin-bottom: 16px;
+}
+
+.top-row {
+  margin-top: 36px;
+}
+
+#sec-login .alert {
+  margin-bottom: 10px;
+  font-weight: bold;
+  padding: 10px 15px;
+}
+
 /*About page styling*/
 
 .about-headline {
