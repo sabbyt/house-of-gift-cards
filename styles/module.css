@@ -19,6 +19,60 @@
   width: 100%;
 }
 
+/*About page styling*/
+
+.about-headline {
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.about-hr {
+  border-top: 2px solid #eee;
+  margin: 10px 0px 0px 0px;
+}
+
+.about-photo {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-text {
+  padding-bottom: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.about-name {
+  font-weight: bold;
+}
+
+/*End about page styling*/
+/*Contact page styling*/
+
+.contact-headline {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.contact-map {
+  float: right;
+  padding: 10px;
+}
+
+.contact-icon {
+  width: 2em;
+}
+
+.contact-info {
+  padding: 40px 20px 20px 20px;
+}
+
+/*End contact styling*/
+
 @media (min-width: 768px) {
   #landing-header {
     display: none;
