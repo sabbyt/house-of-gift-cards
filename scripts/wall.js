@@ -7,10 +7,6 @@ giftWall.currentUser = {
   username: 'username'
 };
 
-giftWall.retrieveViewState = function() {
-  // do stuff
-}
-
 giftWall.retrieveCachedClaim = function() {
   if (JSON.parse(localStorage.getItem('claimed-keys')).length) {
     giftWall.claimed = JSON.parse(localStorage.getItem('claimed-keys'));
@@ -59,6 +55,12 @@ giftWall.getListTemplate = function(callback) {
   }).done(callback);
 };
 
+giftWall.getGridTemplate = function(callback) {
+  $.get('/templates/wall-template-grid.html', function(gridTemplate) {
+    giftWall.gridTemplate = Handlebars.compile(gridTemplate);
+  }).done(callback);
+};
+
 giftWall.findByKey = function(key, callback) {
   giftWall.ref.orderByKey().equalTo(key.toString()).once('value', callback);
 };
@@ -73,11 +75,6 @@ giftWall.confirmRequestByKey = function(key) {
   childRef.update(updateData);
 };
 
-giftWall.getGridTemplate = function(callback) {
-  $.get('/templates/wall-template-grid.html', function(gridTemplate) {
-    giftWall.gridTemplate = Handlebars.compile(gridTemplate);
-  }).done(callback);
-};
 //truncate story content
 
 //function for popup
