@@ -1,11 +1,37 @@
 var wallController = {};
 
-// OVERARCHING CALL FOR WALL PAGE
-wallController.showWall = function() {
+// list specific functions
+wallController.showListWall = function() {
+  $('#wall-gridview').hide();
+  $('#wall-listview').show();
   wallView.listView();  // default to list view
   wallController.handleClaimButtons();
 };
 
+wallController.handleListWallButton = function () {
+  $('#listview-button').on('click', function() {
+    giftWall.viewState = true;
+    wallController.showListWall();
+  });
+};
+
+// grid specific functions
+wallController.showGridWall = function() {
+  $('#wall-listview').hide();
+  $('#wall-gridview').show();
+  wallView.gridView();
+  wallController.handleClaimButtons();
+};
+
+wallController.handleGridWallButton = function (){
+  $('#gridview-button').on('click', function() {
+    giftWall.viewState = false;
+    console.log(giftWall.viewState);
+    wallController.showGridWall();
+  });
+};
+
+// universal functions for both list and grid views
 wallController.handleClaimButtons = function() {
   $('#entry').on('click', '.claim-button', function(event) {
     event.preventDefault();
@@ -22,5 +48,36 @@ wallController.handleClaimButtons = function() {
   });
 };
 
+wallController.handleCategoryFilter = function (callback){
+  $('#category-filter').on('change', function() {
+    var categoryFilter = $(this).val();
+    console.log(categoryFilter);
+    if (giftWall.viewState === true) {
+      if (categoryFilter === 'reset') {
+        $('#entry tr').not(':first-child').remove();
+        wallController.showListWall();
+      } else {
+        wallView.renderListFilteredByCategory(categoryFilter);
+      }
+    }
+    else {
+      $('#wall-gridview').empty();
+      if (categoryFilter === 'reset') {
+        wallController.showGridWall();
+      } else {
+        wallView.renderGridFilteredByCategory(categoryFilter);
+      }
+    }
+  });
+};
+
+wallController.handleAmountFilter = function (){
+  // do stuff
+};
+
 // ===== MOVE TO ROUTER =====
-wallController.showWall();
+wallController.showListWall();
+// wallController.showGridWall();
+wallController.handleGridWallButton();
+wallController.handleListWallButton();
+wallController.handleCategoryFilter();

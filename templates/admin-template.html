@@ -1,0 +1,20 @@
+{{#if_claimed}}
+<tr>
+{{/if_claimed}}
+{{#if_sent}}
+<tr class="selected">
+{{/if_sent}}
+  <td>{{first_name}} {{last_name}}</td>
+  <td>{{email}}</td>
+  <td>{{brand}}</td>
+  <td>${{amount}}</td>
+  <td>{{requestDT}}</td>
+  <td class="claim-status">{{status}}</td>
+  <td>{{claimed_by}}</td>
+  <td>{{claimedDT}}</td>
+  <td>
+    {{#if_claimed}}
+      <button type="button" class="send-btn btn btn-orange" data-key="{{key}}">Send</button>
+    {{/if_claimed}}
+  </td>
+</tr>

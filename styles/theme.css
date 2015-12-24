@@ -34,11 +34,21 @@
 }
 
 /* ========== general ========== */
+body {
+  /*background: #f3f0f2;*/
+}
+
 .section-header {
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   color: #5A3453;
   margin-top: 36px;
+}
+
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #5A3453;
 }
 
 button .glyphicon {
@@ -110,7 +120,7 @@ button .glyphicon {
 
 /* ========== list view ========== */
 #entry th {
-  background-color: #5A3453;
+  background-color: #5a3440;
   color: white;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
@@ -121,6 +131,12 @@ button .glyphicon {
 
 .amount {
   text-align: right;
+}
+
+/* ========== grid view ========== */
+.wall-grid-request {
+  border: 1px solid #5a3453;
+  border-radius: 20px;
 }
 
 /* ========== checkout page ========== */
@@ -145,6 +161,10 @@ button .glyphicon {
   min-width: 20%;
 }
 
+#checkout-confirm, .bigger-btn {
+  font-size: 1.4rem;
+  min-width: 20%;
+}
 
 /* MOVE TO STATE */
 .non-default {
