@@ -1,11 +1,5 @@
 var login = {};
 login.ref = new Firebase('https://hogc.firebaseio.com/donors');
-// login.currentUser = {};
-
-// OVERARCHING FUNCTION FOR LOGIN FORM PAGE
-login.showLogin = function() {
-  login.getUserLibrary(login.init);
-};
 
 login.getUserLibrary = function(callback) {
   login.ref.once('value', function(snapshot) {
@@ -17,23 +11,7 @@ login.getUserLibrary = function(callback) {
       }
       login.userLibrary = userLibraryArray;
     }
-
     callback();
-  });
-};
-
-login.init = function() {
-  login.handleSignIn();
-  login.handleRegister();
-  console.log('init complete');
-};
-
-
-login.handleSignIn = function() {
-  $('#sign-in-submit').on('click', function(event) {
-    event.preventDefault();
-    $('#sign-in-warning').hide();
-    login.checkSignIn();
   });
 };
 
@@ -48,13 +26,13 @@ login.checkSignIn = function() {
         console.log('login success');
         login.completeSignIn(index);
       } else {
-        login.signInWarning('Incorrect password');
+        loginView.signInWarning('Incorrect password');
       }
     } else {
-      login.signInWarning('User does not exist');
+      loginView.signInWarning('User does not exist');
     }
   } else {
-    login.signInWarning('Please enter a username');
+    loginView.signInWarning('Please enter a username');
   }
 };
 
@@ -65,20 +43,8 @@ login.completeSignIn = function(index) {
   };
   console.log(userData);
   login.saveUserInLS(userData);
-  login.sendToWall();
+  loginController.sendToWall();
 };
-
-
-
-login.handleRegister = function() {
-  $('#register-submit').on('click', function(event) {
-    event.preventDefault();
-    $('#register-warning').hide();
-    login.checkRegister();
-
-  });
-};
-
 
 login.checkRegister = function() {
   var fName = $('#register-fname').val();
@@ -89,7 +55,7 @@ login.checkRegister = function() {
   if (fName.length && lName.length && email.length && org.length) {
     if (usernameInput.length) {
       if (login.checkUserExist(usernameInput) > -1) {
-        login.registerWarning('Username already exists');
+        loginView.registerWarning('Username already exists');
       } else {
         var data = {
           username: usernameInput,
@@ -101,10 +67,10 @@ login.checkRegister = function() {
         login.completeRegister(data);
       }
     } else {
-      login.registerWarning('Please enter a username');
+      loginView.registerWarning('Please enter a username');
     }
   } else {
-    login.registerWarning('All fields are required.');
+    loginView.registerWarning('All fields are required.');
   }
 };
 
@@ -122,9 +88,9 @@ login.completeRegister = function(newData) {
         username: newData.username
       };
       login.saveUserInLS(userData);
-      login.sendToWall();
+      loginController.sendToWall();
     } else {
-      login.registerWarning('Please enter a password');
+      loginView.registerWarning('Please enter a password');
     }
   });
 };
@@ -141,25 +107,8 @@ login.checkUserExist = function(usernameInput) {
   return usernameList.indexOf(usernameInput);
 };
 
-login.signInWarning = function(msg) {
-  $('#sign-in-warning').show().text(msg);
-};
-
-login.registerWarning = function(msg) {
-  $('#register-warning').show().text(msg);
-};
-
 login.saveUserInLS = function(userData) {
   localStorage.setItem('current-user', JSON.stringify(userData));
-  // login.sendToWall();
 };
-
-login.sendToWall = function() {
-  // TODO: replace with page.js call
-  $(location).attr('href', '/wall.html');
-};
-
-
-login.showLogin();
 
 // show forms only after query is done
