@@ -34,6 +34,17 @@
   padding: 10px 15px;
 }
 
+/* Wall Grid module styling*/
+.grid-request {
+  border: 1px solid #777576;
+  height: 35em;
+  /*max-height: 50em;*/
+}
+
+.claim-button-grid-view {
+  margin-bottom: 10px;
+}
+
 /*About page styling*/
 
 .about-headline {
@@ -109,7 +120,7 @@
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   color: #FFFFFF;
-  background-color: #5A3453;
+  background-color: #5a3440;
   margin-top: 36px;
   text-align: center;
   font-size: 1.2em;
@@ -120,7 +131,7 @@
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   color: #FFFFFF;
-  background-color: #5A3453;
+  background-color: #5a3440;
   text-align: center;
   font-size: 1.2em;
   padding: 10px;
@@ -130,7 +141,7 @@
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   color: #FFFFFF;
-  background-color: #5A3453;
+  background-color: #5a3440;
   text-align: center;
   font-size: 1.2em;
   padding: 10px;
@@ -139,7 +150,7 @@
 .stats-title-left {
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
-  color: #5A3453;
+  color: #5a3440;
   text-align: center;
   font-size: 1.1em;
   padding: 5px;
