@@ -27,3 +27,19 @@ Handlebars.registerHelper('if_checkout', function (block) {
     return block.inverse(this);
   }
 });
+
+Handlebars.registerHelper('if_claimed', function (block) {
+  if (this.status === 'CLAIMED') {
+    return block.fn(this);
+  } else {
+    return block.inverse(this);
+  }
+});
+
+Handlebars.registerHelper('if_sent', function (block) {
+  if (this.status === 'SENT') {
+    return block.fn(this);
+  } else {
+    return block.inverse(this);
+  }
+});
