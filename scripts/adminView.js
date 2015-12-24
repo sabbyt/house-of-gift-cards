@@ -19,7 +19,7 @@ adminView.renderListAll = function(callback) {
       temp.key = request.key();
       temp.requestDT = temp.request_dt.substring(0,16);
       temp.claimedDT = temp.claimed_dt.substring(0,16);
-      admin.all.push(temp);
+      // admin.all.push(temp);
       adminView.toListHTML(temp);
     });
     callback();

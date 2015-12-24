@@ -1,6 +1,6 @@
 var admin = {};
 admin.ref = new Firebase('https://hogc.firebaseio.com/requests');
-admin.all = []; // saving for easy sorting
+// admin.all = []; // saving for easy sorting
 
 admin.getListTemplate = function(callback) {
   $.get('/templates/admin-template.html', function(listTemplate) {
