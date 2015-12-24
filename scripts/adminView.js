@@ -17,6 +17,9 @@ adminView.renderListAll = function(callback) {
     snapshot.forEach(function(request) {
       var temp = request.val();
       temp.key = request.key();
+      temp.requestDT = temp.request_dt.substring(0,16);
+      temp.claimedDT = temp.claimed_dt.substring(0,16);
+
       adminView.toListHTML(temp);
     });
     callback();
