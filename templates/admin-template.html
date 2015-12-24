@@ -1,17 +1,20 @@
+{{#if_claimed}}
 <tr>
-  <td>{{first_name}}</td>
-  <td>{{last_name}}</td>
+{{/if_claimed}}
+{{#if_sent}}
+<tr class="selected">
+{{/if_sent}}
+  <td>{{first_name}} {{last_name}}</td>
   <td>{{email}}</td>
-  <td>{{category}}</td>
   <td>{{brand}}</td>
   <td>${{amount}}</td>
-  <td>{{request_dt}}</td>
-  <td class='claim-status'>{{status}}</td>
+  <td>{{requestDT}}</td>
+  <td class="claim-status">{{status}}</td>
   <td>{{claimed_by}}</td>
-  <td>{{claimed_dt}}</td>
+  <td>{{claimedDT}}</td>
   <td>
-    {{#if_wall}}
-    <button type="button" class="send-btn btn btn-orange" data-key="{{key}}">Send</button>
-    {{#if_wall}}
+    {{#if_claimed}}
+      <button type="button" class="send-btn btn btn-orange" data-key="{{key}}">Send</button>
+    {{/if_claimed}}
   </td>
 </tr>
