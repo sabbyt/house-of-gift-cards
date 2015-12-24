@@ -1,4 +1,6 @@
 var giftWall = {};
+var requestArray = [];
+
 giftWall.viewState = true;
 giftWall.ref = new Firebase('https://hogc.firebaseio.com/requests');
 
@@ -8,7 +10,7 @@ giftWall.currentUser = {
 };
 
 giftWall.retrieveCachedClaim = function() {
-  if (JSON.parse(localStorage.getItem('claimed-keys')).length) {
+  if (localStorage.getItem('claimed-keys')!= null) {
     giftWall.claimed = JSON.parse(localStorage.getItem('claimed-keys'));
     giftWall.claimed.forEach(function(key) {
       $('#entry td').find('button[data-key=' + key + ']').click();
@@ -74,6 +76,20 @@ giftWall.confirmRequestByKey = function(key) {
   };
   childRef.update(updateData);
 };
+
+giftWall.renderListAll = function(callback) {
+  callback = callback || function() {};
+  giftWall.ref.orderByChild('status').equalTo('UNCLAIMED').once('value', function(snapshot) {
+    snapshot.forEach(function(request) {
+      var temp = request.val();
+      temp.key = request.key();
+      requestArray.push(temp);
+      console.log(requestArray);
+    });
+    callback();
+  });
+};
+
 
 //truncate story content
 

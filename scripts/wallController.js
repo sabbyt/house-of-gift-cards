@@ -51,16 +51,18 @@ wallController.handleClaimButtons = function() {
 wallController.handleCategoryFilter = function (callback){
   $('#category-filter').on('change', function() {
     var categoryFilter = $(this).val();
-
+    console.log(categoryFilter);
     if (giftWall.viewState === true) {
-      if ($(this).val() === 'reset') {
+      if (categoryFilter === 'reset') {
+        $('#entry tr').not(':first-child').remove();
         wallController.showListWall();
       } else {
         wallView.renderListFilteredByCategory(categoryFilter);
       }
     }
     else {
-      if ($(this).val() === 'reset') {
+      $('#wall-gridview').empty();
+      if (categoryFilter === 'reset') {
         wallController.showGridWall();
       } else {
         wallView.renderGridFilteredByCategory(categoryFilter);
