@@ -59,23 +59,46 @@
 
     <!-- contents go inside here for responsiveness & spacing -->
     <main class="container">
-      <h1 class="section-header text-center">Admin</h1>
+      <section id="sec-admin">
 
-      <div class="table-responsive">
-        <table id="admin-table" class="table">
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Brand</th>
-            <th>Amount</th>
-            <th>Request Date</th>
-            <th>Status</th>
-            <th>Claimed By</th>
-            <th>Claim Date</th>
-            <th></th>
-          </tr>
-        </table>
-      </div>
+        <h1 class="section-header text-center">Admin</h1>
+
+        <nav id="wall-filter" class="form-inline nav-inline">
+
+          Order by:
+          <select id="admin-sort" class="form-control">
+            <option value="claimed_dt">Claim date</option>
+            <option value="request_dt">Request date</option>
+            <option value="brand">Brand</option>
+            <option value="claimed_by">Donor username</option>
+          </select>
+          <button id="admin-sort-dir" class="btn btn-default" name="Sort direction">
+            <span class="glyphicon glyphicon-sort"></span>
+          </button>
+
+          <div id="admin-status" class="btn-group pull-right" role="group">
+            <button type="button" class="btn btn-default selected" id="admin-status-all">All</button>
+            <button type="button" class="btn btn-default" id="admin-status-claimed">CLAIMED</button>
+            <button type="button" class="btn btn-default" id="admin-status-sent">SENT</button>
+          </div>
+        </nav>
+
+        <div class="table-responsive">
+          <table id="admin-table" class="table">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Brand</th>
+              <th>Amount</th>
+              <th>Request Date</th>
+              <th>Status</th>
+              <th>Claimed By</th>
+              <th>Claim Date</th>
+              <th></th>
+            </tr>
+          </table>
+        </div>
+      </section>
     </main>
 
     <!-- vendor scripts -->
