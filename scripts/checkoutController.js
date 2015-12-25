@@ -4,6 +4,7 @@ var checkoutController = {};
 
 // OVERARCHING CALL FOR CHECKOUT PAGE
 checkoutController.showCheckout = function() {
+  giftWall.retrieveUserInfo();
   if (JSON.parse(localStorage.getItem('claimed-keys')).length) {
     giftWall.claimed = JSON.parse(localStorage.getItem('claimed-keys'));
     console.log(giftWall.claimed);

@@ -5,23 +5,32 @@ giftWall.viewState = true; // true for list view, false for grid view
 giftWall.currentCat = 'reset';
 giftWall.ref = new Firebase('https://hogc.firebaseio.com/requests');
 
-giftWall.currentUser = {
-  firstName: 'User',
-  username: 'username'
+// giftWall.currentUser = {
+//   firstName: 'User',
+//   username: 'username'
+// };
+
+giftWall.retrieveUserInfo = function(callback) {
+  callback = callback || function() {};
+  if (localStorage.getItem('current-user') != null) {
+    giftWall.currentUser = JSON.parse(localStorage.getItem('current-user'));
+    console.log(giftWall.currentUser);
+    callback();
+  } else {
+    alert('Please sign in or register for an account.');
+    // TODO: change to page routing call
+    $(location).attr('href', '/login.html');
+  }
 };
 
 giftWall.retrieveCachedClaim = function() {
   if (localStorage.getItem('claimed-keys') != null) {
     giftWall.claimed = JSON.parse(localStorage.getItem('claimed-keys'));
-    console.log(giftWall.claimed);
-    // giftWall.claimed.forEach(function(key) {
-    //   console.log(key);
-    //   $('#entry td').find('button[data-key=' + key + ']').click();
-    // });
   } else {
     giftWall.claimed = [];
   }
-  giftWall.showGreeting();
+  console.log(giftWall.claimed);
+  // giftWall.showGreeting();
 };
 
 giftWall.addClaim = function(key) {
@@ -90,7 +99,6 @@ giftWall.filterByCategory = function(category) {
   var filtered = giftWall.all.filter(function(el){
     return el.category === category;
   });
-  console.log(filtered);
   return filtered;
 };
 

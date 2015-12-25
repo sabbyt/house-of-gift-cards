@@ -3,6 +3,7 @@ var wallController = {};
 wallController.showWall = function() {
   giftWall.fetchAllRequests(function() {
     giftWall.retrieveCachedClaim();
+    giftWall.retrieveUserInfo(giftWall.showGreeting);
     wallController.showListWall();  // default to list view
     wallController.handleClaimButtons();
   });
@@ -35,7 +36,6 @@ wallController.showGridWall = function() {
 
 wallController.handleSwitchViews = function() {
   $('#listview-button').on('click', function() {
-    console.log(this);
     $('#listview-button').addClass('selected');
     $('#gridview-button').removeClass('selected');
     giftWall.viewState = true;
