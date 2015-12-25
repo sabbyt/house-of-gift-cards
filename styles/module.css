@@ -36,17 +36,46 @@
 
 /* Wall Grid module styling*/
 .grid-request {
-  border: 1px solid #777576;
-  height: 35em;
-  /*max-height: 50em;*/
+  border: 1px solid #FFD933;
+  height: 45rem;
+  background-color: #FFF6CC;
 }
 
-.claim-button-grid-view {
+.request-grid-photo {
   margin-bottom: 10px;
+  max-height: 20rem;
 }
+
+.request-grid-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.request-grid-text {
+  height: 17rem;
+  overflow-y: scroll;
+  margin-bottom: 12px;
+  padding-right: 12px;
+}
+
+.request-grid-text::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.request-grid-text::-webkit-scrollbar-thumb {
+  margin-left: 5px;
+  background-color: rgba(0, 0, 0, 0.15);
+  outline: 1px solid slategrey;
+  border-radius: 7px;
+}
+
+#wall-gridview .claim-button {
+  width: 100%;
+}
+/* end wall grid view styling */
 
 /*About page styling*/
-
 .about-headline {
   text-align: center;
   padding-bottom: 15px;
@@ -65,18 +94,11 @@
 }
 
 .about-photo {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 10px;
 }
 
 .about-text {
-  padding-bottom: 15px;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding: 0px 0px 5px 0px;
 }
 
 .about-text a:hover{
