@@ -7,6 +7,7 @@
   margin-top: 50px;
 }
 
+/* landing page */
 #landing-carousel {
   display: none;
 }
@@ -18,6 +19,54 @@
 #landing-header img {
   width: 100%;
 }
+
+#landing-nav button {
+  min-height: 50px;
+  margin-bottom: 6px;
+}
+
+@media (min-width: 768px) {
+  #landing-header {
+    display: none;
+  }
+
+  #landing-carousel {
+    display: block;
+  }
+
+  .carousel-inner {
+    width: 100%;
+    min-height: 200px !important;
+    max-height: 400px !important;
+    vertical-align: middle;
+  }
+
+  .carousel-inner img {
+    width: 100%;
+  }
+
+  .carousel-caption {
+    position: absolute;
+    top: 50px;
+    left: 15%;
+    right: 60%;
+    text-align: left;
+  }
+
+  #landing-nav {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 6px;
+  }
+
+  #landing-nav button {
+    min-height: 200px;
+    margin: 6px;
+    font-size: 1.8rem;
+  }
+}
+/* end landing page */
 
 .panel .section-header {
   margin-top: 0px;
@@ -141,102 +190,3 @@
 }
 
 /*End contact page styling*/
-/*Stats page styling*/
-.stats-header {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  background-color: #5a3440;
-  margin-top: 36px;
-  text-align: center;
-  font-size: 1.2em;
-  padding: 10px;
-}
-
-.stats-sider-left {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  background-color: #5a3440;
-  text-align: center;
-  font-size: 1.2em;
-  padding: 10px;
-}
-
-.stats-sider-right {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  background-color: #5a3440;
-  text-align: center;
-  font-size: 1.2em;
-  padding: 10px;
-}
-
-.stats-title-left {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  color: #5a3440;
-  text-align: center;
-  font-size: 1.1em;
-  padding: 5px;
-}
-
-.statistic-bold {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  color: #5A3453;
-  text-align: center;
-  font-size: 2.5em;
-}
-
-/*End stats page styling*/
-
-@media (min-width: 768px) {
-  #landing-header {
-    display: none;
-  }
-
-  #landing-carousel {
-    display: block;
-  }
-
-  .carousel-inner {
-    width: 100%;
-    min-height: 200px !important;
-    max-height: 400px !important;
-    vertical-align: middle;
-  }
-
-  .carousel-inner img {
-    width: 100%;
-  }
-
-  .carousel-caption {
-    position: absolute;
-    top: 50px;
-    left: 15%;
-    right: 60%;
-    text-align: left;
-  }
-}
-
-#landing-nav button {
-  min-height: 50px;
-  margin-bottom: 6px;
-}
-
-@media (min-width: 768px) {
-  #landing-nav {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-top: 6px;
-  }
-
-  #landing-nav button {
-    min-height: 200px;
-    margin: 6px;
-    font-size: 1.8rem;
-  }
-}

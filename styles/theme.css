@@ -34,10 +34,6 @@
 }
 
 /* ========== general ========== */
-body {
-  /*background: #f3f0f2;*/
-}
-
 .section-header {
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
@@ -53,6 +49,10 @@ body {
 
 button .glyphicon {
   font-size: 80%;
+}
+
+.nav-inline {
+  margin-bottom: 12px;
 }
 
 /* ========== landing page links ========== */
@@ -104,7 +104,7 @@ button .glyphicon {
 }
 
 /* ========== gift wall page claim buttons ========== */
-#sec-wall .selected, #admin-table .selected {
+#sec-wall .selected, #sec-admin .selected {
   background-color: #EDEAE9;
 }
 
@@ -118,7 +118,7 @@ button .glyphicon {
   background-color: #5A3453;
 }
 
-/* ========== list view ========== */
+/* ========== displaying requests ========== */
 #entry th, #admin-table th {
   background-color: #5a3440;
   color: white;
@@ -133,10 +133,22 @@ button .glyphicon {
   text-align: right;
 }
 
-/* ========== grid view ========== */
 .wall-grid-request {
   border: 1px solid #5a3453;
   border-radius: 20px;
+}
+
+#wall-view-type button .glyphicon {
+  font-size: 120%;
+}
+
+#wall-view-type button {
+  padding: 6px 10px 4px 10px;
+  color: #E0DBDA;
+}
+
+#wall-view-type button.selected {
+  color: #5A3453;
 }
 
 /* ========== checkout page ========== */
@@ -166,25 +178,61 @@ button .glyphicon {
   min-width: 20%;
 }
 
-/* MOVE TO STATE */
-.non-default {
-  display: none;
+/* ========== admin page ========== */
+#admin-status button {
+  color: rgba(0, 0, 0, 0.3);
 }
 
-/* MODULE OR LAYOUT? */
-#wall-view-type button .glyphicon {
-  font-size: 120%;
-}
-
-#wall-view-type button {
-  padding: 6px 10px 4px 10px;
-  color: #E0DBDA;
-}
-
-#wall-view-type button.selected {
+#admin-status button.selected {
   color: #5A3453;
+  font-weight: bold;
 }
 
-.nav-inline {
-  margin-bottom: 12px;
+/* ========== stats page ========== */
+.stats-header {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #5a3440;
+  margin-top: 36px;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+.stats-sider-left {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #5a3440;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+.stats-sider-right {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background-color: #5a3440;
+  text-align: center;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+.stats-title-left {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #5a3440;
+  text-align: center;
+  font-size: 1.1em;
+  padding: 5px;
+}
+
+.statistic-bold {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #5A3453;
+  text-align: center;
+  font-size: 2.5em;
 }
