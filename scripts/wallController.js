@@ -9,6 +9,7 @@ wallController.showWall = function() {
   });
   wallController.handleSwitchViews();
   wallController.handleFilterByCategory();
+  wallController.handleFilterByAmount();
 };
 
 wallController.showListWall = function() {
@@ -59,10 +60,6 @@ wallController.handleFilterByCategory = function() {
       wallController.showGridWall();
     }
   });
-};
-
-wallController.handleFilterByAmount = function() {
-  // do stuff
 };
 
 
