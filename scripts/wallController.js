@@ -2,7 +2,9 @@ var wallController = {};
 
 wallController.showWall = function() {
   giftWall.fetchAllRequests(function() {
-    wallController.showListWall(); // default to list view
+    giftWall.retrieveCachedClaim();
+    wallController.showListWall();  // default to list view
+    wallController.handleClaimButtons();
   });
   wallController.handleSwitchViews();
   wallController.handleFilterByCategory();
@@ -17,7 +19,6 @@ wallController.showListWall = function() {
   } else {
     wallView.renderListByCategory(giftWall.currentCat);
   }
-  wallController.handleClaimButtons();
 };
 
 wallController.showGridWall = function() {
@@ -29,17 +30,21 @@ wallController.showGridWall = function() {
   } else {
     wallView.renderGridByCategory(giftWall.currentCat);
   }
-  wallController.handleClaimButtons();
 };
 
-// handlers for filtering nav
+
 wallController.handleSwitchViews = function() {
   $('#listview-button').on('click', function() {
+    console.log(this);
+    $('#listview-button').addClass('selected');
+    $('#gridview-button').removeClass('selected');
     giftWall.viewState = true;
     wallController.showListWall();
   });
 
   $('#gridview-button').on('click', function() {
+    $('#gridview-button').addClass('selected');
+    $('#listview-button').removeClass('selected');
     giftWall.viewState = false;
     wallController.showGridWall();
   });
@@ -62,14 +67,14 @@ wallController.handleFilterByAmount = function() {
 
 
 wallController.handleClaimButtons = function() {
-  $('#entry').on('click', '.claim-button', function(event) {
+  $('#wall-listview, #wall-gridview').on('click', '.claim-button', function(event) {
     event.preventDefault();
     console.log('claimed ' + $(this).data('key'));
     wallView.addClaim($(this));
     giftWall.addClaim($(this).data('key'));
   });
 
-  $('#entry').on('click', '.unclaim-button', function(event) {
+  $('#wall-listview, #wall-gridview').on('click', '.unclaim-button', function(event) {
     event.preventDefault();
     console.log('unclaimed ' + $(this).data('key'));
     wallView.removeClaim($(this));

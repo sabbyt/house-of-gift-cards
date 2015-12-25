@@ -11,16 +11,17 @@ giftWall.currentUser = {
 };
 
 giftWall.retrieveCachedClaim = function() {
-  if (localStorage.getItem('claimed-keys')!= null) {
+  if (localStorage.getItem('claimed-keys') != null) {
     giftWall.claimed = JSON.parse(localStorage.getItem('claimed-keys'));
-    giftWall.claimed.forEach(function(key) {
-      $('#entry td').find('button[data-key=' + key + ']').click();
-    });
+    console.log(giftWall.claimed);
+    // giftWall.claimed.forEach(function(key) {
+    //   console.log(key);
+    //   $('#entry td').find('button[data-key=' + key + ']').click();
+    // });
   } else {
     giftWall.claimed = [];
   }
   giftWall.showGreeting();
-  console.log(giftWall.claimed);
 };
 
 giftWall.addClaim = function(key) {
@@ -106,19 +107,4 @@ giftWall.confirmRequestByKey = function(key) {
     claimed_dt: new Date()
   };
   childRef.update(updateData);
-};
-
-
-
-
-giftWall.renderListAll = function(callback) {
-  callback = callback || function() {};
-  giftWall.ref.orderByChild('status').equalTo('UNCLAIMED').once('value', function(snapshot) {
-    snapshot.forEach(function(request) {
-      var temp = request.val();
-      temp.key = request.key();
-      giftWall.all.push(temp);
-    });
-    callback();
-  });
 };

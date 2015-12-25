@@ -1,11 +1,13 @@
 <div class="col-xs-6 col-sm-4 col-md-3">
-  <div class="well grid-request">
+  <div class="well grid-request" data-key="{{key}}">
     <img class="request-grid-photo center-block img-responsive" src="{{img}}"/>
     <div class="request-grid-text">
       <p class="request-grid-name">{{first_name}}</p>
       <p><img src="/img/cat-icons/{{category}}.png" title="{{category}}"/> {{brand}}, ${{amount}}</p>
       <p>{{story}}</p>
     </div>
-    <button type="button" class="claim-button btn btn-orange claim-button-grid-view">Claim</button>
+    <div class="request-grid-button">
+      <button type="button" class="claim-button btn btn-orange claim-button-grid-view" data-key="{{key}}">Claim</button>
+    </div>
   </div>
 </div>
