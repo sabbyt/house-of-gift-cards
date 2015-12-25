@@ -5,11 +5,6 @@ giftWall.viewState = true; // true for list view, false for grid view
 giftWall.currentCat = 'reset';
 giftWall.ref = new Firebase('https://hogc.firebaseio.com/requests');
 
-// giftWall.currentUser = {
-//   firstName: 'User',
-//   username: 'username'
-// };
-
 giftWall.retrieveUserInfo = function(callback) {
   callback = callback || function() {};
   if (localStorage.getItem('current-user') != null) {
@@ -30,7 +25,6 @@ giftWall.retrieveCachedClaim = function() {
     giftWall.claimed = [];
   }
   console.log(giftWall.claimed);
-  // giftWall.showGreeting();
 };
 
 giftWall.addClaim = function(key) {
@@ -55,13 +49,6 @@ giftWall.updateLS = function() {
 giftWall.updateGreetingNum = function() {
   $('#greeting-num').text(giftWall.claimed.length);
 };
-
-giftWall.showGreeting = function() {
-  $('#greeting').show();
-  $('#greeting-name').text('Hi ' + giftWall.currentUser.firstName + ', ');
-  giftWall.updateGreetingNum();
-};
-
 
 giftWall.getListTemplate = function(callback) {
   if (!giftWall.listTemplate) {

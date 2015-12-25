@@ -18,6 +18,12 @@ wallView.showClaimed = function() {
   });
 };
 
+wallView.showGreeting = function() {
+  $('#greeting').show();
+  $('#greeting-name').text('Hi ' + giftWall.currentUser.firstName + ', ');
+  giftWall.updateGreetingNum();
+};
+
 // takes an array of requests and render to list view
 wallView.renderList = function(requests) {
   $('#entry tr').not(':first-child').remove();

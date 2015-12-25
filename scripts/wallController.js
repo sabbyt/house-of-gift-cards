@@ -3,7 +3,7 @@ var wallController = {};
 wallController.showWall = function() {
   giftWall.fetchAllRequests(function() {
     giftWall.retrieveCachedClaim();
-    giftWall.retrieveUserInfo(giftWall.showGreeting);
+    giftWall.retrieveUserInfo(wallView.showGreeting);
     wallController.showListWall();  // default to list view
     wallController.handleClaimButtons();
   });
