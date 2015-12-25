@@ -70,6 +70,10 @@
   border-radius: 7px;
 }
 
+.request-grid-text img {
+  vertical-align: middle;
+}
+
 #wall-gridview .claim-button {
   width: 100%;
 }
