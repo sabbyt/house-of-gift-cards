@@ -6,7 +6,7 @@ adminController.showList = function() {
 };
 
 adminController.handleClaimButtons = function() {
-  $('#entry').on('click', '.send-btn', function(event) {
+  $('#admin-table').on('click', '.send-btn', function(event) {
     event.preventDefault();
     console.log('sent ' + $(this).data('key'));
     adminView.sendClaim($(this));

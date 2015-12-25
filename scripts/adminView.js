@@ -8,7 +8,7 @@ adminView.listView = function() {
 
 adminView.toListHTML = function(data) {
   var html = admin.listTemplate(data);
-  $('#entry').append(html);
+  $('#admin-table').append(html);
 };
 
 adminView.renderListAll = function(callback) {

@@ -104,7 +104,7 @@ button .glyphicon {
 }
 
 /* ========== gift wall page claim buttons ========== */
-#sec-wall .selected {
+#sec-wall .selected, #admin-table .selected {
   background-color: #EDEAE9;
 }
 
@@ -119,7 +119,7 @@ button .glyphicon {
 }
 
 /* ========== list view ========== */
-#entry th {
+#entry th, #admin-table th {
   background-color: #5a3440;
   color: white;
   font-family: 'Montserrat', sans-serif;
