@@ -9,7 +9,6 @@ wallController.showWall = function() {
   });
   wallController.handleSwitchViews();
   wallController.handleFilterByCategory();
-  wallController.handleFilterByAmount();
 };
 
 wallController.showListWall = function() {
@@ -34,7 +33,7 @@ wallController.showGridWall = function() {
   }
 };
 
-
+// handlers in the filtering navigation
 wallController.handleSwitchViews = function() {
   $('#listview-button').on('click', function() {
     $('#listview-button').addClass('selected');
@@ -62,7 +61,7 @@ wallController.handleFilterByCategory = function() {
   });
 };
 
-
+// handlers for the body content
 wallController.handleClaimButtons = function() {
   $('#wall-listview, #wall-gridview').on('click', '.claim-button', function(event) {
     event.preventDefault();
