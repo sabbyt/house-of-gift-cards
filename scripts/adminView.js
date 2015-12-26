@@ -8,7 +8,7 @@ adminView.listView = function() {
 
 adminView.toListHTML = function(data) {
   var html = admin.listTemplate(data);
-  $('#entry').append(html);
+  $('#admin-table').append(html);
 };
 
 adminView.renderListAll = function(callback) {
@@ -19,7 +19,7 @@ adminView.renderListAll = function(callback) {
       temp.key = request.key();
       temp.requestDT = temp.request_dt.substring(0,16);
       temp.claimedDT = temp.claimed_dt.substring(0,16);
-      // admin.all.push(temp);
+      admin.all.push(temp);
       adminView.toListHTML(temp);
     });
     callback();
@@ -30,4 +30,9 @@ adminView.sendClaim = function($btn) {
   $btn.hide();
   $btn.parent().parent().addClass('selected');
   $btn.parent().siblings('.claim-status').text('SENT');
+};
+
+adminView.renderList = function(requests) {
+  $('#admin-table tr').not(':first-child').remove();
+  requests.forEach(adminView.toListHTML);
 };

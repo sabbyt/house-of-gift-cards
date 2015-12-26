@@ -1,46 +1,76 @@
 var wallController = {};
 
-// list specific functions
+wallController.showWall = function() {
+  giftWall.fetchAllRequests(function() {
+    giftWall.retrieveCachedClaim();
+    giftWall.retrieveUserInfo(wallView.showGreeting);
+    wallController.showListWall();  // default to list view
+    wallController.handleClaimButtons();
+  });
+  wallController.handleSwitchViews();
+  wallController.handleFilterByCategory();
+};
+
 wallController.showListWall = function() {
   $('#wall-gridview').hide();
   $('#wall-listview').show();
-  wallView.listView();  // default to list view
-  wallController.handleClaimButtons();
+  console.log(giftWall.currentCat);
+  if (giftWall.currentCat === 'reset') {
+    wallView.renderListAll();
+  } else {
+    wallView.renderListByCategory(giftWall.currentCat);
+  }
 };
 
-wallController.handleListWallButton = function () {
-  $('#listview-button').on('click', function() {
-    giftWall.viewState = true;
-    wallController.showListWall();
-  });
-};
-
-// grid specific functions
 wallController.showGridWall = function() {
   $('#wall-listview').hide();
   $('#wall-gridview').show();
-  wallView.gridView();
-  wallController.handleClaimButtons();
+  console.log(giftWall.currentCat);
+  if (giftWall.currentCat === 'reset') {
+    wallView.renderGridAll();
+  } else {
+    wallView.renderGridByCategory(giftWall.currentCat);
+  }
 };
 
-wallController.handleGridWallButton = function (){
+// handlers in the filtering navigation
+wallController.handleSwitchViews = function() {
+  $('#listview-button').on('click', function() {
+    $('#listview-button').addClass('selected');
+    $('#gridview-button').removeClass('selected');
+    giftWall.viewState = true;
+    wallController.showListWall();
+  });
+
   $('#gridview-button').on('click', function() {
+    $('#gridview-button').addClass('selected');
+    $('#listview-button').removeClass('selected');
     giftWall.viewState = false;
-    console.log(giftWall.viewState);
     wallController.showGridWall();
   });
 };
 
-// universal functions for both list and grid views
+wallController.handleFilterByCategory = function() {
+  $('#category-filter').on('change', function() {
+    giftWall.currentCat = $(this).val();
+    if (giftWall.viewState) {
+      wallController.showListWall();
+    } else {
+      wallController.showGridWall();
+    }
+  });
+};
+
+// handlers for the body content
 wallController.handleClaimButtons = function() {
-  $('#entry').on('click', '.claim-button', function(event) {
+  $('#wall-listview, #wall-gridview').on('click', '.claim-button', function(event) {
     event.preventDefault();
     console.log('claimed ' + $(this).data('key'));
     wallView.addClaim($(this));
     giftWall.addClaim($(this).data('key'));
   });
 
-  $('#entry').on('click', '.unclaim-button', function(event) {
+  $('#wall-listview, #wall-gridview').on('click', '.unclaim-button', function(event) {
     event.preventDefault();
     console.log('unclaimed ' + $(this).data('key'));
     wallView.removeClaim($(this));
@@ -48,36 +78,6 @@ wallController.handleClaimButtons = function() {
   });
 };
 
-wallController.handleCategoryFilter = function (callback){
-  $('#category-filter').on('change', function() {
-    var categoryFilter = $(this).val();
-    console.log(categoryFilter);
-    if (giftWall.viewState === true) {
-      if (categoryFilter === 'reset') {
-        $('#entry tr').not(':first-child').remove();
-        wallController.showListWall();
-      } else {
-        wallView.renderListFilteredByCategory(categoryFilter);
-      }
-    }
-    else {
-      $('#wall-gridview').empty();
-      if (categoryFilter === 'reset') {
-        wallController.showGridWall();
-      } else {
-        wallView.renderGridFilteredByCategory(categoryFilter);
-      }
-    }
-  });
-};
-
-wallController.handleAmountFilter = function (){
-  // do stuff
-};
 
 // ===== MOVE TO ROUTER =====
-wallController.showListWall();
-// wallController.showGridWall();
-wallController.handleGridWallButton();
-wallController.handleListWallButton();
-wallController.handleCategoryFilter();
+wallController.showWall();
