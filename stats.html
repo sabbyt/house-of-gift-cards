@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="/styles/module.css">
     <link rel="stylesheet" type="text/css" href="/styles/state.css">
     <link rel="stylesheet" type="text/css" href="/styles/theme.css">
+
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
   </head>
 
   <body>
@@ -32,65 +34,83 @@
 
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/">About</a></li>
-            <li><a href="/">Stats</a></li>
-            <li><a href="/">Contact</a></li>
+            <li data-section="home"><a href="/">Home</a></li>
+            <li data-section="about"><a href="/">About</a></li>
+            <li data-section="stats"><a href="/">Stats</a></li>
+            <li data-section="contact"><a href="/">Contact</a></li>
           </ul>
-        </div>
 
-        <p class="navbar-text pull-right hidden">Signed in as Mark Otto</p>
+          <div id="greeting" class="navbar-text pull-right non-default">
+            <span id="greeting-name">Hi, </span>
+            <a href="/checkout.html">
+              <span class="glyphicon glyphicon-shopping-cart"></span>
+              (<span id="greeting-num">0</span>)
+            </a>
+          </div>
+        </div>
       </div>
     </nav>
     <!-- end primary nav -->
 
     <div id="nav-spacing"></div>
 
-    <header>
-
-    </header>
-
 
     <main class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <h1 class="section-header about-headline">Our Impact</h1>
-          <h5 class='stats-header'>Overview</h5>
-        </div>
-      </div>
+      <section id="sec-stats">
 
-      <div class="row">
-        <div class="col-md-4">
-          <p class='stats-title-left'>Total Gift Cards Sent</p>
-          <p class='statistic-bold'>1,234</p>
-          <p class='stats-title-left'>Total Gift Card Amount</p>
-          <p class='statistic-bold'>$7,355</p>
-          <p class='stats-title-left'>Average Gift Card Amount Sent Per Month</p>
-          <p class='statistic-bold'>$12.75</p>
-        </div>
-        <div class="col-md-8">
-          <!-- chart by hogc here-->
-
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4">
-          <h5 class='stats-sider-left'>Leaderboard</h5>
-          <!-- leaderboard by org here -->
+        <div class="row">
+          <div class="col-xs-12">
+            <h1 class="section-header about-headline">Our Impact</h1>
+            <h5 class='stats-header'>Overview</h5>
+          </div>
         </div>
 
-        <div class="col-md-8">
-          <h5 class='stats-sider-right'>Recent Activities</h5>
-          <!-- recent activity here -->
+        <div class="row">
+          <div class="col-md-4">
+            <p class='stats-subtitle'>Number of Gift Cards Sent To Date</p>
+            <p class='stats-num'>1,234</p>
+            <p class='stats-subtitle'>Total Gift Card Amount</p>
+            <p class='stats-num'>$7,355</p>
+            <p class='stats-subtitle'>Average Amount per Gift Card</p>
+            <p class='stats-num'>$12.75</p>
+          </div>
+          <div class="col-md-8">
+            <!-- chart by hogc here-->
+
+          </div>
         </div>
-      </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <h5 class='stats-header'>Leaderboard</h5>
+            <!-- leaderboard by org here -->
+          </div>
+
+          <div class="col-md-8">
+            <h5 class='stats-header'>Recent Activities</h5>
+            <!-- recent activity here -->
+          </div>
+        </div>
+      </section>
 
     </main>
 
+    <!-- vendor scripts -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- helpers -->
+    <script type="text/javascript" src="/scripts/util.js"></script>
+
+    <script type="text/javascript" src="/scripts/wall.js"></script>
+    <script type="text/javascript" src="/scripts/wallView.js"></script>
+    <!-- <script type="text/javascript" src="/scripts/wallController.js"></script> -->
+
+    <script type="text/javascript" src="/scripts/stats.js"></script>
+    <script type="text/javascript" src="/scripts/statsView.js"></script>
+    <script type="text/javascript" src="/scripts/statsController.js"></script>
+
   </body>
 </html>

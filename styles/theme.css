@@ -193,46 +193,26 @@ button .glyphicon {
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   color: #FFFFFF;
-  background-color: #5a3440;
-  margin-top: 36px;
+  background-color: #5A3453;
   text-align: center;
   font-size: 1.2em;
   padding: 10px;
 }
 
-.stats-sider-left {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  background-color: #5a3440;
-  text-align: center;
-  font-size: 1.2em;
-  padding: 10px;
-}
-
-.stats-sider-right {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  background-color: #5a3440;
-  text-align: center;
-  font-size: 1.2em;
-  padding: 10px;
-}
-
-.stats-title-left {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  color: #5a3440;
-  text-align: center;
-  font-size: 1.1em;
-  padding: 5px;
-}
-
-.statistic-bold {
+.stats-subtitle {
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   color: #5A3453;
   text-align: center;
-  font-size: 2.5em;
+  font-size: 1.1em;
+  margin-top: 12px;
+  margin-bottom: 3px;
+}
+
+.stats-num {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #5A3453;
+  text-align: center;
+  font-size: 3em;
 }
