@@ -189,30 +189,42 @@ button .glyphicon {
 }
 
 /* ========== stats page ========== */
-.stats-header {
+.stats-header, .stats-title, .stats-subtitle, .stats-num {
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
-  color: #FFFFFF;
-  background-color: #5A3453;
   text-align: center;
+}
+
+.stats-header {
+  background-color: #5A3453;
+  color: #FFFFFF;
   font-size: 1.2em;
   padding: 10px;
+  margin-bottom: 20px;
+}
+
+.stats-header-orange {
+  background-color: #FEC250;
+  padding: 7px;
+  font-size: 1em;
 }
 
 .stats-subtitle {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
   color: #5A3453;
-  text-align: center;
   font-size: 1.1em;
-  margin-top: 12px;
   margin-bottom: 3px;
 }
 
 .stats-num {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
   color: #5A3453;
-  text-align: center;
   font-size: 3em;
+  background-color: #EDEAE9;
+  border-radius: 100%;
+  padding: 20px;
+}
+
+.stats-title {
+  color: #5A3453;
+  font-size: 1.6em;
+  margin-bottom: 12px;
 }

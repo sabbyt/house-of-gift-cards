@@ -190,3 +190,20 @@
 }
 
 /*End contact page styling*/
+
+#stats-chart-legend {
+  padding: 12px;
+  padding-left: 10%;
+}
+.stackedbar-legend {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.stackedbar-legend li span{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
