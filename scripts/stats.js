@@ -89,3 +89,23 @@ stats.generateChartData = function() {
   console.log(stats.chartDataArray);
 
 };
+
+stats.constructDataset = function() {
+  stats.categories = ['Children', 'Clothing', 'Community', 'Food', 'Fuel', 'Home', 'Pets', 'Miscellaneous'];
+  stats.chartDatasets = stats.categories.map(function(category) {
+    return {
+      label: category,
+      data: new Array(stats.chartLabels.length).fill(0)
+    };
+  });
+};
+
+stats.generateStackedBarData = function() {
+  stats.generateChartLabel();
+  stats.constructDataset();
+  stats.allClaimed.forEach(function(obj) {
+    var xIndex = stats.chartMonths.indexOf(obj.claimed_dt.substring(0, 7));
+    var yIndex = stats.categories.indexOf(obj.category);
+    stats.chartDatasets[yIndex].data[xIndex] += parseInt(obj.amount);
+  });
+};
