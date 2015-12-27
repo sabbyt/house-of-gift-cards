@@ -6,6 +6,5 @@ aboutUsView.toHTML = function(data) {
 };
 
 aboutUsView.renderBioAll = function(data) {
-  console.log(aboutUsData);
   aboutUsData.forEach(aboutUsView.toHTML);
 };
