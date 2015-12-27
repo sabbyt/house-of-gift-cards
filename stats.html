@@ -57,29 +57,43 @@
 
     <main class="container">
       <section id="sec-stats">
+        <h1 class="section-header text-center">Our Impact</h1>
 
         <div class="row">
           <div class="col-xs-12">
-            <h1 class="section-header about-headline">Our Impact</h1>
-            <h5 class='stats-header'>Overview</h5>
+            <h5 class="stats-header">Overview</h5>
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-4">
+          <div class="col-sm-6 col-md-3">
             <p class="stats-subtitle">Number of Current Active Requests</p>
             <p class="stats-num" id="stats-num-unclaimed"></p>
+          </div>
+          <div class="col-sm-6 col-md-3">
             <p class="stats-subtitle">Number of Gift Cards Claimed</p>
             <p class="stats-num" id="stats-num-claimed"></p>
-            <p class="stats-subtitle">Total Amount Claimed</p>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <p class="stats-subtitle">Total Amount Claimed To Date</p>
             <p class="stats-num" id="stats-amount-claimed"></p>
+          </div>
+          <div class="col-sm-6 col-md-3">
             <p class="stats-subtitle">Average Amount per Gift Card</p>
             <p class="stats-num" id="stats-avg-claimed"></p>
           </div>
-          <div class="col-md-8">
-            <!-- chart by hogc here-->
-            <canvas id="stats-chart" width="300" height="300"></canvas>
+        </div>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <h5 class="stats-header stats-header-orange">Monthly Donation by Category</h5>
           </div>
+          <!-- <p class="stats-title">Monthly Donation by Category</p> -->
+
+          <div class="col-sm-9 col-md-7 col-md-offset-1">
+            <canvas id="stats-chart" width="300" height="200"></canvas>
+          </div>
+          <aside class="col-sm-3">
+            <div class="panel panel-default" id="stats-chart-legend">
+
+            </div>
+          </aside>
         </div>
 
         <div class="row">

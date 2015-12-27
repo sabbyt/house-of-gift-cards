@@ -11,7 +11,7 @@ statsView.renderNumStats = function() {
   $('#stats-num-unclaimed').text(numUnclaimed);
   var numClaimed = stats.calcTotalNumberClaimed();
   $('#stats-num-claimed').text(numClaimed);
-  var amountClaimed = (stats.calcTotalAmountClaimed()).toFixed(2);
+  var amountClaimed = stats.calcTotalAmountClaimed();
   $('#stats-amount-claimed').text('$' + amountClaimed);
   var avgClaimed = (stats.calcAvgAmountClaimed()).toFixed(2);
   $('#stats-avg-claimed').text('$' + avgClaimed);
@@ -54,7 +54,7 @@ statsView.renderStackedBarChart = function() {
     datasets: stats.chartDatasets
   };
   var stackedBarChart = new Chart(ctx).StackedBar(data, options);
-
+  $('#stats-chart-legend').append(stackedBarChart.generateLegend());
 };
 
 statsView.colorStackedBar = function() {
@@ -65,7 +65,6 @@ statsView.colorStackedBar = function() {
     var rgb = color.match(/\(([^()]+)\)/)[1];
     return 'rgba(' + rgb + ', 0.9)';
   });
-  console.log(opaqueColor);
   stats.chartDatasets.forEach(function(dataset, index) {
     dataset.fillColor = barColor[index];
     dataset.highlightFill = opaqueColor[index];

@@ -74,9 +74,7 @@ stats.generateChartLabel = function() {
     }
   });
   stats.chartMonths = stats.chartMonths.sort();
-  console.log(stats.chartMonths);
   stats.chartLabels = stats.chartMonths.map(stats.getChartLabel);
-  console.log(stats.chartLabels);
 };
 
 stats.generateChartData = function() {
@@ -86,8 +84,6 @@ stats.generateChartData = function() {
     var month = obj.claimed_dt.substring(0, 7);
     stats.chartDataArray[stats.chartMonths.indexOf(month)] += parseInt(obj.amount);
   });
-  console.log(stats.chartDataArray);
-
 };
 
 stats.constructDataset = function() {
