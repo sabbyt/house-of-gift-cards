@@ -67,27 +67,29 @@
 
         <div class="row">
           <div class="col-md-4">
-            <p class='stats-subtitle'>Number of Gift Cards Sent To Date</p>
-            <p class='stats-num'>1,234</p>
-            <p class='stats-subtitle'>Total Gift Card Amount</p>
-            <p class='stats-num'>$7,355</p>
-            <p class='stats-subtitle'>Average Amount per Gift Card</p>
-            <p class='stats-num'>$12.75</p>
+            <p class="stats-subtitle">Number of Current Active Requests</p>
+            <p class="stats-num" id="stats-num-unclaimed"></p>
+            <p class="stats-subtitle">Number of Gift Cards Claimed</p>
+            <p class="stats-num" id="stats-num-claimed"></p>
+            <p class="stats-subtitle">Total Amount Claimed</p>
+            <p class="stats-num" id="stats-amount-claimed"></p>
+            <p class="stats-subtitle">Average Amount per Gift Card</p>
+            <p class="stats-num" id="stats-avg-claimed"></p>
           </div>
           <div class="col-md-8">
             <!-- chart by hogc here-->
-
+            <canvas id="stats-chart" width="300" height="300"></canvas>
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-4">
-            <h5 class='stats-header'>Leaderboard</h5>
+            <h5 class="stats-header">Leaderboard</h5>
             <!-- leaderboard by org here -->
           </div>
 
           <div class="col-md-8">
-            <h5 class='stats-header'>Recent Activities</h5>
+            <h5 class="stats-header">Recent Activities</h5>
             <!-- recent activity here -->
           </div>
         </div>
@@ -107,6 +109,7 @@
     <script type="text/javascript" src="/scripts/wall.js"></script>
     <script type="text/javascript" src="/scripts/wallView.js"></script>
     <!-- <script type="text/javascript" src="/scripts/wallController.js"></script> -->
+    <script type="text/javascript" src="/scripts/admin.js"></script>
 
     <script type="text/javascript" src="/scripts/stats.js"></script>
     <script type="text/javascript" src="/scripts/statsView.js"></script>
