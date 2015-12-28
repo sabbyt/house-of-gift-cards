@@ -1,6 +1,8 @@
 var indexController = {};
 
 indexController.index = function() {
+  $().hide
+
   $('#landing-to-submit').on('click', function() {
     $(location).attr('href', '/request.html');
   });
@@ -11,5 +13,3 @@ indexController.index = function() {
     $(location).attr('href', '/login.html');
   });
 };
-
-indexController.index();
