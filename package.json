@@ -1,12 +1,12 @@
 {
-  "name": "mvc-blog",
+  "name": "house-of-gift-cards",
   "version": "1.0.0",
-  "description": "As we now complete our MVC conversation, we can refactor our app to use good MVC separation of concerns.",
+  "description": "Project made for Code Fellows 301.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Code Fellows",
+  "author": "House of Gift Cards Team",
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.3",
