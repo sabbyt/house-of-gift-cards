@@ -24,13 +24,15 @@ requests.handleSubmit = function(){
     requestsDBRef.push({first_name: firstName, last_name: lastName, age: age, email: email, story: story, category: category, brand: brand, amount: amount, request_dt: request_dt_string, status: status, img: img});
     $('#requestform input').val('');
     $('#requestform textarea').val('');
+    $('#uploaded').remove();
+    $('.fp__btn').show();
   });
 };
 
-$(document).ready(function() {
+requests.profilePicHandle = function(){
   $('#profilePic').on('change', function(){
     profilePic = (event.fpfile.url);
     $('#uploaded').attr('src', profilePic);
     $('.fp__btn').hide();
   });
-});
+};

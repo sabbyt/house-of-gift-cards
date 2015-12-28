@@ -6,3 +6,4 @@ requestsController.index = function() {
 
 //MOVE TO ROUTER
 requestsController.index();
+requests.profilePicHandle();
