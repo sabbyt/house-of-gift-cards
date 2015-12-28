@@ -1,15 +1,16 @@
 var indexController = {};
 
 indexController.index = function() {
+  $('section').hide();
+  $('#sec-landing, #index-header').fadeIn();
+
   $('#landing-to-submit').on('click', function() {
-    $(location).attr('href', '/request.html');
+    page('/request');
   });
   $('#landing-to-stats').on('click', function() {
-    $(location).attr('href', '/stats.html');
+    page('/impact');
   });
   $('#landing-to-login').on('click', function() {
-    $(location).attr('href', '/login.html');
+    page('/login');
   });
 };
-
-indexController.index();

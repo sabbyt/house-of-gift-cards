@@ -16,6 +16,7 @@
     <link rel="icon" type="image/png" href="/img/favicon.png">
 
     <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
     <!-- Firebase fallback -->
     <script type="text/javascript">
       if (!window.Firebase) {
@@ -36,20 +37,27 @@
             <span class="icon-bar"></span>
           </button>
           <!-- brand image -->
-          <img src="/img/hogc-logo-small.png" alt="House of Gift Cards" class="navbar-brand"/>
+          <a href="/">
+            <img src="/img/hogc-logo-small.png" alt="House of Gift Cards" class="navbar-brand"/>
+          </a>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/stats.html">Impact</a></li>
-            <li><a href="/contact.html">Contact</a></li>
+            <li data-section="home"><a href="/">Home</a></li>
+            <li data-section="about"><a href="/about">About</a></li>
+            <li data-section="stats"><a href="/impact">Impact</a></li>
+            <li data-section="contact"><a href="/contact">Contact</a></li>
           </ul>
-        </div>
 
-        <p class="navbar-text pull-right hidden">Signed in as Mark Otto</p>
-      </div>
+          <div id="greeting" class="navbar-text pull-right non-default">
+            <span id="greeting-name">Hi, </span>
+            <a href="/checkout">
+              <span class="glyphicon glyphicon-shopping-cart"></span>
+              (<span id="greeting-num">0</span>)
+            </a>
+          </div>
+        </div>
     </nav>
     <!-- end primary nav -->
 
@@ -145,6 +153,365 @@
         </div>
       </section>
 
+      <section id="sec-about">
+        <div class="row">
+          <div class="col-xs-12">
+            <h1 class="section-header about-headline">About House of Gift&nbsp;Cards</h1>
+            <p class='about-mission col-xs-12 col-sm-12 col-md-12 col-lg-12'>Our mission is to provide a platform for users, from individuals to large corporate donors, to purchase gift cards for those in need. The vision of this project is to provide a means for donors to gift a wide range of commodities from food, to utilities, to clothing.
+            </p>
+            <p class='about-mission'>House of Gift Cards is a streamlined app that aims to cut down the time and energy individually spent on giving; thereby fulfilling more requests and realizing the maximum benefit of these claims. This centralized platform will allow easy collection of the data, allow visualization of individual impact, and the total impact we have made as a community. Additionally, this system will connect the requestor with the donor, to establish a deeper, long-lasting connection beyond just a meaningful contribution.</p>
+            <p class='about-mission'>100% of every dollar you gift on House of Gift Cards goes directly towards the requestor; House of Gift Cards does not take a cut. </p>
+          </div>
+        </div>
+        <hr class="about-hr">
+
+        <div class="row">
+          <h1 class="about-headline section-header">Our Team</h1>
+          <div id="bios"></div>
+        </div>
+      </section>
+
+      <section id="sec-contact">
+        <div class = "row">
+          <div class="col-xs-12">
+            <h1 class="contact-headline section-header">Contact Us</h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+           <iframe class="contact-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.132886867171!2d-122.33840604921993!3d47.623548079083655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549015375f0ca7d9%3A0x854636352b4edd33!2s511+Boren+Ave+N%2C+Seattle%2C+WA+98109!5e0!3m2!1sen!2sus!4v1450846677273" width="500" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12 contact-info">
+            <div class='section-title'><p>ADDRESS</div>511 Boren Ave N,<br>Seattle WA 98109</p>
+            <div class='section-title'><p>PHONE</div>(452) 123-4567</p>
+            <div class='section-title'><p>EMAIL</div>info@houseofgiftcards.com</p>
+
+            <!-- facebook button -->
+            <a href="https://www.facebook.com/houseofgiftcards/" target="_blank" class='icon-links'>
+              <img class = "contact-icon" src="/img/icons/contact-facebook.png" alt="Facebook"/>
+            </a>
+            <!-- google plus button -->
+            <a href="https://plus.google.com/u/0/114666460700351913429/posts" target="_blank" class='icon-links'>
+              <img class = "contact-icon" src="/img/icons/contact-google.png" alt="Google"/>
+            </a>
+            <!-- twitter button -->
+            <a href="https://twitter.com/houseofgiftcard" target="_blank" class='icon-links'>
+              <img class = "contact-icon" src="/img/icons/contact-twitter.png" alt="Twitter"/>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="sec-admin">
+
+                <h1 class="section-header text-center">Admin</h1>
+
+                <nav id="wall-filter" class="form-inline nav-inline">
+
+                  Order by:
+                  <select id="admin-sort" class="form-control">
+                    <option value="claimed_dt">Claim date</option>
+                    <option value="request_dt">Request date</option>
+                    <option value="brand">Brand</option>
+                    <option value="claimed_by">Donor username</option>
+                  </select>
+                  <button id="admin-sort-dir" class="btn btn-default" name="Sort direction">
+                    <span class="glyphicon glyphicon-sort"></span>
+                  </button>
+
+                  <div id="admin-status" class="btn-group pull-right" role="group">
+                    <button type="button" class="btn btn-default selected" id="admin-status-all">All</button>
+                    <button type="button" class="btn btn-default" id="admin-status-claimed">CLAIMED</button>
+                    <button type="button" class="btn btn-default" id="admin-status-sent">SENT</button>
+                  </div>
+                </nav>
+
+                <div class="table-responsive">
+                  <table id="admin-table" class="table">
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Brand</th>
+                      <th>Amount</th>
+                      <th>Request Date</th>
+                      <th>Status</th>
+                      <th>Claimed By</th>
+                      <th>Claim Date</th>
+                      <th></th>
+                    </tr>
+                  </table>
+                </div>
+      </section>
+
+      <section id="sec-request" class="row">
+
+        <div class="col-md-8 col-md-offset-2">
+          <h1 class="section-header text-center">Submit a request</h1>
+          <form id="requestform">
+            <div class="form-group col-md-6">
+              <label>First Name</label>
+              <input type="text" class="form-control" id ="requesterFirstName" placeholder="First Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Last Name</label>
+              <input type="text" class="form-control" id="requesterLastName" placeholder="Last Name">
+            </div>
+            <div class="form-group col-md-3">
+              <label>Age</label>
+              <input type="number" class="form-control" id="requesterAge" placeholder="Age">
+            </div>
+            <div class="form-group col-md-9">
+              <label>Email</label>
+              <input type="email" class="form-control" id="requesterEmail" placeholder="Email">
+            </div>
+            <div class="form-group col-md-12">
+              <label>Story</label>
+              <textarea class="form-control" id="requesterStory" rows="3"></textarea>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Category</label>
+              <select class="form-control" id="requestCategory">
+                <option>Home</option>
+                <option>Children</option>
+                <option>Community</option>
+                <option>Food</option>
+                <option>Pets</option>
+                <option>Fuel</option>
+                <option>Clothing</option>
+                <option>Miscellaneous</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Brand</label>
+              <input type="text" class="form-control" id= "requestBrand" placeholder="Brand">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Amount</label>
+              <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input type="number" class="form-control" id="requestAmount" placeholder="Amount">
+              </div>
+            </div>
+
+            <div class="form-group col-md-12">
+              <p><b>Upload a Photo:</b></p>
+              <input id="profilePic" type="filepicker" data-fp-apikey="ALHEfx5koRmWi3WIkLf0Yz">
+              <img class="uploaded" id="uploaded" width='100px'/>
+            </div>
+
+            <div class="form-group col-md-12">
+              <button type="submit" id="requestSubmit" class="btn btn-orange bigger-btn">Submit</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section id="sec-login" class="row top-row">
+        <!-- login panel -->
+        <div class="panel panel-default col-md-3 col-md-offset-1 col-sm-4">
+          ​<h1 class="section-header text-center">Login</h1>
+          <form id="sign-in">
+            <div class="col-md-12">
+              <div id="sign-in-warning" class="alert alert-danger non-default" role="alert"></div>
+            </div>
+            <div class="form-group col-md-12">
+              <label>Username</label>
+              <input type="text" class="form-control" id="sign-in-username" placeholder="Username">
+            </div>
+            <div class="form-group col-md-12">
+              <label>Password</label>
+              <input type="password" class="form-control" id="sign-in-password" placeholder="Password">
+            </div>
+      ​            <div class="form-group col-md-12">
+              <button type="submit" id="sign-in-submit" class="btn btn-orange center-block bigger-btn">Sign in</button>
+            </div>
+          </form>
+        </div>​
+        <!-- register panel -->
+        <div class="panel panel-default col-md-6 col-sm-offset-1 col-sm-7">
+          ​<h1 class="section-header text-center">Register account</h1>
+          <form id="register">
+            <div class="col-md-12">
+              <div id="register-warning" class="alert alert-danger non-default" role="alert"></div>
+            </div>
+            <div class="form-group col-md-6">
+              <label>First Name</label>
+              <input type="text" class="form-control" id="register-fname" placeholder="First Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Last Name</label>
+              <input type="text" class="form-control" id="register-lname" placeholder="Last Name">
+            </div>
+            <div class="form-group col-md-12">
+              <label>Email</label>
+              <input type="email" class="form-control" id="register-email" placeholder="Email">
+            </div>
+            <div class="form-group col-md-12">
+              <label>Organization</label>
+              <input type="text" class="form-control" id="register-org" placeholder="Organization">
+            </div>
+            <div class="form-group col-md-12">
+              <label>Choose a username</label>
+              <input type="text" class="form-control" id="register-username" placeholder="Username">
+            </div>
+            <div id="register-password-input" class="form-group col-md-12 non-default">
+              <label>Set password</label>
+              <input type="password" class="form-control" id="register-password" placeholder="Password">
+            </div>
+            <div class="form-group col-md-12">
+              <button type="submit" id="register-submit" class="btn btn-orange center-block bigger-btn">Register</button>
+            </div>
+          </form>
+        </div>    ​
+      </section>
+
+      <section id="sec-wall">
+        <h1 class="section-header text-center">Claim a request</h1>
+        <p class="wall-instructions">Browse the gift card requests below and select as many gift card requests as you would like.<br>Checkout and confirm the gift cards you wish to purchase.</p>
+
+        <nav id="wall-filter" class="form-inline nav-inline">
+
+          Filter by:
+          <select id="category-filter" class="form-control">
+            <option value="reset">Show All Categories</option>
+            <option>Children</option>
+            <option>Clothing</option>
+            <option>Community</option>
+            <option>Food</option>
+            <option>Fuel</option>
+            <option>Home</option>
+            <option>Pets</option>
+            <option>Miscellaneous</option>
+          </select>
+
+          <div id="wall-view-type" class="btn-group" role="group">
+            <button type="button" class="btn btn-default selected" id="listview-button">
+              <span class="glyphicon glyphicon-th-list"></span>
+            </button>
+            <button type="button" class="btn btn-default" id="gridview-button">
+              <span class="glyphicon glyphicon-th-large"></span>
+            </button>
+          </div>
+        </nav>
+
+        <div class="row clearfix">
+          <div class="clearfix" id="wall-gridview"></div>
+        </div>
+
+        <div class="table-responsive" id="wall-listview">
+          <table id="entry" class="table">
+            <tr>
+              <th>Name</th>
+              <th>Story</th>
+              <th>Category</th>
+              <th>Brand</th>
+              <th>Amount</th>
+              <th></th>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <section id="sec-checkout">
+        <h1 class="section-header text-center">Checkout</h1>
+
+        <nav class="nav-inline">
+          <a id="checkout-to-wall" href="/wall">
+            <button class="btn btn-default">
+              <span class="glyphicon glyphicon-triangle-left"></span> Continue shopping
+            </button>
+          </a>
+        </nav>
+
+        <div class="table-responsive">
+          <table id="entry" class="table">
+            <tr>
+              <th>Name</th>
+              <th>Story</th>
+              <th>Category</th>
+              <th>Brand</th>
+              <th>Amount</th>
+              <th></th>
+            </tr>
+
+          </table>
+        </div>
+
+        <button type="button" id="checkout-confirm" class="pull-right btn btn-orange non-default">Confirm</button>
+
+        <div id="checkout-success" class="alert alert-success clearfix non-default">
+          <h3><span class="glyphicon glyphicon-ok"></span> Thank you! Your donation has been confirmed.</h3>
+          <p>On behalf of all of our requestors, thank you for giving on House of Gift Cards. We're thrilled that you are making a difference to better the lives of others with your donation.</p>
+          <p>House of Gift Cards is a 501(c)(3) charitable organization. No goods or services were provided to you by House of Gift Cards in exchange for your donation. This donation may be claimed for a deduction from your U.S. taxes.</p>
+          <a id="checkout-to-stats" href="/impact">
+            <button class="pull-right btn btn-success">
+              Community Impact <span class="glyphicon glyphicon-triangle-right"></span>
+            </button>
+          </a>
+        </div>
+
+        <div id="empty-cart" class="alert alert-warning non-default">
+          Your cart is empty
+        </div>
+      </section>
+
+      <section id="sec-stats">
+        <h1 class="section-header text-center">Our Impact</h1>
+        <div class="row">
+          <div class="col-xs-12">
+            <h5 class="stats-header">Overview</h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-md-3">
+            <p class="stats-num" id="stats-num-unclaimed"></p>
+            <p class="stats-subtitle">Currently Active Requests</p>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <p class="stats-num" id="stats-num-claimed"></p>
+            <p class="stats-subtitle">Number of Gift Cards Claimed</p>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <p class="stats-num" id="stats-amount-claimed"></p>
+            <p class="stats-subtitle">Total Amount Claimed To Date</p>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <p class="stats-num" id="stats-avg-claimed"></p>
+            <p class="stats-subtitle">Average Amount per Gift Card</p>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <!-- <h5 class="stats-header stats-header-orange">Monthly Donation by Category</h5> -->
+            <p class="stats-title">Average Amount per Gift Card</p>
+          </div>
+          <div class="col-sm-9 col-md-7 col-md-offset-1">
+            <canvas id="stats-chart" width="300" height="200"></canvas>
+          </div>
+          <aside class="col-sm-3">
+            <div class="panel panel-default" id="stats-chart-legend">
+            </div>
+          </aside>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-md-4">
+            <h5 class="stats-header list-group-header">Leaderboard</h5>
+            <ul class="list-group" id="user-leaderboard">
+            </ul>
+          </div>
+
+          <div class="col-md-8">
+            <h5 class="stats-header list-group-header">Recent Activities</h5>
+            <ul class="list-group" id="recent-list">
+            </ul>
+          </div>
+        </div>
+      </section>
 
     </main>
     <!-- Vendor Scripts -->
@@ -153,7 +520,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
     <script type="text/javascript" src="/vendor/scripts/Chart.StackedBar.js"></script>
-
+    <script type="text/javascript" src="/vendor/scripts/page.js"></script>
     <!-- Vendor Fallbacks -->
     <script type="text/javascript">
       if (!window.jQuery) {
@@ -172,12 +539,36 @@
         }
       });
     </script>
-
+    <script type="text/javascript" src="/data/team.js"></script>
     <script type="text/javascript" src="/scripts/util.js"></script>
-    <script type="text/javascript" src="/scripts/indexController.js"></script>
+    <!-- model -->
+    <script type="text/javascript" src="/scripts/model/request.js"></script>
+    <script type="text/javascript" src="/scripts/model/about.js"></script>
+    <script type="text/javascript" src="/scripts/model/admin.js"></script>
+    <script type="text/javascript" src="/scripts/model/login.js"></script>
+    <script type="text/javascript" src="/scripts/model/wall.js"></script>
+    <script type="text/javascript" src="/scripts/model/checkout.js"></script>
+    <script type="text/javascript" src="/scripts/model/stats.js"></script>
 
-    <script type="text/javascript" src="/scripts/request.js"></script>
-    <script type="text/javascript" src="/scripts/requestsView.js"></script>
-    <script type="text/javascript" src="/scripts/requestsController.js"></script>
+    <!-- view -->
+    <script type="text/javascript" src="/scripts/view/requestsView.js"></script>
+    <script type="text/javascript" src="/scripts/view/aboutView.js"></script>
+    <script type="text/javascript" src="/scripts/view/adminView.js"></script>
+    <script type="text/javascript" src="/scripts/view/loginView.js"></script>
+    <script type="text/javascript" src="/scripts/view/wallView.js"></script>
+    <script type="text/javascript" src="/scripts/view/checkoutView.js"></script>
+    <script type="text/javascript" src="/scripts/view/statsView.js"></script>
+
+    <!-- controller -->
+    <script type="text/javascript" src="/scripts/controller/indexController.js"></script>
+    <script type="text/javascript" src="/scripts/controller/requestsController.js"></script>
+    <script type="text/javascript" src="/scripts/controller/aboutController.js"></script>
+    <script type="text/javascript" src="/scripts/controller/adminController.js"></script>
+    <script type="text/javascript" src="/scripts/controller/loginController.js"></script>
+    <script type="text/javascript" src="/scripts/controller/wallController.js"></script>
+    <script type="text/javascript" src="/scripts/controller/checkoutController.js"></script>
+    <script type="text/javascript" src="/scripts/controller/statsController.js"></script>
+
+    <script type="text/javascript" src="/scripts/router.js"></script>
   </body>
 </html>

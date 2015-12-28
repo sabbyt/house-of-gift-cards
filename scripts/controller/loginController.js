@@ -1,7 +1,8 @@
 var loginController = {};
 
-// OVERARCHING FUNCTION FOR LOGIN FORM PAGE
 loginController.showLogin = function() {
+  $('section, #index-header').hide();
+  $('#sec-login').fadeIn();
   login.getUserLibrary(loginController.init);
 };
 
@@ -29,10 +30,5 @@ loginController.handleRegister = function() {
 };
 
 loginController.sendToWall = function() {
-  // TODO: replace with page.js call
-  $(location).attr('href', '/wall.html');
+  page('/wall');
 };
-
-
-// ===== TO ROUTER =====
-loginController.showLogin();
