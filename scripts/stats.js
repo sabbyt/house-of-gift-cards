@@ -39,6 +39,7 @@ stats.fetchAllClaimed = function(callback) {
   }
 };
 
+/* ==================== NUMBERS ==================== */
 stats.calcTotalNumberRequested = function() {
   return stats.allUnclaimed.length;
 };
@@ -57,7 +58,7 @@ stats.calcAvgAmountClaimed = function() {
   return stats.calcTotalAmountClaimed() / stats.calcTotalNumberClaimed();
 };
 
-// chart
+/* ==================== CHART ==================== */
 stats.getChartLabel = function(dateString) {
   var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   var year = dateString.substring(0, 4);
@@ -75,15 +76,6 @@ stats.generateChartLabel = function() {
   });
   stats.chartMonths = stats.chartMonths.sort();
   stats.chartLabels = stats.chartMonths.map(stats.getChartLabel);
-};
-
-stats.generateChartData = function() {
-  stats.generateChartLabel();
-  stats.chartDataArray = new Array(stats.chartLabels.length).fill(0);
-  stats.allClaimed.forEach(function(obj) {
-    var month = obj.claimed_dt.substring(0, 7);
-    stats.chartDataArray[stats.chartMonths.indexOf(month)] += parseInt(obj.amount);
-  });
 };
 
 stats.constructDataset = function() {
@@ -104,4 +96,35 @@ stats.generateStackedBarData = function() {
     var yIndex = stats.categories.indexOf(obj.category);
     stats.chartDatasets[yIndex].data[xIndex] += parseInt(obj.amount);
   });
+};
+
+/* ==================== RECENT ACTIVITIES ==================== */
+stats.relTimestamp = function(claimed) {
+  var diff = Date.now() - new Date(claimed);
+  var minDiff = diff / 1000 / 60;
+  if (minDiff < 60) {
+    return Math.round(minDiff) + ' minutes ago';
+  }
+  var hourDiff = minDiff / 60;
+  if (hourDiff < 24) {
+    if (hourDiff < 1.5) {
+      return '1 hour ago';
+    } else {
+      return Math.round(hourDiff) + ' hours ago';
+    }
+  }
+  var dayDiff = hourDiff / 24;
+  if (dayDiff < 30) {
+    if (dayDiff < 1.5) {
+      return '1 day ago';
+    } else {
+      return Math.round(dayDiff) + ' days ago';
+    }
+  }
+  var monthDiff = dayDiff / 30;
+  if (monthDiff < 1.5) {
+    return 'a month ago';
+  } else {
+    return Math.round(monthDiff) + ' months ago';
+  }
 };

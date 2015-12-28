@@ -2,8 +2,8 @@ var statsView = {};
 
 statsView.renderAll = function() {
   statsView.renderNumStats();
-  // statsView.renderChartStats();
   statsView.renderStackedBarChart();
+  statsView.renderRecentActivities();
 };
 
 statsView.renderNumStats = function() {
@@ -16,30 +16,6 @@ statsView.renderNumStats = function() {
   var avgClaimed = (stats.calcAvgAmountClaimed()).toFixed(2);
   $('#stats-avg-claimed').text('$' + avgClaimed);
 };
-
-statsView.renderChartStats = function() {
-  stats.generateChartData();
-  Chart.defaults.global.responsive = true;
-  var ctx = $('#stats-chart')[0].getContext('2d');
-  var options = {
-    barShowStroke: false
-  };
-  var data = {
-    labels: stats.chartLabels,
-    datasets: [{
-      label: 'Monthly Donations',
-      fillColor: 'rgba(220,220,220,0.5)',
-      strokeColor: 'rgba(220,220,220,1)',
-      pointColor: 'rgba(220,220,220,1)',
-      pointStrokeColor: '#fff',
-      pointHighlightFill: '#fff',
-      pointHighlightStroke: 'rgba(220,220,220,1)',
-      data: stats.chartDataArray,
-    }]
-  };
-  var lineChart = new Chart(ctx).Line(data, options);
-};
-
 
 statsView.renderStackedBarChart = function() {
   stats.generateStackedBarData();
@@ -69,5 +45,19 @@ statsView.colorStackedBar = function() {
     dataset.fillColor = barColor[index];
     dataset.highlightFill = opaqueColor[index];
   });
+};
 
+statsView.renderRecentActivities = function() {
+  for (var i = stats.allClaimed.length - 1; i > stats.allClaimed.length - 6; i--) {
+    statsView.writeActivity(stats.allClaimed[i]);
+  }
+};
+
+statsView.writeActivity = function(request) {
+  var log = '<b>' + request.claimed_by + '</b> donated $' + request.amount + ' to ' + request.first_name + ' for ' + request.category.toLowerCase() + '.';
+  var $log = $('<li class="list-group-item">').html(log);
+  var timestamp = stats.relTimestamp(request.claimed_dt);
+  var $timestamp = $('<span class="badge">').text(timestamp);
+  console.log(log);
+  $('#recent-list').append($log.append($timestamp));
 };

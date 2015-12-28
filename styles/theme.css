@@ -228,3 +228,15 @@ button .glyphicon {
   font-size: 1.6em;
   margin-bottom: 12px;
 }
+
+
+
+.list-group-header {
+  margin-bottom: 0px;
+}
+
+#recent-list .badge {
+  background-color: transparent;
+  color: #AAA;
+  font-weight: normal;
+}

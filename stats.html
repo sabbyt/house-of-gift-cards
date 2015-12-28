@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="/styles/module.css">
     <link rel="stylesheet" type="text/css" href="/styles/state.css">
     <link rel="stylesheet" type="text/css" href="/styles/theme.css">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
 
     <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
   </head>
@@ -84,14 +85,11 @@
           <div class="col-md-10 col-md-offset-1">
             <h5 class="stats-header stats-header-orange">Monthly Donation by Category</h5>
           </div>
-          <!-- <p class="stats-title">Monthly Donation by Category</p> -->
-
           <div class="col-sm-9 col-md-7 col-md-offset-1">
             <canvas id="stats-chart" width="300" height="200"></canvas>
           </div>
           <aside class="col-sm-3">
             <div class="panel panel-default" id="stats-chart-legend">
-
             </div>
           </aside>
         </div>
@@ -100,11 +98,15 @@
           <div class="col-md-4">
             <h5 class="stats-header">Leaderboard</h5>
             <!-- leaderboard by org here -->
+            <ul class="list-group">
+            </ul>
           </div>
 
           <div class="col-md-8">
-            <h5 class="stats-header">Recent Activities</h5>
+            <h5 class="stats-header list-group-header">Recent Activities</h5>
             <!-- recent activity here -->
+            <ul class="list-group" id="recent-list">
+            </ul>
           </div>
         </div>
       </section>
