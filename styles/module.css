@@ -20,11 +20,7 @@
   width: 100%;
 }
 
-#landing-header .jumbotron {
-  padding: 16px 16px 0px 16px;
-}
-
-#sec-landing button {
+#landing-nav button {
   min-height: 50px;
   margin-bottom: 6px;
 }
@@ -57,29 +53,17 @@
     text-align: left;
   }
 
-  #sec-landing .row {
+  #landing-nav {
     display: flex;
     justify-content: center;
     text-align: center;
     margin-top: 6px;
   }
 
-  #sec-landing button {
+  #landing-nav button {
     min-height: 200px;
     margin: 6px;
     font-size: 1.8rem;
-  }
-
-  #sec-landing .testimonials {
-    margin: 6px;
-  }
-
-  #wall-filter {
-    clear: none;
-  }
-
-  #wall-view-type {
-    float: right !important;
   }
 }
 /* end landing page */
@@ -103,7 +87,7 @@
 .grid-request {
   border: 1px solid rgba(0, 0, 0, 0.3);
   height: 45rem;
-  background-color: #fff9e0;
+  background-color: #FFF6CC;
 }
 
 .request-grid-photo {
