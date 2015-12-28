@@ -189,50 +189,76 @@ button .glyphicon {
 }
 
 /* ========== stats page ========== */
+.stats-header, .stats-title, .stats-subtitle, .stats-num {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 .stats-header {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
+  background-color: #5A3453;
   color: #FFFFFF;
-  background-color: #5a3440;
-  margin-top: 36px;
-  text-align: center;
   font-size: 1.2em;
   padding: 10px;
+  margin-bottom: 20px;
 }
 
-.stats-sider-left {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  background-color: #5a3440;
-  text-align: center;
-  font-size: 1.2em;
-  padding: 10px;
+.stats-header-orange {
+  background-color: #FEC250;
+  padding: 7px;
+  font-size: 1em;
 }
 
-.stats-sider-right {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  background-color: #5a3440;
-  text-align: center;
-  font-size: 1.2em;
-  padding: 10px;
-}
-
-.stats-title-left {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  color: #5a3440;
-  text-align: center;
-  font-size: 1.1em;
-  padding: 5px;
-}
-
-.statistic-bold {
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
+.stats-subtitle {
   color: #5A3453;
-  text-align: center;
-  font-size: 2.5em;
+  font-size: 1.1em;
+  margin-bottom: 3px;
+}
+
+.stats-num {
+  color: #5A3453;
+  font-size: 3em;
+  background-color: rgba(254, 194, 80, 0.2);
+  border-radius: 100%;
+  padding: 20px;
+}
+
+.stats-title {
+  color: #FEC250;
+  font-size: 1.4em;
+  margin-bottom: 12px;
+}
+
+
+.list-group-header {
+  margin-bottom: 0px;
+}
+
+#recent-list .badge {
+  background-color: transparent;
+  color: #AAA;
+  font-weight: normal;
+}
+
+#user-leaderboard {
+  font-weight: bold;
+}
+
+#user-leaderboard .badge {
+  font-family: 'Montserrat', sans-serif;
+  background-color: transparent;
+  color: #5A3453;
+  font-size: 1.6rem;
+}
+
+.leaderboard-place-0 {
+  background-color: rgba(254, 194, 80, 1);
+}
+
+.leaderboard-place-1 {
+  background-color: rgba(254, 194, 80, 0.7);
+}
+
+.leaderboard-place-2 {
+  background-color: rgba(254, 194, 80, 0.4);
 }
