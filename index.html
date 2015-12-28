@@ -17,7 +17,11 @@
 
     <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
     <!-- Firebase fallback -->
-    <script type="text/javascript">if (!window.Firebase) { document.write('<script src="/vendor/scripts/firebase.js"><\/script>'); }</script>
+    <script type="text/javascript">
+      if (!window.Firebase) {
+        document.write('<script src="/vendor/scripts/firebase.js"><\/script>');
+      }
+    </script>
   </head>
 
   <body>
@@ -38,9 +42,9 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
-            <li><a href="/">About</a></li>
-            <li><a href="/">Impact</a></li>
-            <li><a href="/">Contact</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/stats.html">Impact</a></li>
+            <li><a href="/contact.html">Contact</a></li>
           </ul>
         </div>
 
@@ -51,15 +55,19 @@
 
     <div id="nav-spacing"></div>
 
-    <header>
+    <header id="index-header">
       <!-- header image (mobile only) -->
-      <div id="landing-header" class="jumbotron">
-        <img src="/img/stock-photo-3-hori.jpg" />
+      <div id="landing-header">
+        <img src="/img/mobile-header.png" />
+        <div class="jumbotron">
+          <p><b>Everybody needs a little help sometimes.</b><br />Submitting a gift card request is easy and fast! When you make a donation on House of Gift Cards, you are having a direct, positive impact on lives all across our community.</p>
+
+        </div>
       </div>
 
-      <!-- carousel (tablet and up) -->
+      <!-- Carousel (tablet and up) -->
       <div id="landing-carousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
+        <!-- Carousel indicators -->
         <ol class="carousel-indicators">
           <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
           <li data-target="#carousel-example-generic" data-slide-to="1"></li>
@@ -69,32 +77,29 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
           <div class="item active">
-            <img src="/img/stock-photo-3-hori.jpg" />
+            <img src="/img/stock-photo-3-hori-v2.jpg" />
             <div class="carousel-caption">
               <h1>Submit your request for a gift&nbsp;card</h1>
               <p>Everybody needs a little help sometimes. Submitting a gift card request is easy and fast!</p>
             </div>
           </div>
-
           <div class="item">
-            <img src="/img/stock-photo-1-hori.jpg" />
+            <img src="/img/stock-photo-1-hori-v3.jpg" />
             <div class="carousel-caption">
               <h1>Make a difference</h1>
               <p>When you make a donation on House of Gift Cards, you are making a direct, positive impact on lives all across our community.</p>
             </div>
           </div>
-
           <div class="item">
-            <img src="/img/stock-photo-2-hori.jpg" />
+            <img src="/img/stock-photo-2-hori-v2.jpg" />
             <div class="carousel-caption">
-              <h1>Purchase gift cards for those in need</h1>
+              <h1>Purchase gift cards for those in&nbsp;need</h1>
               <p>100% of every dollar you donate on House of Gift Cards goes directly towards the requestor. We do not take a cut.</p>
             </div>
           </div>
-
         </div>
 
-        <!-- Controls -->
+        <!-- Carousel controls -->
         <a class="left carousel-control" href="#landing-carousel" role="button" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
         </a>
@@ -104,17 +109,16 @@
       </div>
     </header>
 
-    <!-- contents go inside here for responsiveness & spacing -->
     <main class="container">
-      <section id="landing-nav">
+      <section id="sec-landing">
         <div class="row">
-          <button class="col-md-3 col-sm-4 col-xs-12">
+          <button id="landing-to-submit" class="col-md-3 col-sm-4 col-xs-12">
             Submit your gift card&nbsp;request
           </button>
-          <button class="col-md-3 col-sm-4 col-xs-12">
-            Community<br />impact
+          <button id="landing-to-stats" class="col-md-3 col-sm-4 col-xs-12">
+            Community impact
           </button>
-          <button class="col-md-3 col-sm-4 col-xs-12">
+          <button id="landing-to-login" class="col-md-3 col-sm-4 col-xs-12">
             Buy someone a gift&nbsp;card
           </button>
         </div>
@@ -170,6 +174,7 @@
     </script>
 
     <script type="text/javascript" src="/scripts/util.js"></script>
+    <script type="text/javascript" src="/scripts/indexController.js"></script>
 
     <script type="text/javascript" src="/scripts/request.js"></script>
     <script type="text/javascript" src="/scripts/requestsView.js"></script>

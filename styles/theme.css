@@ -56,7 +56,15 @@ button .glyphicon {
 }
 
 /* ========== landing page links ========== */
-#landing-nav button {
+#landing-header .jumbotron {
+  background-color: transparent;
+}
+#landing-header .jumbotron p {
+  font-size: 1.6rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#sec-landing button {
   background-color: #5A3453;
   border-radius: 5px;
   border-color: #7D6177 #664766 #664766 #7D6177;
@@ -65,7 +73,7 @@ button .glyphicon {
   text-transform: uppercase;
 }
 
-#landing-nav button:first-child, #landing-nav button:last-child {
+#sec-landing button:first-child, #sec-landing button:last-child {
   background-color: #FCAB55;
   border-color: #FEC250 #FC9F3B #FC9F3B #FEC250;
 }
@@ -261,4 +269,8 @@ button .glyphicon {
 
 .leaderboard-place-2 {
   background-color: rgba(254, 194, 80, 0.4);
+}
+
+.dark-text {
+  color: #5A3453;
 }
