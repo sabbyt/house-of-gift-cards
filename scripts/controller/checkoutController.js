@@ -2,8 +2,10 @@
 
 var checkoutController = {};
 
-// OVERARCHING CALL FOR CHECKOUT PAGE
 checkoutController.showCheckout = function() {
+  $('section, #index-header').hide();
+  $('#sec-checkout').fadeIn();
+
   giftWall.retrieveUserInfo();
   if (JSON.parse(localStorage.getItem('claimed-keys')).length) {
     giftWall.claimed = JSON.parse(localStorage.getItem('claimed-keys'));
@@ -46,6 +48,3 @@ checkoutController.handleRemoveClaim = function() {
     }
   });
 };
-
-// ======== TO ROUTER =========
-checkoutController.showCheckout();

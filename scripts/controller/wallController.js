@@ -1,6 +1,9 @@
 var wallController = {};
 
 wallController.showWall = function() {
+  $('section, #index-header').hide();
+  $('#sec-wall').fadeIn();
+
   giftWall.fetchAllRequests(function() {
     giftWall.retrieveCachedClaim();
     giftWall.retrieveUserInfo(wallView.showGreeting);
@@ -77,7 +80,3 @@ wallController.handleClaimButtons = function() {
     giftWall.removeClaim($(this).data('key'));
   });
 };
-
-
-// ===== MOVE TO ROUTER =====
-wallController.showWall();

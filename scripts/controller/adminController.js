@@ -1,6 +1,9 @@
 var adminController = {};
 
 adminController.showList = function() {
+  $('section, #index-header').hide();
+  $('#sec-admin').fadeIn();
+
   adminView.listView();
   adminController.handleClaimButtons();
   adminController.handleSort();
@@ -41,6 +44,3 @@ adminController.handleStatusDisplay = function() {
     adminView.renderList(admin.sortAndFilter());
   });
 };
-
-// ===== MOVE TO ROUTER =====
-adminController.showList();

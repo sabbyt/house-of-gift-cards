@@ -37,20 +37,22 @@
             <span class="icon-bar"></span>
           </button>
           <!-- brand image -->
-          <img src="/img/hogc-logo-small.png" alt="House of Gift Cards" class="navbar-brand"/>
+          <a href="/">
+            <img src="/img/hogc-logo-small.png" alt="House of Gift Cards" class="navbar-brand"/>
+          </a>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li data-section="home"><a href="/index.html">Home</a></li>
-            <li data-section="about"><a href="/about.html">About</a></li>
-            <li data-section="stats"><a href="/stats.html">Impact</a></li>
-            <li data-section="contact"><a href="/contact.html">Contact</a></li>
+            <li data-section="home"><a href="/">Home</a></li>
+            <li data-section="about"><a href="/about">About</a></li>
+            <li data-section="stats"><a href="/impact">Impact</a></li>
+            <li data-section="contact"><a href="/contact">Contact</a></li>
           </ul>
 
           <div id="greeting" class="navbar-text pull-right non-default">
             <span id="greeting-name">Hi, </span>
-            <a href="/checkout.html">
+            <a href="/checkout">
               <span class="glyphicon glyphicon-shopping-cart"></span>
               (<span id="greeting-num">0</span>)
             </a>
@@ -417,7 +419,7 @@
         <h1 class="section-header text-center">Checkout</h1>
 
         <nav class="nav-inline">
-          <a id="checkout-to-wall" href="/wall.html">
+          <a id="checkout-to-wall" href="/wall">
             <button class="btn btn-default">
               <span class="glyphicon glyphicon-triangle-left"></span> Continue shopping
             </button>
@@ -444,7 +446,7 @@
           <h3><span class="glyphicon glyphicon-ok"></span> Thank you! Your donation has been confirmed.</h3>
           <p>On behalf of all of our requestors, thank you for giving on House of Gift Cards. We're thrilled that you are making a difference to better the lives of others with your donation.</p>
           <p>House of Gift Cards is a 501(c)(3) charitable organization. No goods or services were provided to you by House of Gift Cards in exchange for your donation. This donation may be claimed for a deduction from your U.S. taxes.</p>
-          <a id="checkout-to-stats" href="/stats.html">
+          <a id="checkout-to-stats" href="/impact">
             <button class="pull-right btn btn-success">
               Community Impact <span class="glyphicon glyphicon-triangle-right"></span>
             </button>
@@ -540,32 +542,32 @@
     <script type="text/javascript" src="/data/team.js"></script>
     <script type="text/javascript" src="/scripts/util.js"></script>
     <!-- model -->
-    <script type="text/javascript" src="/scripts/request.js"></script>
-    <script type="text/javascript" src="/scripts/about.js"></script>
-    <script type="text/javascript" src="/scripts/admin.js"></script>
-    <script type="text/javascript" src="/scripts/login.js"></script>
-    <script type="text/javascript" src="/scripts/wall.js"></script>
-    <script type="text/javascript" src="/scripts/checkout.js"></script>
-    <script type="text/javascript" src="/scripts/stats.js"></script>
+    <script type="text/javascript" src="/scripts/model/request.js"></script>
+    <script type="text/javascript" src="/scripts/model/about.js"></script>
+    <script type="text/javascript" src="/scripts/model/admin.js"></script>
+    <script type="text/javascript" src="/scripts/model/login.js"></script>
+    <script type="text/javascript" src="/scripts/model/wall.js"></script>
+    <script type="text/javascript" src="/scripts/model/checkout.js"></script>
+    <script type="text/javascript" src="/scripts/model/stats.js"></script>
 
     <!-- view -->
-    <script type="text/javascript" src="/scripts/requestsView.js"></script>
-    <script type="text/javascript" src="/scripts/aboutView.js"></script>
-    <script type="text/javascript" src="/scripts/adminView.js"></script>
-    <script type="text/javascript" src="/scripts/loginView.js"></script>
-    <script type="text/javascript" src="/scripts/wallView.js"></script>
-    <script type="text/javascript" src="/scripts/checkoutView.js"></script>
-    <script type="text/javascript" src="/scripts/statsView.js"></script>
+    <script type="text/javascript" src="/scripts/view/requestsView.js"></script>
+    <script type="text/javascript" src="/scripts/view/aboutView.js"></script>
+    <script type="text/javascript" src="/scripts/view/adminView.js"></script>
+    <script type="text/javascript" src="/scripts/view/loginView.js"></script>
+    <script type="text/javascript" src="/scripts/view/wallView.js"></script>
+    <script type="text/javascript" src="/scripts/view/checkoutView.js"></script>
+    <script type="text/javascript" src="/scripts/view/statsView.js"></script>
 
     <!-- controller -->
-    <script type="text/javascript" src="/scripts/indexController.js"></script>
-    <script type="text/javascript" src="/scripts/requestsController.js"></script>
-    <script type="text/javascript" src="/scripts/aboutController.js"></script>
-    <script type="text/javascript" src="/scripts/adminController.js"></script>
-    <script type="text/javascript" src="/scripts/loginController.js"></script>
-    <script type="text/javascript" src="/scripts/wallController.js"></script>
-    <script type="text/javascript" src="/scripts/checkoutController.js"></script>
-    <script type="text/javascript" src="/scripts/statsController.js"></script>
+    <script type="text/javascript" src="/scripts/controller/indexController.js"></script>
+    <script type="text/javascript" src="/scripts/controller/requestsController.js"></script>
+    <script type="text/javascript" src="/scripts/controller/aboutController.js"></script>
+    <script type="text/javascript" src="/scripts/controller/adminController.js"></script>
+    <script type="text/javascript" src="/scripts/controller/loginController.js"></script>
+    <script type="text/javascript" src="/scripts/controller/wallController.js"></script>
+    <script type="text/javascript" src="/scripts/controller/checkoutController.js"></script>
+    <script type="text/javascript" src="/scripts/controller/statsController.js"></script>
 
     <script type="text/javascript" src="/scripts/router.js"></script>
   </body>
