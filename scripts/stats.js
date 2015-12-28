@@ -128,3 +128,26 @@ stats.relTimestamp = function(claimed) {
     return Math.round(monthDiff) + ' months ago';
   }
 };
+
+stats.calcLeaderboard = function() {
+  var users = [];
+  var personalTotal = [];
+  stats.allClaimed.forEach(function(obj) {
+    var index = users.indexOf(obj.claimed_by);
+    if (index > -1) {
+      personalTotal[index] += parseInt(obj.amount);
+    } else {
+      users.push(obj.claimed_by);
+      personalTotal.push(parseInt(obj.amount));
+    }
+  });
+  var leaderboard = users.map(function(user, index) {
+    return {
+      username: user,
+      total: personalTotal[index]
+    };
+  }).sort(function(a, b) {
+    return b.total - a.total;
+  });
+  return leaderboard;
+};

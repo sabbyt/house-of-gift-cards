@@ -224,11 +224,10 @@ button .glyphicon {
 }
 
 .stats-title {
-  color: #5A3453;
-  font-size: 1.6em;
+  color: #FEC250;
+  font-size: 1.4em;
   margin-bottom: 12px;
 }
-
 
 
 .list-group-header {
@@ -239,4 +238,27 @@ button .glyphicon {
   background-color: transparent;
   color: #AAA;
   font-weight: normal;
+}
+
+#user-leaderboard {
+  font-weight: bold;
+}
+
+#user-leaderboard .badge {
+  font-family: 'Montserrat', sans-serif;
+  background-color: transparent;
+  color: #5A3453;
+  font-size: 1.6rem;
+}
+
+.leaderboard-place-0 {
+  background-color: rgba(254, 194, 80, 1);
+}
+
+.leaderboard-place-1 {
+  background-color: rgba(254, 194, 80, 0.7);
+}
+
+.leaderboard-place-2 {
+  background-color: rgba(254, 194, 80, 0.4);
 }

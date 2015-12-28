@@ -4,6 +4,7 @@ statsView.renderAll = function() {
   statsView.renderNumStats();
   statsView.renderStackedBarChart();
   statsView.renderRecentActivities();
+  statsView.renderLeaderboard();
 };
 
 statsView.renderNumStats = function() {
@@ -56,8 +57,22 @@ statsView.renderRecentActivities = function() {
 statsView.writeActivity = function(request) {
   var log = '<b>' + request.claimed_by + '</b> donated $' + request.amount + ' to ' + request.first_name + ' for ' + request.category.toLowerCase() + '.';
   var $log = $('<li class="list-group-item">').html(log);
-  var timestamp = stats.relTimestamp(request.claimed_dt);
-  var $timestamp = $('<span class="badge">').text(timestamp);
-  console.log(log);
+  var $timestamp = $('<span class="badge">').text(stats.relTimestamp(request.claimed_dt));
   $('#recent-list').append($log.append($timestamp));
+};
+
+statsView.renderLeaderboard = function() {
+  var leaderboard = stats.calcLeaderboard();
+  for (var i = 0; i < 5; i++) {
+    statsView.writeLeaderboard(leaderboard[i], i);
+  }
+};
+
+statsView.writeLeaderboard = function(obj, rank) {
+  var $name = $('<li class="list-group-item">').text(obj.username);
+  if (rank < 3) {
+    $name.addClass('leaderboard-place-' + rank);
+  }
+  var $total = $('<span class="badge">').text('$' + obj.total);
+  $('#user-leaderboard').append($name.append($total));
 };
