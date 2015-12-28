@@ -73,6 +73,14 @@
   #sec-landing .testimonials {
     margin: 6px;
   }
+
+  #wall-filter {
+    clear: none;
+  }
+
+  #wall-view-type {
+    float: right !important;
+  }
 }
 /* end landing page */
 
@@ -95,7 +103,7 @@
 .grid-request {
   border: 1px solid rgba(0, 0, 0, 0.3);
   height: 45rem;
-  background-color: #FFF6CC;
+  background-color: #fff9e0;
 }
 
 .request-grid-photo {
