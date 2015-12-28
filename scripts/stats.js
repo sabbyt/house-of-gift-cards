@@ -129,6 +129,7 @@ stats.relTimestamp = function(claimed) {
   }
 };
 
+/* ==================== LEADERBOARD ==================== */
 stats.calcLeaderboard = function() {
   var users = [];
   var personalTotal = [];
