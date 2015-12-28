@@ -1,24 +1,31 @@
 var giftWall = {};
-var requestArray = [];
+giftWall.all = [];
 
-giftWall.viewState = true;
+giftWall.viewState = true; // true for list view, false for grid view
+giftWall.currentCat = 'reset';
+// giftWall.currentAmount = 'reset';
+
 giftWall.ref = new Firebase('https://hogc.firebaseio.com/requests');
 
-giftWall.currentUser = {
-  firstName: 'User',
-  username: 'username'
+giftWall.retrieveUserInfo = function(callback) {
+  callback = callback || function() {};
+  if (localStorage.getItem('current-user') != null) {
+    giftWall.currentUser = JSON.parse(localStorage.getItem('current-user'));
+    console.log(giftWall.currentUser);
+    callback();
+  } else {
+    alert('Please sign in or register for an account.');
+    // TODO: change to page routing call
+    $(location).attr('href', '/login.html');
+  }
 };
 
 giftWall.retrieveCachedClaim = function() {
-  if (localStorage.getItem('claimed-keys')!= null) {
+  if (localStorage.getItem('claimed-keys') != null) {
     giftWall.claimed = JSON.parse(localStorage.getItem('claimed-keys'));
-    giftWall.claimed.forEach(function(key) {
-      $('#entry td').find('button[data-key=' + key + ']').click();
-    });
   } else {
     giftWall.claimed = [];
   }
-  giftWall.showGreeting();
   console.log(giftWall.claimed);
 };
 
@@ -45,24 +52,54 @@ giftWall.updateGreetingNum = function() {
   $('#greeting-num').text(giftWall.claimed.length);
 };
 
-giftWall.showGreeting = function() {
-  $('#greeting').show();
-  $('#greeting-name').text('Hi ' + giftWall.currentUser.firstName + ', ');
-  giftWall.updateGreetingNum();
-};
-
 giftWall.getListTemplate = function(callback) {
-  $.get('/templates/wall-template-list.html', function(listTemplate) {
-    giftWall.listTemplate = Handlebars.compile(listTemplate);
-  }).done(callback);
+  if (!giftWall.listTemplate) {
+    $.get('/templates/wall-template-list.html', function(listTemplate) {
+      giftWall.listTemplate = Handlebars.compile(listTemplate);
+    }).done(callback);
+  } else {
+    callback();
+  }
 };
 
 giftWall.getGridTemplate = function(callback) {
-  $.get('/templates/wall-template-grid.html', function(gridTemplate) {
-    giftWall.gridTemplate = Handlebars.compile(gridTemplate);
-  }).done(callback);
+  if (!giftWall.gridTemplate) {
+    $.get('/templates/wall-template-grid.html', function(gridTemplate) {
+      giftWall.gridTemplate = Handlebars.compile(gridTemplate);
+    }).done(callback);
+  } else {
+    callback();
+  }
 };
 
+giftWall.fetchAllRequests = function(callback) {
+  callback = callback || function() {};
+  giftWall.ref.orderByChild('status').equalTo('UNCLAIMED').once('value', function(snapshot) {
+    snapshot.forEach(function(request) {
+      var temp = request.val();
+      temp.key = request.key();
+      giftWall.all.push(temp);
+    });
+    callback();
+  });
+};
+
+giftWall.filterByCategory = function(category) {
+  var filtered = giftWall.all.filter(function(el){
+    return el.category === category;
+  });
+  return filtered;
+};
+
+// giftWall.filterByAmount = function(amount) {
+//   var filtered = giftWall.all.filter(function(el){
+//     return el.amount <= amount;
+//   });
+//   console.log(filtered);
+//   return filtered;
+// };
+
+// for checkout page
 giftWall.findByKey = function(key, callback) {
   giftWall.ref.orderByKey().equalTo(key.toString()).once('value', callback);
 };
@@ -76,21 +113,3 @@ giftWall.confirmRequestByKey = function(key) {
   };
   childRef.update(updateData);
 };
-
-giftWall.renderListAll = function(callback) {
-  callback = callback || function() {};
-  giftWall.ref.orderByChild('status').equalTo('UNCLAIMED').once('value', function(snapshot) {
-    snapshot.forEach(function(request) {
-      var temp = request.val();
-      temp.key = request.key();
-      requestArray.push(temp);
-      console.log(requestArray);
-    });
-    callback();
-  });
-};
-
-
-//truncate story content
-
-//function for popup

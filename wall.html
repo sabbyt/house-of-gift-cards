@@ -59,9 +59,11 @@
 
     <!-- contents go inside here for responsiveness & spacing -->
     <main class="container">
-      <h1 class="section-header text-center">Claim a request</h1>
+      <section id="sec-wall">
 
-      <nav id="wall-filter" class="form-inline nav-inline">
+        <h1 class="section-header text-center">Claim a request</h1>
+
+        <nav id="wall-filter" class="form-inline nav-inline">
 
           Filter by:
           <select id="category-filter" class="form-control">
@@ -78,39 +80,40 @@
 
           <select id="amount-filter" class="form-control">
             <option value="reset">Amount</option>
-            <option>Less than $20</option>
-            <option>Less than $50</option>
-            <option>Less than $100</option>
-            <option>Less than $200</option>
+            <option value="20">Up to $20</option>
+            <option value="50">Up to $50</option>
+            <option value="100">Up to $100</option>
+            <option value="200">Up to $200</option>
           </select>
 
 
-        <div id="wall-view-type" class="btn-group pull-right" role="group">
-          <button type="button" class="btn btn-default selected" id="listview-button">
-            <span class="glyphicon glyphicon-th-list"></span>
-          </button>
-          <button type="button" class="btn btn-default" id="gridview-button">
-            <span class="glyphicon glyphicon-th-large"></span>
-          </button>
+          <div id="wall-view-type" class="btn-group pull-right" role="group">
+            <button type="button" class="btn btn-default selected" id="listview-button">
+              <span class="glyphicon glyphicon-th-list"></span>
+            </button>
+            <button type="button" class="btn btn-default" id="gridview-button">
+              <span class="glyphicon glyphicon-th-large"></span>
+            </button>
+          </div>
+        </nav>
+
+        <div class="row">
+          <div id="wall-gridview"></div>
         </div>
-      </nav>
 
-      <div class="row">
-        <div id="wall-gridview"></div>
-      </div>
-
-      <div class="table-responsive" id="wall-listview">
-        <table id="entry" class="table">
-          <tr>
-            <th>Name</th>
-            <th>Story</th>
-            <th>Category</th>
-            <th>Brand</th>
-            <th>Amount</th>
-            <th></th>
-          </tr>
-        </table>
-      </div>
+        <div class="table-responsive" id="wall-listview">
+          <table id="entry" class="table">
+            <tr>
+              <th>Name</th>
+              <th>Story</th>
+              <th>Category</th>
+              <th>Brand</th>
+              <th>Amount</th>
+              <th></th>
+            </tr>
+          </table>
+        </div>
+      </section>
 
     </main>
 

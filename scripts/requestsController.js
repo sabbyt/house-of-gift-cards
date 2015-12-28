@@ -1,14 +1,9 @@
 var requestsController = {};
 
 requestsController.index = function() {
-  // request.insertAllRecords();
-  // requests.retrieveFromDB(requestsView.displayAll);
   requests.handleSubmit();
 };
 
+//MOVE TO ROUTER
 requestsController.index();
-
-// $(function() {
-//   request.emptyRequestTable();
-//   requestsController.index();
-// });
+requests.profilePicHandle();
