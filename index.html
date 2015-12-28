@@ -6,15 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>House of Gift Cards</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="/styles/base.css">
     <link rel="stylesheet" type="text/css" href="/styles/layout.css">
     <link rel="stylesheet" type="text/css" href="/styles/module.css">
     <link rel="stylesheet" type="text/css" href="/styles/state.css">
     <link rel="stylesheet" type="text/css" href="/styles/theme.css">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
 
     <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <!-- Firebase fallback -->
+    <script type="text/javascript">if (!window.Firebase) { document.write('<script src="/vendor/scripts/firebase.js"><\/script>'); }</script>
   </head>
 
   <body>
@@ -69,7 +72,7 @@
             <img src="/img/stock-photo-3-hori.jpg" />
             <div class="carousel-caption">
               <h1>Submit your request for a gift&nbsp;card</h1>
-              <p>House of Gift Cards lets individuals request as little as $20 to help create opportunity within their lives. We believe that by extending a hand to those in need, it will help people create better lives for themselves and their families.</p>
+              <p>Everybody needs a little help sometimes. Submitting a gift card request is easy and fast!</p>
             </div>
           </div>
 
@@ -77,8 +80,7 @@
             <img src="/img/stock-photo-1-hori.jpg" />
             <div class="carousel-caption">
               <h1>Make a difference</h1>
-              <p>When you make a donation on House of Gift Cards, you are having a direct, positive impact on lives all across our community. So you might see a request for a jacket, or a pair of shoes, or a chair.</p>
-              <p>At House of Gift Cards, we see opportunities.</p>
+              <p>When you make a donation on House of Gift Cards, you are making a direct, positive impact on lives all across our community.</p>
             </div>
           </div>
 
@@ -86,8 +88,7 @@
             <img src="/img/stock-photo-2-hori.jpg" />
             <div class="carousel-caption">
               <h1>Purchase gift cards for those in need</h1>
-              <p>100% of every dollar you lend on House of Gift Cards goes directly towards funding loans; House of Gift Cards does not take a cut.</p>
-              <p> House of Gift Cards is primarily funded through the support of donors making optional donations. We also raise funds through grants, corporate sponsors, and foundations.</p>
+              <p>100% of every dollar you donate on House of Gift Cards goes directly towards the requestor. We do not take a cut.</p>
             </div>
           </div>
 
@@ -105,52 +106,70 @@
 
     <!-- contents go inside here for responsiveness & spacing -->
     <main class="container">
-      <section id="landing-nav" class="row">
-        <button class="col-md-3 col-sm-4 col-xs-12">
-          Submit your gift card&nbsp;request
-        </button>
-        <button class="col-md-3 col-sm-4 col-xs-12">
-          Community<br />impact
-        </button>
-        <button class="col-md-3 col-sm-4 col-xs-12">
-          Buy someone a gift&nbsp;card
-        </button>
-      </section>
+      <section id="landing-nav">
+        <div class="row">
+          <button class="col-md-3 col-sm-4 col-xs-12">
+            Submit your gift card&nbsp;request
+          </button>
+          <button class="col-md-3 col-sm-4 col-xs-12">
+            Community<br />impact
+          </button>
+          <button class="col-md-3 col-sm-4 col-xs-12">
+            Buy someone a gift&nbsp;card
+          </button>
+        </div>
 
-      <section id="landing-nav" class="row">
-        <div class="testimonials col-md-3 col-sm-4 col-xs-12">
-          <p>
-            “Keep claiming! I had sent in a request for a $200 CVS gift card to help purchase medicine for the children in my neighborhood. Living in the inner city, many of these children and their families can’t afford simple over-the-counter medication that can cure illnesses before they take hold. Who would have thought a simple gift card could have helped so many!”
-          </p>
-          <p>
-            - Esther Crawley
-          </p>
-        </div>
-        <div class="testimonials col-md-3 col-sm-4 col-xs-12">
-          <p>
-            “Thank you House of Gift Cards! Thanks to the donations of your wonderful users, I was able to buy an Amazon Kindle for my grandmother who loves to read."
-          </p>
-          <p>
-            - Beckett Smith
-          </p>
-        </div>
-        <div class="testimonials col-md-3 col-sm-4 col-xs-12">
-          <p>
-            “I am a proud user of the House of Gift Cards service. It has been a wonderful avenue to donate to those in need, regardless of what they may be looking for. It brings me joy to help somebody do something as simple as be able to get their groceries for the week unhindered, or help somebody who needs more money for clothes or utilities. Keep up the good work!"
-          </p>
-          <p>
-            - Chad Mason
-          </p>
+        <div class="row">
+          <div class="testimonials col-md-3 col-sm-4 col-xs-12">
+            <p>“Keep claiming! I had sent in a request for a $200 CVS gift card to help purchase medicine for the children in my neighborhood. Living in the inner city, many of these children and their families can’t afford simple over-the-counter medication that can cure illnesses before they take hold. Who would have thought a simple gift card could have helped so many!”</p>
+            <p>
+              - Esther Crawley
+            </p>
+          </div>
+          <div class="testimonials col-md-3 col-sm-4 col-xs-12">
+            <p>“Thank you House of Gift Cards! Thanks to the donations of your wonderful users, I was able to buy an Amazon Kindle for my grandmother who loves to read.”</p>
+            <p>
+              - Beckett Smith
+            </p>
+          </div>
+          <div class="testimonials col-md-3 col-sm-4 col-xs-12">
+            <p>“I am a proud user of the House of Gift Cards service. It has been a wonderful avenue to donate to those in need, regardless of what they may be looking for. It brings me joy to help somebody do something as simple as be able to get their groceries for the week unhindered, or help somebody who needs more money for clothes or utilities. Keep up the good work!”</p>
+            <p>
+              - Chad Mason
+            </p>
+          </div>
         </div>
       </section>
 
 
     </main>
-
+    <!-- Vendor Scripts -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-    <!-- this Bootstrap JS controls hamburger nav and carousel -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    <script type="text/javascript" src="/vendor/scripts/Chart.StackedBar.js"></script>
+
+    <!-- Vendor Fallbacks -->
+    <script type="text/javascript">
+      if (!window.jQuery) {
+        document.write('<script src="/vendor/scripts/jquery-2.1.4.min.js"><\/script>');
+        document.write('<script src="/vendor/scripts/bootstrap.min.js"><\/script>');
+      }
+      if (!window.Handlebars) {
+        document.write('<script src="/vendor/scripts/handlebars-v4.0.5.js"><\/script>');
+      }
+      if (!window.Chart) {
+        document.write('<script src="/vendor/scripts/Chart.js"><\/script>');
+      }
+      $(function() {
+        if($('body').css('color') != 'rgb(51, 51, 51)') {
+          $('head').prepend('<link rel="stylesheet" href="/vendor/css/bootstrap.min.css">');
+        }
+      });
+    </script>
+
+    <script type="text/javascript" src="/scripts/util.js"></script>
 
     <script type="text/javascript" src="/scripts/request.js"></script>
     <script type="text/javascript" src="/scripts/requestsView.js"></script>
