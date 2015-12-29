@@ -7,8 +7,10 @@ util.currentSection = function() {
 };
 
 util.setActiveNav = function(section) {
-  $('#navbar li').removeClass('active');
-  $('#navbar li[data-section=' + section + ']').addClass('active');
+  $('.navbar li').click(function () {
+    $('.navbar li').removeClass('active');
+    $(this).addClass('active');
+  });
 };
 
 util.collapseMenu = function(){
@@ -18,6 +20,7 @@ util.collapseMenu = function(){
 };
 
 util.collapseMenu();
+util.setActiveNav();
 
 /* ========================= HANDLEBARS HELPERS ========================= */
 Handlebars.registerHelper('if_wall', function (block) {
