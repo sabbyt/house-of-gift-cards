@@ -12,11 +12,12 @@ util.setActiveNav = function(section) {
 };
 
 util.collapseMenu = function(){
-  $(document).click(function (event) {
+  $('.navbar-nav a').click(function (event) {
     $('.navbar-collapse').collapse('hide');
-    console.log('this run');
   });
 };
+
+util.collapseMenu();
 
 /* ========================= HANDLEBARS HELPERS ========================= */
 Handlebars.registerHelper('if_wall', function (block) {
