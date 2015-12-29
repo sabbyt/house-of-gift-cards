@@ -2,7 +2,7 @@ var teamData = [
   {
     img: '/img/about-team/stephen.png',
     name: 'Stephen',
-    bio: 'After working abroad for a year in South Korea, Stephen returned to the U.S. for a new adventure. He hopes to establish a career for himself as a Web Developer.',
+    bio: 'After working abroad in South Korea, Stephen returned to the U.S. for a new adventure. He hopes to establish a career as a Web Developer.',
     twitter: 'http://twitter.com/RealGrumpyCat',
     linkedin: 'https://www.linkedin.com/groups/5068225/profile',
     github: 'http://github.com/scarney3'
@@ -18,7 +18,7 @@ var teamData = [
   {
     img: '/img/about-team/sab.png',
     name: 'Sabrina',
-    bio: 'A Kuala Lumpur native and a Northeastern alum, Sabrina sometimes wishes she could get a mild case of amnesia and re-read the Harry Potter series again.',
+    bio: 'A Kuala Lumpur native and a NU alum, Sabrina sometimes wishes she could get a mild case of amnesia and re-read the Harry Potter series.',
     twitter: 'http://twitter.com/sbbyt',
     linkedin: 'https://www.linkedin.com/in/lihuatee',
     github: 'http://github.com/sabbyt'

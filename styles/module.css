@@ -72,6 +72,11 @@
   #sec-landing .testimonials {
     margin: 6px;
   }
+
+  .about-tile {
+    max-height: 475px;
+  }
+
 }
 /* end landing page */
 
@@ -91,7 +96,7 @@
 }
 
 .about-tile {
-  height: 47rem;
+  min-height: 250px;
 }
 
 /* Wall Grid module styling*/

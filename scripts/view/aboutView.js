@@ -6,5 +6,6 @@ aboutUsView.toHTML = function(data) {
 };
 
 aboutUsView.renderBioAll = function(data) {
+  $('#bios').empty();
   aboutUsData.forEach(aboutUsView.toHTML);
 };
