@@ -2,6 +2,7 @@ var indexController = {};
 
 indexController.index = function() {
   $('section').hide();
+  util.setActiveNav('home');
   $('#sec-landing, #index-header').fadeIn();
 
   $('#landing-to-submit').on('click', function() {

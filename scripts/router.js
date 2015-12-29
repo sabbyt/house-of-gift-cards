@@ -3,6 +3,7 @@ page('/about', aboutUsController.displayBio);
 
 page('/contact', function() {
   $('section, #index-header').hide();
+  util.setActiveNav('contact');
   $('#sec-contact').fadeIn();
 });
 
