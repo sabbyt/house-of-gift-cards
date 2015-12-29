@@ -20,7 +20,11 @@
   width: 100%;
 }
 
-#landing-nav button {
+#landing-header .jumbotron {
+  padding: 16px 16px 0px 16px;
+}
+
+#sec-landing button {
   min-height: 50px;
   margin-bottom: 6px;
 }
@@ -53,17 +57,24 @@
     text-align: left;
   }
 
-  #landing-nav {
+  #sec-landing .row {
     display: flex;
     justify-content: center;
     text-align: center;
     margin-top: 6px;
   }
 
-  #landing-nav button {
+  #sec-landing button {
     min-height: 200px;
     margin: 6px;
     font-size: 1.8rem;
+  }
+  #sec-landing .testimonials {
+    margin: 6px;
+  }
+
+  .about-tile {
+    max-height: 475px;
   }
 }
 /* end landing page */
@@ -83,11 +94,15 @@
   padding: 10px 15px;
 }
 
+.about-tile {
+  min-height: 250px;
+}
+
 /* Wall Grid module styling*/
 .grid-request {
   border: 1px solid rgba(0, 0, 0, 0.3);
   height: 45rem;
-  background-color: #FFF6CC;
+  background-color: #FFF9E0;
 }
 
 .request-grid-photo {

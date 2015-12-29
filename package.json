@@ -1,0 +1,16 @@
+{
+  "name": "house-of-gift-cards",
+  "version": "1.0.0",
+  "description": "Project made for Code Fellows 301.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "House of Gift Cards Team",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "express-request-proxy": "^1.0.10",
+    "pushstate-server": "^1.8.1"
+  }
+}
