@@ -8,3 +8,12 @@
 .wall-instructions {
   text-align: center;
 }
+
+.contact-map {
+  width: 100%;
+  float: left;
+}
+
+#request-success {
+  margin-top: 5rem;
+}
