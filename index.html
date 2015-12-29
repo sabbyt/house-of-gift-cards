@@ -30,7 +30,7 @@
       <div class="container">
         <div class="navbar-header">
           <!-- hamburger for mobile -->
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <button type="button" class="navbar-toggle navbar-collapse" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -63,7 +63,7 @@
 
     <div id="nav-spacing"></div>
 
-    <header id="index-header">
+    <header id="index-header" class="non-default">
       <!-- header image (mobile only) -->
       <div id="landing-header">
         <img src="/img/mobile-header.png" />
@@ -118,7 +118,7 @@
     </header>
 
     <main class="container">
-      <section id="sec-landing">
+      <section id="sec-landing" class="non-default">
         <div class="row">
           <button id="landing-to-submit" class="col-md-3 col-sm-4 col-xs-12">
             Submit your gift card&nbsp;request
@@ -134,31 +134,24 @@
         <div class="row">
           <div class="testimonials col-md-3 col-sm-4 col-xs-12">
             <p>“Keep claiming! I had sent in a request for a $200 CVS gift card to help purchase medicine for the children in my neighborhood. Living in the inner city, many of these children and their families can’t afford simple over-the-counter medication that can cure illnesses before they take hold. Who would have thought a simple gift card could have helped so many!”</p>
-            <p>
-              - Esther Crawley
-            </p>
+            <p>- Esther Crawley</p>
           </div>
           <div class="testimonials col-md-3 col-sm-4 col-xs-12">
             <p>“Thank you House of Gift Cards! Thanks to the donations of your wonderful users, I was able to buy an Amazon Kindle for my grandmother who loves to read.”</p>
-            <p>
-              - Beckett Smith
-            </p>
+            <p>- Beckett Smith</p>
           </div>
           <div class="testimonials col-md-3 col-sm-4 col-xs-12">
             <p>“I am a proud user of the House of Gift Cards service. It has been a wonderful avenue to donate to those in need, regardless of what they may be looking for. It brings me joy to help somebody do something as simple as be able to get their groceries for the week unhindered, or help somebody who needs more money for clothes or utilities. Keep up the good work!”</p>
-            <p>
-              - Chad Mason
-            </p>
+            <p>- Chad Mason</p>
           </div>
         </div>
       </section>
 
-      <section id="sec-about">
+      <section id="sec-about" class="non-default">
         <div class="row">
           <div class="col-xs-12">
             <h1 class="section-header about-headline">About House of Gift&nbsp;Cards</h1>
-            <p class='about-mission col-xs-12 col-sm-12 col-md-12 col-lg-12'>Our mission is to provide a platform for users, from individuals to large corporate donors, to purchase gift cards for those in need. The vision of this project is to provide a means for donors to gift a wide range of commodities from food, to utilities, to clothing.
-            </p>
+            <p class='about-mission col-xs-12 col-sm-12 col-md-12 col-lg-12'>Our mission is to provide a platform for users, from individuals to large corporate donors, to purchase gift cards for those in need. The vision of this project is to provide a means for donors to gift a wide range of commodities from food, to utilities, to clothing.</p>
             <p class='about-mission'>House of Gift Cards is a streamlined app that aims to cut down the time and energy individually spent on giving; thereby fulfilling more requests and realizing the maximum benefit of these claims. This centralized platform will allow easy collection of the data, allow visualization of individual impact, and the total impact we have made as a community. Additionally, this system will connect the requestor with the donor, to establish a deeper, long-lasting connection beyond just a meaningful contribution.</p>
             <p class='about-mission'>100% of every dollar you gift on House of Gift Cards goes directly towards the requestor; House of Gift Cards does not take a cut. </p>
           </div>
@@ -171,7 +164,7 @@
         </div>
       </section>
 
-      <section id="sec-contact">
+      <section id="sec-contact" class="non-default">
         <div class = "row">
           <div class="col-xs-12">
             <h1 class="contact-headline section-header">Contact Us</h1>
@@ -188,15 +181,12 @@
             <div class='section-title'><p>PHONE</div>(452) 123-4567</p>
             <div class='section-title'><p>EMAIL</div>info@houseofgiftcards.com</p>
 
-            <!-- facebook button -->
             <a href="https://www.facebook.com/houseofgiftcards/" target="_blank" class='icon-links'>
               <img class = "contact-icon" src="/img/icons/contact-facebook.png" alt="Facebook"/>
             </a>
-            <!-- google plus button -->
             <a href="https://plus.google.com/u/0/114666460700351913429/posts" target="_blank" class='icon-links'>
               <img class = "contact-icon" src="/img/icons/contact-google.png" alt="Google"/>
             </a>
-            <!-- twitter button -->
             <a href="https://twitter.com/houseofgiftcard" target="_blank" class='icon-links'>
               <img class = "contact-icon" src="/img/icons/contact-twitter.png" alt="Twitter"/>
             </a>
@@ -205,49 +195,45 @@
         </div>
       </section>
 
-      <section id="sec-admin">
+      <section id="sec-admin" class="non-default">
+        <h1 class="section-header text-center">Admin</h1>
+        <nav id="wall-filter" class="form-inline nav-inline">
+          Order by:
+          <select id="admin-sort" class="form-control">
+            <option value="claimed_dt">Claim date</option>
+            <option value="request_dt">Request date</option>
+            <option value="brand">Brand</option>
+            <option value="claimed_by">Donor username</option>
+          </select>
+          <button id="admin-sort-dir" class="btn btn-default" name="Sort direction">
+            <span class="glyphicon glyphicon-sort"></span>
+          </button>
 
-                <h1 class="section-header text-center">Admin</h1>
+          <div id="admin-status" class="btn-group pull-right" role="group">
+            <button type="button" class="btn btn-default selected" id="admin-status-all">All</button>
+            <button type="button" class="btn btn-default" id="admin-status-claimed">CLAIMED</button>
+            <button type="button" class="btn btn-default" id="admin-status-sent">SENT</button>
+          </div>
+        </nav>
 
-                <nav id="wall-filter" class="form-inline nav-inline">
-
-                  Order by:
-                  <select id="admin-sort" class="form-control">
-                    <option value="claimed_dt">Claim date</option>
-                    <option value="request_dt">Request date</option>
-                    <option value="brand">Brand</option>
-                    <option value="claimed_by">Donor username</option>
-                  </select>
-                  <button id="admin-sort-dir" class="btn btn-default" name="Sort direction">
-                    <span class="glyphicon glyphicon-sort"></span>
-                  </button>
-
-                  <div id="admin-status" class="btn-group pull-right" role="group">
-                    <button type="button" class="btn btn-default selected" id="admin-status-all">All</button>
-                    <button type="button" class="btn btn-default" id="admin-status-claimed">CLAIMED</button>
-                    <button type="button" class="btn btn-default" id="admin-status-sent">SENT</button>
-                  </div>
-                </nav>
-
-                <div class="table-responsive">
-                  <table id="admin-table" class="table">
-                    <tr>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Brand</th>
-                      <th>Amount</th>
-                      <th>Request Date</th>
-                      <th>Status</th>
-                      <th>Claimed By</th>
-                      <th>Claim Date</th>
-                      <th></th>
-                    </tr>
-                  </table>
-                </div>
+        <div class="table-responsive">
+          <table id="admin-table" class="table">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Brand</th>
+              <th>Amount</th>
+              <th>Request Date</th>
+              <th>Status</th>
+              <th>Claimed By</th>
+              <th>Claim Date</th>
+              <th></th>
+            </tr>
+          </table>
+        </div>
       </section>
 
-      <section id="sec-request" class="row">
-
+      <section id="sec-request" class="row non-default">
         <div id="form-wrapper" class="col-md-8 col-md-offset-2">
           <h1 class="section-header text-center">Submit a request</h1>
           <form id="requestform">
@@ -320,8 +306,8 @@
         </div>
       </section>
 
-      <section id="sec-login" class="row top-row">
-        <!-- login panel -->
+      <section id="sec-login" class="row top-row non-default">
+
         <div class="panel panel-default col-md-3 col-md-offset-1 col-sm-4">
           ​<h1 class="section-header text-center">Login</h1>
           <form id="sign-in">
@@ -379,7 +365,7 @@
         </div>    ​
       </section>
 
-      <section id="sec-wall">
+      <section id="sec-wall" class="non-default">
         <h1 class="section-header text-center">Claim a request</h1>
         <p class="wall-instructions">Browse the gift card requests below and select as many gift card requests as you would like.<br>Checkout and confirm the gift cards you wish to purchase.</p>
 
@@ -426,7 +412,7 @@
         </div>
       </section>
 
-      <section id="sec-checkout">
+      <section id="sec-checkout" class="non-default">
         <h1 class="section-header text-center">Checkout</h1>
 
         <nav class="nav-inline">
@@ -469,7 +455,7 @@
         </div>
       </section>
 
-      <section id="sec-stats">
+      <section id="sec-stats" class="non-default">
         <h1 class="section-header text-center">Community Impact</h1>
         <div class="row">
           <div class="col-xs-12">

@@ -16,14 +16,11 @@ requests.handleSubmit = function(){
     var brand = $('#requestBrand').val();
     var amount = Math.round($('#requestAmount').val());
     var img = profilePic;
-    console.log(img);
     var request_dt = new Date();
     var request_dt_string = request_dt.toString();
     var status = 'UNCLAIMED';
     if (firstName.length == 0 || lastName.length == 0 || age.length == 0 || email.length == 0 || story.length == 0 || brand.length == 0 || amount.length == 0 || typeof img == 'undefined'){
-      console.log('this run');
       alert('Please fill out all fields.');
-      console.log(firstName, lastName, age, email, story, brand, amount, img);
     } else {
       $('#form-wrapper').hide();
       $('#request-success').fadeIn();

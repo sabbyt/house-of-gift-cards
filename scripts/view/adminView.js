@@ -2,7 +2,7 @@ var adminView = {};
 
 adminView.listView = function() {
   admin.getListTemplate(function() {
-    adminView.renderListAll(admin.retrieveCachedClaim);
+    adminView.renderListAll();
   });
 };
 
