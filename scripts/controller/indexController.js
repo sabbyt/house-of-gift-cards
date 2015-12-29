@@ -3,7 +3,6 @@ var indexController = {};
 indexController.index = function() {
   $('section').hide();
   $('#sec-landing, #index-header').fadeIn();
-  util.collapseMenu();
 
   $('#landing-to-submit').on('click', function() {
     $(location).attr('href', '/request');
