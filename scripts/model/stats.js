@@ -1,7 +1,4 @@
 var stats = {};
-stats.allUnclaimed = [];
-stats.allClaimed = [];
-
 
 stats.fetchAllData = function(callback) {
   stats.fetchAllUnclaimed(function() {
@@ -10,33 +7,26 @@ stats.fetchAllData = function(callback) {
 };
 
 stats.fetchAllUnclaimed = function(callback) {
-  if (giftWall.all.length) {
+  giftWall.fetchAllRequests(function() {
     stats.allUnclaimed = giftWall.all;
     callback();
-  } else {
-    giftWall.fetchAllRequests(function() {
-      stats.allUnclaimed = giftWall.all;
-      callback();
-    });
-  }
+  });
 };
 
 stats.fetchAllClaimed = function(callback) {
   callback = callback || function() {};
-  if (admin.all.length) {
-    stats.allClaimed = admin.all;
-    callback();
-  } else {
-    var ref = new Firebase('https://hogc.firebaseio.com/requests');
-    ref.orderByChild('claimed_dt').startAt('').once('value', function(snapshot) {
-      snapshot.forEach(function(request) {
-        var temp = request.val();
-        temp.key = request.key();
-        stats.allClaimed.push(temp);
-      });
-      callback();
+
+  stats.allClaimed = [];
+  var ref = new Firebase('https://hogc.firebaseio.com/requests');
+  ref.orderByChild('claimed_dt').startAt('').once('value', function(snapshot) {
+    snapshot.forEach(function(request) {
+      var temp = request.val();
+      temp.key = request.key();
+      stats.allClaimed.push(temp);
     });
-  }
+    callback();
+  });
+
 };
 
 /* ==================== NUMBERS ==================== */

@@ -10,10 +10,13 @@ checkoutView.showTotal = function() {
     .append($('<td>').text('TOTAL:'))
     .append($('<td id="checkout-total-amount" class="amount">').text('$' + checkout.total)).append($('<td>'));
   $('#checkout-table').append($tr);
-  checkoutController.handleConfirm();
+  if (!checkoutController.confirmHandlersOn) {
+    checkoutController.handleConfirm();
+  }
 };
 
 checkoutView.showCheckout = function() {
+  $('#checkout-table tr').not(':first-child').remove();
   giftWall.getListTemplate(function() {
     checkoutView.renderListByKeys(giftWall.claimed, checkoutView.showTotal);
   });

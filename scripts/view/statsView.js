@@ -31,7 +31,7 @@ statsView.renderStackedBarChart = function() {
     datasets: stats.chartDatasets
   };
   var stackedBarChart = new Chart(ctx).StackedBar(data, options);
-  $('#stats-chart-legend').append(stackedBarChart.generateLegend());
+  $('#stats-chart-legend').html(stackedBarChart.generateLegend());
 };
 
 statsView.colorStackedBar = function() {
@@ -49,6 +49,7 @@ statsView.colorStackedBar = function() {
 };
 
 statsView.renderRecentActivities = function() {
+  $('#recent-list').empty();
   for (var i = stats.allClaimed.length - 1; i > stats.allClaimed.length - 6; i--) {
     statsView.writeActivity(stats.allClaimed[i]);
   }
@@ -63,6 +64,7 @@ statsView.writeActivity = function(request) {
 
 statsView.renderLeaderboard = function() {
   var leaderboard = stats.calcLeaderboard();
+  $('#user-leaderboard').empty();
   for (var i = 0; i < 5; i++) {
     statsView.writeLeaderboard(leaderboard[i], i);
   }

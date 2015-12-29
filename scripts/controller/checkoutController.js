@@ -1,6 +1,8 @@
 // NOTE: checkout is heavily dependent on wall MVC
 
 var checkoutController = {};
+checkoutController.removeHandlersOn = false;
+checkoutController.confirmHandlersOn = false;
 
 checkoutController.showCheckout = function() {
   $('section, #index-header').hide();
@@ -11,13 +13,16 @@ checkoutController.showCheckout = function() {
     giftWall.claimed = JSON.parse(localStorage.getItem('claimed-keys'));
     console.log(giftWall.claimed);
     checkoutView.showCheckout();
-    checkoutController.handleRemoveClaim();
+    if (!checkoutController.handlersOn) {
+      checkoutController.handleRemoveClaim();
+    }
   } else {
     checkoutView.showEmptyCart();
   }
 };
 
 checkoutController.handleConfirm = function() {
+  checkoutController.confirmHandlersOn = true;
   $('#checkout-confirm').show().on('click', function(event) {
     event.preventDefault();
     $(this).hide();
@@ -32,6 +37,7 @@ checkoutController.handleConfirm = function() {
 };
 
 checkoutController.handleRemoveClaim = function() {
+  checkoutController.handlersOn = true;
   $('#checkout-table').on('click', '.close', function(event) {
     event.preventDefault();
     console.log('removed' + $(this).data('key'));
