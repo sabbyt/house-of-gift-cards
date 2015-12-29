@@ -5,12 +5,12 @@ indexController.index = function() {
   $('#sec-landing, #index-header').fadeIn();
 
   $('#landing-to-submit').on('click', function() {
-    page('/request');
+    $(location).attr('href', '/request');
   });
   $('#landing-to-stats').on('click', function() {
-    page('/impact');
+    $(location).attr('href', '/impact');
   });
   $('#landing-to-login').on('click', function() {
-    page('/login');
+    $(location).attr('href', '/login');
   });
 };

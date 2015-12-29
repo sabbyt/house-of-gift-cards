@@ -14,7 +14,7 @@ giftWall.retrieveUserInfo = function(callback) {
     callback();
   } else {
     alert('Please sign in or register for an account.');
-    page('/login');
+    $(location).attr('href', '/login');
   }
 };
 

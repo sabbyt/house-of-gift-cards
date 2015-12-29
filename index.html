@@ -253,23 +253,23 @@
           <form id="requestform">
             <div class="form-group col-md-6">
               <label>First Name</label>
-              <input type="text" class="form-control" id ="requesterFirstName" placeholder="First Name">
+              <input type="text" class="form-control" id ="requesterFirstName" placeholder="First Name" required>
             </div>
             <div class="form-group col-md-6">
               <label>Last Name</label>
-              <input type="text" class="form-control" id="requesterLastName" placeholder="Last Name">
+              <input type="text" class="form-control" id="requesterLastName" placeholder="Last Name" required>
             </div>
             <div class="form-group col-md-3">
               <label>Age</label>
-              <input type="number" class="form-control" id="requesterAge" placeholder="Age">
+              <input type="number" class="form-control" id="requesterAge" placeholder="Age" required>
             </div>
             <div class="form-group col-md-9">
               <label>Email</label>
-              <input type="email" class="form-control" id="requesterEmail" placeholder="Email">
+              <input type="email" class="form-control" id="requesterEmail" placeholder="Email" required>
             </div>
             <div class="form-group col-md-12">
               <label>Story</label>
-              <textarea class="form-control" id="requesterStory" rows="3"></textarea>
+              <textarea class="form-control" id="requesterStory" rows="3" required></textarea>
             </div>
             <div class="form-group col-md-6">
               <label>Category</label>
@@ -286,19 +286,19 @@
             </div>
             <div class="form-group col-md-6">
               <label>Brand</label>
-              <input type="text" class="form-control" id= "requestBrand" placeholder="Brand">
+              <input type="text" class="form-control" id= "requestBrand" placeholder="Brand" required>
             </div>
             <div class="form-group col-md-6">
               <label>Amount</label>
               <div class="input-group">
                 <div class="input-group-addon">$</div>
-                <input type="number" class="form-control" id="requestAmount" placeholder="Amount">
+                <input type="number" class="form-control" id="requestAmount" placeholder="Amount" required>
               </div>
             </div>
 
             <div class="form-group col-md-12">
               <p><b>Upload a Photo:</b></p>
-              <input id="profilePic" type="filepicker" data-fp-apikey="ALHEfx5koRmWi3WIkLf0Yz" data-fp-button-text="Upload" data-fp-crop-dim="300, 250">
+              <input id="profilePic" type="filepicker" data-fp-apikey="ALHEfx5koRmWi3WIkLf0Yz" data-fp-button-text="Upload" data-fp-crop-dim="300, 250" required>
               <img class="uploaded" id="uploaded" width='100px'/>
             </div>
 

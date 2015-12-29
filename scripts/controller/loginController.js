@@ -30,5 +30,5 @@ loginController.handleRegister = function() {
 };
 
 loginController.sendToWall = function() {
-  page('/wall');
+  $(location).attr('href', '/wall');
 };
