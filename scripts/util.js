@@ -11,6 +11,13 @@ util.setActiveNav = function(section) {
   $('#navbar li[data-section=' + section + ']').addClass('active');
 };
 
+util.collapseMenu = function(){
+  $(document).click(function (event) {
+    $('.navbar-collapse').collapse('hide');
+    console.log('this run');
+  });
+};
+
 /* ========================= HANDLEBARS HELPERS ========================= */
 Handlebars.registerHelper('if_wall', function (block) {
   if (util.currentSection() === 'wall') {
