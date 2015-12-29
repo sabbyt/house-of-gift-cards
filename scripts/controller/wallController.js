@@ -1,4 +1,5 @@
 var wallController = {};
+wallController.handlersOn = false;
 
 wallController.showWall = function() {
   $('section, #index-header').hide();
@@ -7,9 +8,20 @@ wallController.showWall = function() {
   giftWall.fetchAllRequests(function() {
     giftWall.retrieveCachedClaim();
     giftWall.retrieveUserInfo(wallView.showGreeting);
-    wallController.showListWall();  // default to list view
-    wallController.handleClaimButtons();
+    if (giftWall.viewState) {
+      wallController.showListWall();
+    } else {
+      wallController.showGridWall();
+    }
+    if (!wallController.handlersOn) {
+      wallController.handleClaimButtons();
+      wallController.startHandlers();
+    }
   });
+};
+
+wallController.startHandlers = function() {
+  wallController.handlersOn = true;
   wallController.handleSwitchViews();
   wallController.handleFilterByCategory();
 };

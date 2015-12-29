@@ -69,21 +69,3 @@ wallView.renderGridByCategory = function(categoryFilter) {
   var filtered = giftWall.filterByCategory(categoryFilter);
   wallView.renderGrid(filtered);
 };
-
-// for checkout page
-wallView.renderListByKeys = function(keys, callback) {
-  giftWall.renderCount = 0;
-  keys.forEach(function(key) {
-    giftWall.findByKey(key, function(snapshot) {
-      var temp = snapshot.val()[key];
-      temp.key = key;
-      wallView.toListHTML(temp);
-      checkout.totalArray.push(parseInt(temp.amount));
-
-      giftWall.renderCount++;
-      if (giftWall.renderCount === keys.length) {
-        callback();
-      }
-    });
-  });
-};
