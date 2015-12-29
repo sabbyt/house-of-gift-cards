@@ -90,6 +90,10 @@
   padding: 10px 15px;
 }
 
+.about-tile {
+  height: 47rem;
+}
+
 /* Wall Grid module styling*/
 .grid-request {
   border: 1px solid rgba(0, 0, 0, 0.3);
