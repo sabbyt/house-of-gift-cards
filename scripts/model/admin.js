@@ -18,6 +18,10 @@ admin.updateStatusToSent = function(key) {
   childRef.update({
     status: 'SENT'
   });
+  var keysArray = admin.all.map(function(obj){
+    return parseInt(obj.key);
+  });
+  admin.all[keysArray.indexOf(key)].status = 'SENT';
 };
 
 admin.sort = function(list) {
