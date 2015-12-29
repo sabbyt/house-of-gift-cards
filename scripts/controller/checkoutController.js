@@ -32,7 +32,7 @@ checkoutController.handleConfirm = function() {
 };
 
 checkoutController.handleRemoveClaim = function() {
-  $('#entry').on('click', '.close', function(event) {
+  $('#checkout-table').on('click', '.close', function(event) {
     event.preventDefault();
     console.log('removed' + $(this).data('key'));
     var tdAmount = $(this).parent().siblings('td[name=amount]')[0];

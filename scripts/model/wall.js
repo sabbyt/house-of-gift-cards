@@ -3,7 +3,6 @@ giftWall.all = [];
 
 giftWall.viewState = true; // true for list view, false for grid view
 giftWall.currentCat = 'reset';
-// giftWall.currentAmount = 'reset';
 
 giftWall.ref = new Firebase('https://hogc.firebaseio.com/requests');
 
@@ -73,6 +72,7 @@ giftWall.getGridTemplate = function(callback) {
 
 giftWall.fetchAllRequests = function(callback) {
   callback = callback || function() {};
+  giftWall.all = [];
   giftWall.ref.orderByChild('status').equalTo('UNCLAIMED').once('value', function(snapshot) {
     snapshot.forEach(function(request) {
       var temp = request.val();
@@ -89,14 +89,6 @@ giftWall.filterByCategory = function(category) {
   });
   return filtered;
 };
-
-// giftWall.filterByAmount = function(amount) {
-//   var filtered = giftWall.all.filter(function(el){
-//     return el.amount <= amount;
-//   });
-//   console.log(filtered);
-//   return filtered;
-// };
 
 // for checkout page
 giftWall.findByKey = function(key, callback) {

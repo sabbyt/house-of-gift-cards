@@ -4,17 +4,18 @@ var checkoutView = {};
 
 checkoutView.showTotal = function() {
   checkout.total = checkout.totalArray.reduce(checkout.sumArray);
+  console.log(checkout.total);
   var $tr = $('<tr id="checkout-total" class="warning">');
   $tr.append($('<td>')).append($('<td>')).append($('<td>'))
     .append($('<td>').text('TOTAL:'))
     .append($('<td id="checkout-total-amount" class="amount">').text('$' + checkout.total)).append($('<td>'));
-  $('#entry').append($tr);
+  $('#checkout-table').append($tr);
   checkoutController.handleConfirm();
 };
 
 checkoutView.showCheckout = function() {
   giftWall.getListTemplate(function() {
-    wallView.renderListByKeys(giftWall.claimed, checkoutView.showTotal);
+    checkoutView.renderListByKeys(giftWall.claimed, checkoutView.showTotal);
   });
 };
 
@@ -22,4 +23,27 @@ checkoutView.showEmptyCart = function() {
   $('#checkout-confirm').hide();
   $('#empty-cart').show();
   $('#checkout-total').remove();
+};
+
+checkoutView.toListHTML = function(data) {
+  var html = giftWall.listTemplate(data);
+  $('#checkout-table').append(html);
+};
+
+checkoutView.renderListByKeys = function(keys, callback) {
+  var renderCount = 0;
+  checkout.totalArray = [];
+  keys.forEach(function(key) {
+    giftWall.findByKey(key, function(snapshot) {
+      var temp = snapshot.val()[key];
+      temp.key = key;
+      checkoutView.toListHTML(temp);
+      checkout.totalArray.push(parseInt(temp.amount));
+
+      renderCount++;
+      if (renderCount === keys.length) {
+        callback();
+      }
+    });
+  });
 };
