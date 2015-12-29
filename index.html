@@ -248,7 +248,7 @@
 
       <section id="sec-request" class="row">
 
-        <div class="col-md-8 col-md-offset-2">
+        <div id="form-wrapper" class="col-md-8 col-md-offset-2">
           <h1 class="section-header text-center">Submit a request</h1>
           <form id="requestform">
             <div class="form-group col-md-6">
@@ -298,7 +298,7 @@
 
             <div class="form-group col-md-12">
               <p><b>Upload a Photo:</b></p>
-              <input id="profilePic" type="filepicker" data-fp-apikey="ALHEfx5koRmWi3WIkLf0Yz">
+              <input id="profilePic" type="filepicker" data-fp-apikey="ALHEfx5koRmWi3WIkLf0Yz" data-fp-button-text="Upload" data-fp-crop-dim="300, 250">
               <img class="uploaded" id="uploaded" width='100px'/>
             </div>
 
@@ -306,6 +306,17 @@
               <button type="submit" id="requestSubmit" class="btn btn-orange bigger-btn">Submit</button>
             </div>
           </form>
+        </div>
+
+        <div id="request-success" class="alert alert-success clearfix non-default">
+          <h3><span class="glyphicon glyphicon-ok"></span> Thank you! Your gift card request has been confirmed.</h3>
+          <p>We will let you know once your gift card request has been claimed.</p>
+
+          <a id="checkout-to-stats" href="/impact">
+            <button class="pull-right btn btn-success">
+              Community Impact <span class="glyphicon glyphicon-triangle-right"></span>
+            </button>
+          </a>
         </div>
       </section>
 
@@ -427,7 +438,7 @@
         </nav>
 
         <div class="table-responsive">
-          <table id="entry" class="table">
+          <table id="checkout-table" class="table">
             <tr>
               <th>Name</th>
               <th>Story</th>
@@ -459,7 +470,7 @@
       </section>
 
       <section id="sec-stats">
-        <h1 class="section-header text-center">Our Impact</h1>
+        <h1 class="section-header text-center">Community Impact</h1>
         <div class="row">
           <div class="col-xs-12">
             <h5 class="stats-header">Overview</h5>
@@ -486,8 +497,7 @@
         <hr />
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
-            <!-- <h5 class="stats-header stats-header-orange">Monthly Donation by Category</h5> -->
-            <p class="stats-title">Average Amount per Gift Card</p>
+            <p class="stats-title">Monthly Donation by Category</p>
           </div>
           <div class="col-sm-9 col-md-7 col-md-offset-1">
             <canvas id="stats-chart" width="300" height="200"></canvas>
@@ -512,8 +522,8 @@
           </div>
         </div>
       </section>
-
     </main>
+
     <!-- Vendor Scripts -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -521,6 +531,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
     <script type="text/javascript" src="/vendor/scripts/Chart.StackedBar.js"></script>
     <script type="text/javascript" src="/vendor/scripts/page.js"></script>
+
     <!-- Vendor Fallbacks -->
     <script type="text/javascript">
       if (!window.jQuery) {
@@ -539,8 +550,10 @@
         }
       });
     </script>
-    <script type="text/javascript" src="/data/team.js"></script>
+    <!-- Helpers -->
     <script type="text/javascript" src="/scripts/util.js"></script>
+    <script type="text/javascript" src="/data/team.js"></script>
+
     <!-- model -->
     <script type="text/javascript" src="/scripts/model/request.js"></script>
     <script type="text/javascript" src="/scripts/model/about.js"></script>
@@ -569,6 +582,7 @@
     <script type="text/javascript" src="/scripts/controller/checkoutController.js"></script>
     <script type="text/javascript" src="/scripts/controller/statsController.js"></script>
 
+    <!-- router -->
     <script type="text/javascript" src="/scripts/router.js"></script>
   </body>
 </html>
